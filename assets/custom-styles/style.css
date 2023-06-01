@@ -22,3 +22,8 @@ input::placeholder {
     position: absolute;
     height: auto;
 }
+
+/* this is empty class for marking place */
+.place {}
+
+.current-place {}
