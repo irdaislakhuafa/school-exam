@@ -125,7 +125,7 @@ $this->basic->headerBootstrap();
     <!-- <script src="<?= base_url() ?>assets/js/maps.js"></script> -->
 
     <script>
-        // TODO: fix me
+        // TODO: added functionality here
         let places = document.getElementsByClassName('place');
 
         for (let i = 0; i < places.length; i++) {
