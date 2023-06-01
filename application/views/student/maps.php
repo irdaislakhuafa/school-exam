@@ -118,6 +118,15 @@ $this->basic->headerBootstrap();
         </div>
         <!-- end login page -->
 
+        <!-- student information -->
+        <div class="position-absolute bottom-0 end-0 mb-4">
+            <div class="text-right pe-5 text-black">
+                <div class="mb-2">Student Name</div>
+                <div class="mb-2">No Absen</div>
+                <button type="button" class="btn btn-primary border border-white bg-white text-black">Lihat Nilai Pengerjaan</button>
+            </div>
+        </div>
+
     </div>
 
 
