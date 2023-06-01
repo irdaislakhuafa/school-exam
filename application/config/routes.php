@@ -56,3 +56,4 @@ $route['translate_uri_dashes'] = FALSE;
 // custom url
 $route['student'] = 'StudentController';
 $route['student/maps'] = 'StudentController/maps';
+$route['student/subtema/(:any)'] = 'StudentController/subtema/$1';

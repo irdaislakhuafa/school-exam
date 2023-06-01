@@ -15,4 +15,10 @@ class StudentController extends CI_Controller
     {
         $this->load->view("student/maps");
     }
+
+    public function subtema($subtema)
+    {
+        $data["subtema_number"] = $subtema;
+        $this->load->view("student/subtema", $data);
+    }
 }
