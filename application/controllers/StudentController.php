@@ -27,4 +27,16 @@ class StudentController extends CI_Controller
         echo $subtema;
         $this->load->view("student/soal");
     }
+    public function nilai($id)
+    {
+        echo $id;
+        $data["scores"] = array();
+        for ($i = 0; $i < 10; $i++) {
+            array_push($data["scores"], array(
+                "name" => "Subtema " . ($i + 1),
+                "score" => rand(0, 100)
+            ));
+        }
+        $this->load->view("student/nilai", $data);
+    }
 }
