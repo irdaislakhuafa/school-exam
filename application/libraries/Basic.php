@@ -9,27 +9,27 @@ class Basic
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <!--===============================================================================================-->
-            <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico" />
+            <link rel="icon" type="image/png" href="<?= base_url() ?>/assets/images/icons/favicon.ico" />
             <!--===============================================================================================-->
-            <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendor/bootstrap/css/bootstrap.min.css">
             <!--===============================================================================================-->
-            <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
             <!--===============================================================================================-->
-            <link rel="stylesheet" type="text/css" href="assets/vendor/animate/animate.css">
+            <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendor/animate/animate.css">
             <!--===============================================================================================-->
-            <link rel="stylesheet" type="text/css" href="assets/vendor/css-hamburgers/hamburgers.min.css">
+            <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendor/css-hamburgers/hamburgers.min.css">
             <!--===============================================================================================-->
-            <link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
+            <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/vendor/select2/select2.min.css">
             <!--===============================================================================================-->
-            <link rel="stylesheet" type="text/css" href="assets/css/util.css">
-            <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+            <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/util.css">
+            <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/main.css">
             <!--===============================================================================================-->
 
             <!-- my custom css  -->
-            <link rel="stylesheet" type="text/css" href="assets/custom-styles/style.css">
+            <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/custom-styles/style.css">
 
             <!-- use popins fonts -->
-            <link rel="stylesheet" href="assets/fonts/poppins/Poppins-Regular.ttf">
+            <link rel="stylesheet" href="<?= base_url() ?>/assets/fonts/poppins/Poppins-Regular.ttf">
         </head>
     <?php
     }
@@ -57,7 +57,7 @@ class Basic
 
     public function headerBootstrap()
     { ?>
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?= base_url() ?>/assets/bootstrap/css/bootstrap.min.css">
     <?php }
 
     public function scriptsBootstrap()

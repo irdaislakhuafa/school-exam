@@ -1,5 +1,5 @@
 <?php
-class Student_Controller extends CI_Controller
+class StudentController extends CI_Controller
 {
     public function __construct()
     {
@@ -9,5 +9,10 @@ class Student_Controller extends CI_Controller
     public function index()
     {
         $this->load->view("student/login");
+    }
+
+    public function maps()
+    {
+        $this->load->view("student/maps");
     }
 }
