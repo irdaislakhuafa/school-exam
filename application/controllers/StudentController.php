@@ -21,4 +21,10 @@ class StudentController extends CI_Controller
         $data["subtema_number"] = $subtema;
         $this->load->view("student/subtema", $data);
     }
+
+    public function soal($subtema)
+    {
+        echo $subtema;
+        $this->load->view("student/soal");
+    }
 }

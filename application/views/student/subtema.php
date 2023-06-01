@@ -30,7 +30,7 @@ $this->basic->headerBootstrap();
         <div class="position-absolute top-0 start-50 translate-middle-x mt-5">
             <h1 class="text-uppercase font-weight-bold mb-2 fs-30 text-left text-white">SUBTEMA <?= $subtema_number ?> </h1>
             <!-- start card -->
-            <div class="card p-4 shadow  fs-24 rounded-4 " style="width: 80rem; height: min-content">
+            <div class="card p-4 shadow  fs-24 rounded-5 " style="width: 80rem; height: min-content">
                 <div class="font-weight-bold text-up">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
                 <!-- start card body -->
                 <div class="card-body">
