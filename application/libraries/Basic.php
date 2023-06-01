@@ -24,6 +24,12 @@ class Basic
             <link rel="stylesheet" type="text/css" href="assets/css/util.css">
             <link rel="stylesheet" type="text/css" href="assets/css/main.css">
             <!--===============================================================================================-->
+
+            <!-- my custom css  -->
+            <link rel="stylesheet" type="text/css" href="assets/custom-styles/style.css">
+
+            <!-- use popins fonts -->
+            <link rel="stylesheet" href="assets/fonts/poppins/Poppins-Regular.ttf">
         </head>
     <?php
     }

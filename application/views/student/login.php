@@ -61,30 +61,34 @@ $this->basic->headerBootstrap();
         </div>
     </div> -->
 
-    <div class="position-relative py-2 pt-5 px-4 align-content-center">
-        <h1 class="text-uppercase font-weight-bold mb-5 fs-30 text-center">halaman login siswa</h1>
+    <div class="position-relative py-2 h-100 pt-5 px-4 align-content-center default-backgound-color">
+
+        <!-- tidy island 1 -->
+        <img src="assets/images/tiny-island-1.png" class="tiny-island ms-3" alt="island 1">
+
+        <h1 class="text-uppercase font-weight-bold mb-5 fs-30 text-center text-white">halaman login siswa</h1>
         <!-- start card -->
-        <div class="card p-4 shadow  fs-24 start-50 rounded-3 translate-middle-x " style="width: 40rem; height: max-content">
+        <div class="card p-4 shadow  fs-24 start-50 rounded-4 translate-middle-x " style="width: 40rem; height: max-content">
             <div class="card-body">
                 <!-- name of student -->
                 <div class="mb-3">
                     <label for="name" class="form-label">Nama Siswa</label>
                     <div class="input-group mb-3">
-                        <input id="name" name="name" type="text" class="form-control" placeholder="Masukan Nama" aria-label="Masukan Nama" aria-describedby="basic-addon2">
+                        <input id="name" name="name" type="text" class="form-control rounded-3" placeholder="Masukan Nama" aria-label="Masukan Nama" aria-describedby="basic-addon2">
                     </div>
                 </div>
                 <!-- absen code of student -->
                 <div class="mb-3">
                     <label for="name" class="form-label">No. Absen</label>
                     <div class="input-group mb-3">
-                        <input id="name" name="name" type="text" class="form-control" placeholder="Masukan No. Absen" aria-label="Masukan No. Absen" aria-describedby="basic-addon2">
+                        <input id="name" name="name" type="text" class="form-control rounded-3" placeholder="Masukan No. Absen" aria-label="Masukan No. Absen" aria-describedby="basic-addon2">
                     </div>
                 </div>
                 <!-- class code of student -->
                 <div class="mb-3">
                     <label for="name" class="form-label">Kode</label>
                     <div class="input-group mb-3">
-                        <input id="name" name="name" type="text" class="form-control" placeholder="Masukan Kode" aria-label="Masukan Kode" aria-describedby="basic-addon2">
+                        <input id="name" name="name" type="text" class="form-control rounded-3" placeholder="Masukan Kode" aria-label="Masukan Kode" aria-describedby="basic-addon2">
                     </div>
                 </div>
             </div>
