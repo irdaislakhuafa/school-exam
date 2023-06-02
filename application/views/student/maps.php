@@ -21,6 +21,8 @@ $this->basic->headerBootstrap();
 
             <!-- place 1 -->
             <div class="position-absolute top-50 pt-2 mt-5 current-place" id="place-1" style="margin-left: 200px;">
+                <!-- TODO: code subtema here -->
+                <div id="code" hidden><?= "CODE HERE" ?></div>
                 <div id="empty">
                     <?php $this->place->emptyPlace(1) ?>
                 </div>
@@ -31,6 +33,8 @@ $this->basic->headerBootstrap();
 
             <!-- place 2 -->
             <div class="position-absolute place" id="place-2" style="margin-left: 281px; margin-top: -295px;">
+                <!-- TODO: code subtema here -->
+                <div id="code" hidden><?= "CODE HERE" ?></div>
                 <div id="empty" style="margin-top: 28px; margin-left: 18px;">
                     <?php $this->place->emptyPlace(2) ?>
                 </div>
@@ -41,6 +45,8 @@ $this->basic->headerBootstrap();
 
             <!-- place 3 -->
             <div class="position-absolute top-0 offset-2 place" id="place-3" style="margin-top: 200px; margin-left: 245px;">
+                <!-- TODO: code subtema here -->
+                <div id="code" hidden><?= "CODE HERE" ?></div>
                 <div id="empty">
                     <?php $this->place->emptyPlace(3) ?>
                 </div>
@@ -51,6 +57,8 @@ $this->basic->headerBootstrap();
 
             <!-- place 4 -->
             <div class="position-absolute top-0 offset-2 place" id="place-4" style="margin-top: 100px; margin-left: 221px;">
+                <!-- TODO: code subtema here -->
+                <div id="code" hidden><?= "CODE HERE" ?></div>
                 <div id="empty">
                     <?php $this->place->emptyPlace(4) ?>
                 </div>
@@ -61,6 +69,8 @@ $this->basic->headerBootstrap();
 
             <!-- place 5 -->
             <div class="position-absolute top-0 offset-2 place" id="place-5" style="margin-top: 64px; margin-left: 381px;">
+                <!-- TODO: code subtema here -->
+                <div id="code" hidden><?= "CODE HERE" ?></div>
                 <div id="empty">
                     <?php $this->place->emptyPlace(5) ?>
                 </div>
@@ -71,6 +81,8 @@ $this->basic->headerBootstrap();
 
             <!-- place 6 -->
             <div class="position-absolute top-0 offset-2 place" id="place-6" style="margin-top: 37px; margin-left: 248px;">
+                <!-- TODO: code subtema here -->
+                <div id="code" hidden><?= "CODE HERE" ?></div>
                 <div id="empty">
                     <?php $this->place->emptyPlace(6) ?>
                 </div>
@@ -113,10 +125,6 @@ $this->basic->headerBootstrap();
 
     </div>
 
-
-    <!-- maps scripts -->
-    <!-- <script src="<?= base_url() ?>assets/js/maps.js"></script> -->
-
     <script>
         // TODO: added functionality here
         // TODO: added logic on click place here
@@ -131,18 +139,22 @@ $this->basic->headerBootstrap();
                 place.querySelector("#selected").setAttribute("hidden", "")
             }
 
-            place.addEventListener("click", function() {
+            place.addEventListener("click", async function() {
                 place.querySelector("#empty").setAttribute("hidden", "")
                 place.querySelector("#selected").removeAttribute("hidden")
                 for (let j = 1; j <= totalPlaces; j++) {
                     if (j == i) {
                         continue
                     } else {
-                        console.log(`empty place is ${j}`)
                         let emptyPlace = document.getElementById(`place-${j}`)
                         emptyPlace.querySelector("#selected").setAttribute("hidden", "")
                         emptyPlace.querySelector("#empty").removeAttribute("hidden")
                     }
+
+                }
+
+                if (await confirm(`Lanjutkan untuk membuka Subtema ${i}?`)) {
+                    window.location.href = '<?= base_url() ?>student/subtema/' + place.querySelector("#code").textContent;
                 }
             })
         }

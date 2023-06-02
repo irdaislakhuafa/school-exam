@@ -16,7 +16,7 @@ $this->basic->headerBootstrap();
             <!-- <h1 class="text-uppercase font-weight-bold mb-2 fs-30 text-left text-white">Soal! </h1>
             <div class="font-weight-bold mb-4 fs-20 text-black">Kerjakan dengan cepat dan cermat!</div> -->
             <!-- start card -->
-            <div class="card p-4 shadow  fs-24 rounded-5 " style="width: 50rem; height: max-content">
+            <div class="card p-4 shadow  mb-5 fs-24 rounded-5 " style="width: 50rem; height: max-content">
                 <!-- start card body -->
                 <div class="card-body">
                     <h1 class="text-black font-weight-bold fs-20">Nama Siswa </h1>
