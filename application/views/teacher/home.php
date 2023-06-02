@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-$this->basic->header("Login Guru");
+$this->basic->header("Halaman Utama");
 $this->basic->headerBootstrap();
 ?>
 
@@ -20,20 +20,15 @@ $this->basic->headerBootstrap();
 
                     <div class="">
                         <!-- teacher avatar here -->
-                        <div class="card col-2 rounded-5 shadow float-start">
-                            <div class="justify-content-center align-items-center mt-2">
-                                <img src="<?= base_url() ?>assets/images/teacher-home-avatar.png" class="rounded card-img-top" style="width: 151px;" alt="" srcset="">
-                                <hr>
-                                <div class="text-center font-weight-bold fs-20 mt-3 mb-3">hello world</div>
-                            </div>
-                        </div>
+                        <?php $this->teacher->avatarProfileImg() ?>
+
 
                         <!-- TODO: added functionality here -->
 
                         <!-- start class -->
                         <div class="col-10 float-end w-75">
                             <div class="ms-0 me-5">
-                                <div class="mb-3">Kelas Anda :</div>
+                                <div class="mb-3 font-weight-bold">Kelas Anda :</div>
 
                                 <?php for ($i = 0; $i < 2; $i++) { ?>
                                     <!-- start list class -->
@@ -67,7 +62,7 @@ $this->basic->headerBootstrap();
 
                 <!-- next button -->
                 <div class="d-flex align-items-end justify-content-end">
-                    <button type="submit" class="btn shadow bg-white w-25">Selanjutnya</button>
+                    <button type="submit" class="btn shadow bg-white ps-5 pe-5">Selanjutnya</button>
                 </div>
             </div>
             <!-- end card -->

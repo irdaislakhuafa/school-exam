@@ -61,7 +61,8 @@ $autoload['packages'] = array();
 $autoload['libraries'] = array(
     'Basic' => 'basic',
     'Place' => 'place',
-    'Island' => 'island'
+    'Island' => 'island',
+    'Teacher' => 'teacher',
 );
 
 /*
