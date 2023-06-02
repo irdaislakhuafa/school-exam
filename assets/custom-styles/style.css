@@ -49,3 +49,7 @@ input::placeholder {
     border-right: 40px solid #FFFFFF;
     transform: rotate(0deg);
 }
+
+.bg-grey {
+    background-color: #F5F5F5 !important;
+}

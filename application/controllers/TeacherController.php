@@ -26,4 +26,9 @@ class TeacherController extends CI_Controller
     {
         $this->load->view("teacher/selectSubtema");
     }
+    public function newSubtema($subtemaCode)
+    {
+        $data['subtemaNumber'] = $subtemaCode;
+        $this->load->view("teacher/newSubtema", $data);
+    }
 }

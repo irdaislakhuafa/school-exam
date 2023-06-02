@@ -65,5 +65,5 @@ $route['teacher'] = 'TeacherController';
 $route['teacher/home'] = 'TeacherController/home';
 $route['teacher/class/new'] = 'TeacherController/newClass';
 $route['teacher/class/subtema/select'] = 'TeacherController/selectSubtema';
-$route['teacher/class/subtema/new'] = 'TeacherController/newSubtema';
+$route['teacher/class/subtema/new/(:any)'] = 'TeacherController/newSubtema/$1';
 $route['teacher/class/materi/new'] = 'TeacherController/newMateriSoal';
