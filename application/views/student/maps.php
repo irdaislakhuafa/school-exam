@@ -21,33 +21,64 @@ $this->basic->headerBootstrap();
 
             <!-- place 1 -->
             <div class="position-absolute top-50 pt-2 mt-5 current-place" id="place-1" style="margin-left: 200px;">
-                <?php $this->place->currentPlace(1) ?>
+                <div id="empty">
+                    <?php $this->place->emptyPlace(1) ?>
+                </div>
+                <div id="selected" style="margin-top: -27px; margin-left: -18px;">
+                    <?php $this->place->currentPlace(1) ?>
+                </div>
             </div>
 
             <!-- place 2 -->
-            <div class="position-absolute top-50 place" id="place-2" style="margin-left: 300px; margin-top: 10px;">
-                <?php $this->place->emptyPlace(2) ?>
+            <div class="position-absolute place" id="place-2" style="margin-left: 281px; margin-top: -295px;">
+                <div id="empty" style="margin-top: 28px; margin-left: 18px;">
+                    <?php $this->place->emptyPlace(2) ?>
+                </div>
+                <div id="selected" style="margin-bottom: 100px;">
+                    <?php $this->place->currentPlace(2) ?>
+                </div>
             </div>
 
             <!-- place 3 -->
-            <div class="position-absolute top-0 offset-2 place" id="place-2" style="margin-top: 200px; margin-left: 245px;">
-                <?php $this->place->emptyPlace(3) ?>
+            <div class="position-absolute top-0 offset-2 place" id="place-3" style="margin-top: 200px; margin-left: 245px;">
+                <div id="empty">
+                    <?php $this->place->emptyPlace(3) ?>
+                </div>
+                <div id="selected" style="margin-left: -15px; margin-top: -27px">
+                    <?php $this->place->currentPlace(3) ?>
+                </div>
             </div>
 
             <!-- place 4 -->
-            <div class="position-absolute top-0 offset-2 place" id="place-2" style="margin-top: 100px; margin-left: 221px;">
-                <?php $this->place->emptyPlace(4) ?>
+            <div class="position-absolute top-0 offset-2 place" id="place-4" style="margin-top: 100px; margin-left: 221px;">
+                <div id="empty">
+                    <?php $this->place->emptyPlace(4) ?>
+                </div>
+                <div id="selected" style="margin-left: -17px; margin-top: -27px;">
+                    <?php $this->place->currentPlace(4) ?>
+                </div>
             </div>
 
             <!-- place 5 -->
-            <div class="position-absolute top-0 offset-2 place" id="place-2" style="margin-top: 64px; margin-left: 381px;">
-                <?php $this->place->emptyPlace(5) ?>
+            <div class="position-absolute top-0 offset-2 place" id="place-5" style="margin-top: 64px; margin-left: 381px;">
+                <div id="empty">
+                    <?php $this->place->emptyPlace(5) ?>
+                </div>
+                <div id="selected" style="margin-left: -17px; margin-top: -27px;">
+                    <?php $this->place->currentPlace(5) ?>
+                </div>
             </div>
 
             <!-- place 6 -->
-            <div class="position-absolute top-0 offset-2 place" id="place-2" style="margin-top: 37px; margin-left: 248px;">
-                <?php $this->place->emptyPlace(6) ?>
+            <div class="position-absolute top-0 offset-2 place" id="place-6" style="margin-top: 37px; margin-left: 248px;">
+                <div id="empty">
+                    <?php $this->place->emptyPlace(6) ?>
+                </div>
+                <div id="selected" style="margin-left: -17px; margin-top: -27px;">
+                    <?php $this->place->currentPlace(6) ?>
+                </div>
             </div>
+
 
         </div>
         <!-- end maps page -->
@@ -90,6 +121,31 @@ $this->basic->headerBootstrap();
         // TODO: added functionality here
         // TODO: added logic on click place here
 
+        const totalPlaces = 6
+        for (let i = 1; i <= totalPlaces; i++) {
+            let place = document.getElementById(`place-${i}`);
+
+            if (i === 1) {
+                place.querySelector("#empty").setAttribute("hidden", "")
+            } else {
+                place.querySelector("#selected").setAttribute("hidden", "")
+            }
+
+            place.addEventListener("click", function() {
+                place.querySelector("#empty").setAttribute("hidden", "")
+                place.querySelector("#selected").removeAttribute("hidden")
+                for (let j = 1; j <= totalPlaces; j++) {
+                    if (j == i) {
+                        continue
+                    } else {
+                        console.log(`empty place is ${j}`)
+                        let emptyPlace = document.getElementById(`place-${j}`)
+                        emptyPlace.querySelector("#selected").setAttribute("hidden", "")
+                        emptyPlace.querySelector("#empty").removeAttribute("hidden")
+                    }
+                }
+            })
+        }
 
         // redirect btn to scores
         let scoresButton = document.getElementById("scores")
@@ -98,6 +154,11 @@ $this->basic->headerBootstrap();
             window.location.href = '<?= base_url() ?>student/nilai/11';
         })
     </script>
+
+    <?php
+    // enable navigation place
+    // $this->place->enableNavigation();
+    ?>
 
     <!-- footer scripts -->
     <?php
