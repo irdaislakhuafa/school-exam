@@ -57,7 +57,7 @@ $this->basic->headerBootstrap();
 
                     <!-- btn back -->
                     <div class="mt-5 pt-5">
-                        <div class="btn w-25 shadow bg-white fs-50 text-black">Kembali</div>
+                        <div id="back" class="btn w-25 shadow bg-white fs-50 text-black">Kembali</div>
                     </div>
                 </div>
                 <!-- end card body -->
@@ -66,6 +66,12 @@ $this->basic->headerBootstrap();
         </div>
         <!-- end subtema page -->
     </div>
+
+    <script>
+        document.getElementById("back").addEventListener(`click`, function() {
+            window.location.href = '<?= base_url() ?>student/maps';
+        })
+    </script>
 
     <!-- footer scripts -->
     <?php

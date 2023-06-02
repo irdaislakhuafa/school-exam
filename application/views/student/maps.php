@@ -76,7 +76,7 @@ $this->basic->headerBootstrap();
                     ?>
                 </div>
                 <!-- score -->
-                <button type="button" class="btn btn-primary border border-white bg-white text-black">Lihat Nilai Pengerjaan</button>
+                <button id="scores" type="button" class="btn btn-primary border border-white bg-white text-black">Lihat Nilai Pengerjaan</button>
             </div>
         </div>
 
@@ -88,16 +88,15 @@ $this->basic->headerBootstrap();
 
     <script>
         // TODO: added functionality here
-        let places = document.getElementsByClassName('place');
+        // TODO: added logic on click place here
 
-        for (let i = 0; i < places.length; i++) {
-            places[i].addEventListener("click", function() {
-                alert(places[i].textContent)
-                let current = document.getElementById("current-place")
-                current.setAttribute("class", current.className.replace("current-place", "place"))
-                places[i].setAttribute("class", places[i].className.replace("place", "current-place"))
-            });
-        }
+
+        // redirect btn to scores
+        let scoresButton = document.getElementById("scores")
+        scoresButton.addEventListener(`click`, function() {
+            // TODO: passed student id here
+            window.location.href = '<?= base_url() ?>student/nilai/11';
+        })
     </script>
 
     <!-- footer scripts -->
