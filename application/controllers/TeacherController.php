@@ -10,4 +10,10 @@ class TeacherController extends CI_Controller
     {
         $this->load->view("teacher/login");
     }
+
+
+    public function home()
+    {
+        $this->load->view("teacher/home");
+    }
 }
