@@ -55,8 +55,27 @@ $this->basic->headerBootstrap();
         <!-- student information -->
         <div class="position-absolute bottom-0 end-0 mb-4">
             <div class="text-right pe-5 text-black">
-                <div class="mb-2">Student Name</div>
-                <div class="mb-2">No Absen</div>
+                <!-- name -->
+                <div class="mb-2 text-capitalize">
+                    <?php
+                    if ($student["name"] != null && $student["name"] != "") {
+                        echo $student["name"];
+                    } else {
+                        echo "Student Name";
+                    }
+                    ?>
+                </div>
+                <!-- no. absen -->
+                <div class="mb-2">
+                    <?php
+                    if ($student["absenCode"] != null && $student["absenCode"] != "") {
+                        echo $student["absenCode"];
+                    } else {
+                        echo "No Absen";
+                    }
+                    ?>
+                </div>
+                <!-- score -->
                 <button type="button" class="btn btn-primary border border-white bg-white text-black">Lihat Nilai Pengerjaan</button>
             </div>
         </div>

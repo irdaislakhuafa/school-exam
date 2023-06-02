@@ -13,7 +13,15 @@ class StudentController extends CI_Controller
 
     public function maps()
     {
-        $this->load->view("student/maps");
+        // TODO: check student absen code and class code
+        $student = array(
+            "name" => $this->input->post("name"),
+            "absenCode" => $this->input->post("absenCode"),
+            "classCode" => $this->input->post("classCode"),
+        );
+
+        $data["student"] = $student;
+        $this->load->view("student/maps", $data);
     }
 
     public function subtema($subtema)
@@ -29,7 +37,8 @@ class StudentController extends CI_Controller
     }
     public function nilai($id)
     {
-        echo $id;
+        // TODO: $id is student id
+
         $data["scores"] = array();
         for ($i = 0; $i < 10; $i++) {
             array_push($data["scores"], array(
