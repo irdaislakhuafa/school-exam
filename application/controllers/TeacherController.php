@@ -21,4 +21,9 @@ class TeacherController extends CI_Controller
     {
         $this->load->view("teacher/newClass");
     }
+
+    public function newSubtema()
+    {
+        $this->load->view("teacher/newSubtema");
+    }
 }
