@@ -142,6 +142,7 @@ $this->basic->headerBootstrap();
             place.addEventListener("click", async function() {
                 place.querySelector("#empty").setAttribute("hidden", "")
                 place.querySelector("#selected").removeAttribute("hidden")
+
                 for (let j = 1; j <= totalPlaces; j++) {
                     if (j == i) {
                         continue
@@ -153,7 +154,7 @@ $this->basic->headerBootstrap();
 
                 }
 
-                if (await confirm(`Lanjutkan untuk membuka Subtema ${i}?`)) {
+                if (confirm(`Lanjutkan untuk membuka Subtema ${i}?`)) {
                     window.location.href = '<?= base_url() ?>student/subtema/' + place.querySelector("#code").textContent;
                 }
             })

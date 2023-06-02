@@ -11,7 +11,7 @@ class StudentController extends CI_Controller
         $this->load->view("student/login");
     }
 
-    public function maps()
+    public function maps($placeCode = "")
     {
         // TODO: check student absen code and class code
         $student = array(
@@ -20,6 +20,7 @@ class StudentController extends CI_Controller
             "classCode" => $this->input->post("classCode"),
         );
 
+        // TODO: handle current place
         $data["student"] = $student;
         $this->load->view("student/maps", $data);
     }

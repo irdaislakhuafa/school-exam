@@ -51,11 +51,11 @@ $this->basic->headerBootstrap();
         <div class="">
             <!-- btn back -->
             <div class="mb-5 position-absolute bottom-0 ms-5 ps-4 z-1">
-                <div class="btn shadow bg-white fs-20 text-black">Kembali</div>
+                <div id="back" class="btn shadow bg-white fs-20 text-black">Kembali</div>
             </div>
             <!-- btn next -->
             <div class="mb-5 position-absolute bottom-0 end-0 me-5 pe-4 z-1">
-                <div class="btn shadow bg-white fs-20 text-black">Selanjutnya</div>
+                <div id="next" class="btn shadow bg-white fs-20 text-black">Selanjutnya</div>
             </div>
             <!-- teacher avatar -->
             <div class="position-absolute bottom-0 end-0">
@@ -65,6 +65,21 @@ $this->basic->headerBootstrap();
     </div>
     </div>
     <!-- end subtema page -->
+
+    <script>
+        let btnBack = document.getElementById("back")
+        let btnNext = document.getElementById("next")
+
+        btnBack.addEventListener('click', function() {
+            // TODO: handle map place position here
+            window.location.href = '<?= base_url() ?>student/maps'
+        })
+
+        btnNext.addEventListener('click', function() {
+            // TODO: handle redirect soal here
+            window.location.href = '<?= base_url() ?>student/soal/xxx'
+        })
+    </script>
 
     <!-- footer scripts -->
     <?php
