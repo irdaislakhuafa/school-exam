@@ -28,6 +28,7 @@ $this->basic->headerBootstrap();
                                 <div class="mb-3 font-weight-bold">Kelas Anda :</div>
 
                                 <?php for ($i = 0; $i < 2; $i++) { ?>
+                                    <!-- start form -->
                                     <form action="<?= base_url() ?>teacher/class/edit" method="post">
                                         <!-- start list class -->
                                         <div class="card mb-3 shadow-lg p-4 rounded-4" style="background: #79E0EE;">
@@ -47,12 +48,13 @@ $this->basic->headerBootstrap();
                                                 <!-- TODO: post to edit page -->
                                                 <button type="submit" class="btn bg-white shadow ps-5 pe-5">Edit</button>
                                                 <!-- TODO: ask where is "Lihat Hasil" page? -->
-                                                <button class="btn bg-white shadow ps-5 pe-5">Lihat Hasil</button>
+                                                <button id="idk" type="button" class="btn bg-white shadow ps-5 pe-5">Lihat Hasil</button>
                                             </div>
                                             <!-- end buttons -->
                                         </div>
                                         <!-- end list class -->
                                     </form>
+                                    <!-- end form -->
                                 <?php } ?>
 
                                 <!-- button to create a new class -->
@@ -63,12 +65,6 @@ $this->basic->headerBootstrap();
                     </div>
                 </div>
                 <!-- end card body -->
-
-                <!-- next button -->
-                <div class="d-flex align-items-end justify-content-end">
-                    <!-- TODO: ask where is "Selanjutnya" page? -->
-                    <button type="submit" class="btn shadow bg-white ps-5 pe-5">Selanjutnya</button>
-                </div>
             </div>
             <!-- end card -->
         </div>
