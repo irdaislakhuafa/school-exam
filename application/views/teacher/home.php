@@ -28,27 +28,31 @@ $this->basic->headerBootstrap();
                                 <div class="mb-3 font-weight-bold">Kelas Anda :</div>
 
                                 <?php for ($i = 0; $i < 2; $i++) { ?>
-                                    <!-- start list class -->
-                                    <div class="card mb-3 shadow-lg p-4 rounded-4" style="background: #79E0EE;">
-                                        <!-- tema title -->
-                                        <div class="font-weight-bold">Tema <?= $i + 1 ?></div>
-                                        <!-- class number -->
-                                        <div class="ms-1 fs-20 font-weight-bold">Kelas <?= $i + 2 ?></div>
-                                        <!-- total number of class member -->
-                                        <div class="fs-15 ms-1 mt-3">20 Anggota</div>
-                                        <hr class="border border-1 border-black">
+                                    <form action="<?= base_url() ?>teacher/class/edit" method="post">
+                                        <!-- start list class -->
+                                        <div class="card mb-3 shadow-lg p-4 rounded-4" style="background: #79E0EE;">
+                                            <!-- class code/id -->
+                                            <div name="code" hidden></div>
+                                            <!-- tema title -->
+                                            <div class="font-weight-bold">Tema <?= $i + 1 ?></div>
+                                            <!-- class number -->
+                                            <div class="ms-1 fs-20 font-weight-bold">Kelas <?= $i + 2 ?></div>
+                                            <!-- total number of class member -->
+                                            <div class="fs-15 ms-1 mt-3">20 Anggota</div>
+                                            <hr class="border border-1 border-black">
 
-                                        <!-- TODO: create form to edit class -->
-                                        <!-- start buttons -->
-                                        <div class="d-flex justify-content-between">
-                                            <!-- TODO: post to edit page -->
-                                            <button type="submit" class="btn bg-white shadow ps-5 pe-5">Edit</button>
-                                            <!-- TODO: ask where is "Lihat Hasil" page? -->
-                                            <button class="btn bg-white shadow ps-5 pe-5">Lihat Hasil</button>
+                                            <!-- TODO: create form to edit class -->
+                                            <!-- start buttons -->
+                                            <div class="d-flex justify-content-between">
+                                                <!-- TODO: post to edit page -->
+                                                <button type="submit" class="btn bg-white shadow ps-5 pe-5">Edit</button>
+                                                <!-- TODO: ask where is "Lihat Hasil" page? -->
+                                                <button class="btn bg-white shadow ps-5 pe-5">Lihat Hasil</button>
+                                            </div>
+                                            <!-- end buttons -->
                                         </div>
-                                        <!-- end buttons -->
-                                    </div>
-                                    <!-- end list class -->
+                                        <!-- end list class -->
+                                    </form>
                                 <?php } ?>
 
                                 <!-- button to create a new class -->

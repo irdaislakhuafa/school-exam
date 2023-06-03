@@ -38,7 +38,7 @@ class TeacherController extends CI_Controller
     public function editClass()
     {
         $classData = $this->input->post();
-        // TODO: added logic here
+        // TODO: get class by class code and send to view
         $this->load->view("teacher/editClass");
     }
 

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-$this->basic->header("Buat Kelas Baru");
+$this->basic->header("Edit Kelas");
 $this->basic->headerBootstrap();
 ?>
 
@@ -57,7 +57,7 @@ $this->basic->headerBootstrap();
                     <!-- next button -->
                     <div class="d-flex justify-content-between">
                         <button id="back" type="button" class="btn shadow bg-white ps-5 pe-5">Kembali</button>
-                        <button type="submit" class="btn shadow bg-white ps-5 pe-5">Selanjutnya</button>
+                        <button type="submit" class="btn shadow bg-white ps-5 pe-5">Simpan</button>
                     </div>
                 </div>
                 <!-- end card -->
