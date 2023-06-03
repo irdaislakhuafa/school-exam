@@ -15,6 +15,26 @@ class TeacherController extends CI_Controller
         $this->load->view("teacher/login");
     }
 
+    public function login()
+    {
+        // retrieve login data (email, password)
+        $data = $this->input->post();
+        // $this->load->library('form_validation');
+        // $this->form_validation->set_rules('email', 'Email', 'required');
+        // $this->form_validation->set_rules('password', 'Password', 'required');
+        // if ($this->form_validation->run() == FALSE) {
+        //     $this->session->set_flashdata('error', 'Invalid email/passowrd for login');
+        //     redirect(base_url() . "teacher/");
+        // }
+
+        // // TODO: check email and password from database
+
+        // $email = $data['email'];
+        // $password = $data['password'];
+        // $this->load->model('user_model');
+        // $user = $this->user_model->getUserByEmail($email);
+    }
+
     // TODO: added function to check login teacher and redirect to home if true
 
     public function home()
