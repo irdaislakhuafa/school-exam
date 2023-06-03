@@ -145,4 +145,6 @@ $autoload['language'] = array();
 */
 $autoload['model'] = array(
     "TeacherModel" => "teacherModel",
+    "ClassModel" => "classModel",
+    "StudentModel" => "studentModel",
 );

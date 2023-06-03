@@ -51,8 +51,22 @@ class TeacherController extends CI_Controller
 
     public function home()
     {
+        // get list class by teacher id
+        $currentUser = $this->session->get_userdata();
+        $listClass = $this->classModel->getListByTeacherId($currentUser["userId"]);
 
-        $this->load->view("teacher/home");
+        for ($i = 0; $i < count($listClass); $i++) {
+            // TODO: get list student by class id
+            $listStudent = $this->studentModel->getListByClassId($listClass[$i]["id"]);
+            if ($listStudent != null || $listStudent != array()) {
+                $listClass[$i]["totalStudent"] = count($listStudent);
+            } else {
+                $listClass[$i]["totalStudent"] = 0;
+            }
+        }
+        $data["listClass"] = $listClass;
+
+        $this->load->view("teacher/home", $data);
     }
 
     public function newClass()

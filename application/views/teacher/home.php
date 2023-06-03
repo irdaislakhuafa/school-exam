@@ -27,7 +27,7 @@ $this->basic->headerBootstrap();
                             <div class="ms-0 me-5">
                                 <div class="mb-3 font-weight-bold">Kelas Anda :</div>
 
-                                <?php for ($i = 0; $i < 2; $i++) { ?>
+                                <?php foreach ($listClass as $i => $class) { ?>
                                     <!-- start form -->
                                     <form action="<?= base_url() ?>teacher/class/edit" method="post">
                                         <!-- start list class -->
@@ -35,11 +35,11 @@ $this->basic->headerBootstrap();
                                             <!-- class code/id -->
                                             <div name="code" hidden></div>
                                             <!-- tema title -->
-                                            <div class="font-weight-bold">Tema <?= $i + 1 ?></div>
+                                            <div class="font-weight-bold text-capitalize"><?= $class["tema"] ?></div>
                                             <!-- class number -->
-                                            <div class="ms-1 fs-20 font-weight-bold">Kelas <?= $i + 2 ?></div>
+                                            <div class="ms-1 fs-20 font-weight-bold text-capitalize">Kelas <?= $class["name"] ?></div>
                                             <!-- total number of class member -->
-                                            <div class="fs-15 ms-1 mt-3">20 Anggota</div>
+                                            <div class="fs-15 ms-1 mt-3 text-capitalize"><?= $class["totalStudent"] ?> Anggota</div>
                                             <hr class="border border-1 border-black">
 
                                             <!-- TODO: create form to edit class -->
