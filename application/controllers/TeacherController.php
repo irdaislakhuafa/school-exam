@@ -118,7 +118,7 @@ class TeacherController extends CI_Controller
             redirect(base_url() . "teacher/class/new");
         }
         // success create a class
-        $this->session->set_flashdata('succes', 'Berhasil membuat kelas "' . $classData["name"] . '"');
+        $this->session->set_flashdata('success', 'Berhasil membuat kelas "' . $classData["name"] . '"');
         redirect(base_url() . "teacher/class/subtema/select");
     }
     // TODO: added method to edit class
