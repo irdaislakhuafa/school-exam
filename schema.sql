@@ -47,6 +47,16 @@ CREATE TABLE `answer` (
 
 -- end schema
 
+-- done remove this
+INSERT INTO `subtema` (`id`, `name`) VALUES
+  ('488f93d8-86ca-4452-90df-b9271f9cb490', '1'),
+  ('87e274de-f8cd-4192-bc33-a8b8687f9ff4', '2'),
+  ('7f24a407-181b-4247-8698-27d75b7fe1da', '3'),
+  ('1ec9e921-2842-44e2-9220-3dcf75414003', '4'),
+  ('a0064714-cf3d-476f-8126-6ec530d292dc', '5'),
+  ('19522abd-5fd2-454d-9f08-927e76e9a53d', '6')
+;
+
 -- TODO: maybe remove this
 -- example teacher
 INSERT INTO `teacher` (`id`, `name`, `email`, `password`) VALUES 
