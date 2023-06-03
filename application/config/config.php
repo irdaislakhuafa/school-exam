@@ -23,7 +23,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/school-exam/';
+// $config['base_url'] = 'http://localhost/school-exam/';
+$config['base_url'] = (function () {
+    $protocol = "http";
+    if (isset($_SERVER['HTTPS'])  && $_SERVER['HTTPS'] == 'on') {
+        $protocol = $protocol . "s";
+    }
+    $host = $_SERVER["SERVER_NAME"];
+    return $protocol . "://" . $host . "/school-exam/";
+})();
 
 /*
 |--------------------------------------------------------------------------
