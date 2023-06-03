@@ -39,6 +39,14 @@ $this->basic->headerBootstrap();
                                 <?php } ?>
                                 <!-- end list subtema -->
 
+                                <!-- success message -->
+                                <?php
+                                $success = $this->session->flashdata('success');
+                                if ($success != null && $success != "") { ?>
+                                    <div id="success" class="alert fs-16 alert-success" style="margin-left: -16px;" role="alert">
+                                        <?= $success ?>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
                         <!-- end class -->

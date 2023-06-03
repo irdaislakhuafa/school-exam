@@ -86,10 +86,7 @@ class TeacherController extends CI_Controller
     // TODO: add login to create new class
     public function createClass()
     {
-        // auth
-        if ($this->session->get_userdata()) {
-            redirect(base_url() . "teacher/login");
-        }
+        // TODO: add auth
 
         // array
         $classData = $this->input->post();
@@ -103,27 +100,26 @@ class TeacherController extends CI_Controller
             redirect(base_url() . "teacher/class/new");
         }
 
-        // TODO: handle if class code already exists
-        // TODO: get class by code
+
+        // handle if class code already exists
         $currentUser = $this->session->get_userdata();
-
         $existingClass = $this->classModel->getByCodeAndTeacherId($classData["code"], $currentUser["userId"]);
-        var_dump($existingClass);
+        if ($existingClass != null) {
+            $this->session->set_flashdata('error', 'kode kelas sudah ada dikelas "' . $existingClass->name . '"');
+            redirect(base_url() . "teacher/class/new");
+        }
 
-        // if ($existingClass != null || count($existingClass) <= 0) {
-        //     $this->session->set_flashdata('error', 'kode kelas sudah ada dikelas');
-        //     redirect(base_url() . "teacher/class/new");
-        // }
-
-        // // save it to database
-        // $isOk = $this->classModel->insert($classData);
-        // if (!$isOk) {
-        //     $this->session->set_flashdata('error', 'gagal menyimpan data');
-        //     redirect(base_url() . "teacher/class/new");
-        // } else {
-        //     // TODO: a dded logic here
-        //     redirect(base_url() . "teacher/class/subtema/select");
-        // }
+        // save it to database
+        $classData["teacherId"] = $currentUser["userId"];
+        $isOk = $this->classModel->insert($classData);
+        if (!$isOk) {
+            var_dump($isOk);
+            $this->session->set_flashdata('error', 'gagal menyimpan data');
+            redirect(base_url() . "teacher/class/new");
+        }
+        // success create a class
+        $this->session->set_flashdata('succes', 'Berhasil membuat kelas "' . $classData["name"] . '"');
+        redirect(base_url() . "teacher/class/subtema/select");
     }
     // TODO: added method to edit class
     // TODO: added method to view scores student of class

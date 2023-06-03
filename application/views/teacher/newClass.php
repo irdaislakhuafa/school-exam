@@ -52,7 +52,7 @@ $this->basic->headerBootstrap();
                                         $error = $this->session->flashdata('error');
                                         if ($error != null || $error != "") { ?>
                                             <div class="mb-3" id="error">
-                                                <div class="alert alert-danger fs-16" role="alert">
+                                                <div class="alert alert-danger fs-16 text-capitalize" role="alert">
                                                     <?= $error ?>
                                                 </div>
                                             </div>

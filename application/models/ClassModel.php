@@ -1,4 +1,5 @@
 <?php
+
 class ClassModel extends CI_Model
 {
     private static $TABLE = "classData";
@@ -12,18 +13,20 @@ class ClassModel extends CI_Model
 
     public function insert($class)
     {
+        $class["id"] = $this->random->generateUUID();
         return $this->db
             ->insert(ClassModel::$TABLE, $class);
     }
 
     public function getByCodeAndTeacherId($code, $teacherId)
     {
-        return $this->db
+        $result =  $this->db
             ->where(array(
                 "code" => $code,
                 "teacherId" => $teacherId,
             ))
             ->get(ClassModel::$TABLE)
-            ->row();
+            ->row_object();
+        return $result;
     }
 }

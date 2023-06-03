@@ -63,6 +63,7 @@ $autoload['libraries'] = array(
     'Place' => 'place',
     'Island' => 'island',
     'Teacher' => 'teacher',
+    'Random' => 'random',
     'database',
     'session',
     'form_validation'

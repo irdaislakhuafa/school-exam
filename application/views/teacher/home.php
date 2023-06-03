@@ -35,9 +35,17 @@ $this->basic->headerBootstrap();
                                             <!-- class code/id -->
                                             <div name="code" hidden></div>
                                             <!-- tema title -->
-                                            <div class="font-weight-bold text-capitalize"><?= $class["tema"] ?></div>
-                                            <!-- class number -->
-                                            <div class="ms-1 fs-20 font-weight-bold text-capitalize">Kelas <?= $class["name"] ?></div>
+                                            <div class="font-weight-bold text-capitalize">
+                                                <span class="badge text-bg-danger"><?= $class["tema"] ?></span>
+                                            </div>
+                                            <!-- class name -->
+                                            <div class="ms-1 fs-20 font-weight-bold text-capitalize">Kelas
+                                                <span class="badge text-bg-success"><?= $class["name"] ?></span>
+                                            </div>
+                                            <!-- class code -->
+                                            <div class="ms-1 fs-20 font-weight-bold ">Kode
+                                                <span class="badge text-bg-warning"> <?= $class["code"] ?></span>
+                                            </div>
                                             <!-- total number of class member -->
                                             <div class="fs-15 ms-1 mt-3 text-capitalize"><?= $class["totalStudent"] ?> Anggota</div>
                                             <hr class="border border-1 border-black">
