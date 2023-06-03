@@ -65,8 +65,8 @@ $this->basic->headerBootstrap();
         let btnNext = document.getElementById("next")
 
         btnBack.addEventListener('click', function() {
-            // TODO: handle map place position here
-            window.location.href = '<?= base_url() ?>student/maps'
+            // TODO: redirect to subtema
+            window.location.href = '<?= base_url() ?>student/subtema/xx'
         })
 
         btnNext.addEventListener('click', function() {
