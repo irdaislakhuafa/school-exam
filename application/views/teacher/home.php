@@ -20,7 +20,7 @@ $this->basic->headerBootstrap();
 
                     <div class="">
                         <!-- teacher avatar here -->
-                        <?php $this->teacher->avatarProfileImg($this->session->name) ?>
+                        <?php $this->teacher->avatarProfileImg($this->session->get_userdata()["userName"]) ?>
 
                         <!-- start class -->
                         <div class="col-10 float-end w-75">

@@ -18,21 +18,33 @@ class TeacherController extends CI_Controller
     public function login()
     {
         // retrieve login data (email, password)
-        $data = $this->input->post();
-        // $this->load->library('form_validation');
-        // $this->form_validation->set_rules('email', 'Email', 'required');
-        // $this->form_validation->set_rules('password', 'Password', 'required');
-        // if ($this->form_validation->run() == FALSE) {
-        //     $this->session->set_flashdata('error', 'Invalid email/passowrd for login');
-        //     redirect(base_url() . "teacher/");
-        // }
+        $formLogin = $this->input->post();
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        if ($this->form_validation->run() == FALSE) {
+            $this->session->set_flashdata('error', 'email/passowrd diperlukan untuk login');
+            redirect(base_url() . "teacher/");
+        }
 
         // // TODO: check email and password from database
+        $teacher = $this->teacherModel->getByEmail($formLogin["email"]);
+        if ($teacher == null) {
+            $this->session->set_flashdata('error', 'Email tidak terdaftar sebagai guru!');
+            redirect(base_url() . "teacher/");
+        }
 
-        // $email = $data['email'];
-        // $password = $data['password'];
-        // $this->load->model('user_model');
-        // $user = $this->user_model->getUserByEmail($email);
+        if ($teacher->password != hash('sha256', $formLogin["password"])) {
+            $this->session->set_flashdata('error', 'Password salah');
+            redirect(base_url() . 'teacher/');
+        }
+
+        // set session variable
+        $this->session->set_userdata(array(
+            "userId" => $teacher->id,
+            "userName" => $teacher->name,
+        ));
+        redirect(base_url() . "teacher/home");
     }
 
     // TODO: added function to check login teacher and redirect to home if true

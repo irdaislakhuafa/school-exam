@@ -12,7 +12,7 @@ $this->basic->headerBootstrap();
         <?php $this->island->showTinyIslands() ?>
 
         <!-- start login page -->
-        <form action="<?= base_url() ?>teacher/home" method="post">
+        <form action="<?= base_url() ?>teacher/login" method="post">
             <div class="position-absolute top-0 start-50 translate-middle-x mt-5">
                 <h1 class="text-uppercase font-weight-bold mb-5 fs-30 text-center text-white">halaman login guru</h1>
                 <!-- start card -->
@@ -30,10 +30,23 @@ $this->basic->headerBootstrap();
                             <label for="password" class="form-label">Password</label>
                             <div class="input-group mb-3">
                                 <input id="password" name="password" type="password" class="form-control rounded-3" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2">
-                                <span class="input-group-text"><span class="fa-eye"></span></span>
                             </div>
                         </div>
                     </div>
+
+                    <!-- error message -->
+                    <?php
+                    $error = $this->session->flashdata('error');
+                    if ($error != null || $error != "") {
+                    ?>
+                        <div class="d-flex justify-content-center">
+                            <div id="error" class="alert w-75  text-capitalize fs-16 alert-danger" role="alert">
+                                <?= $error ?>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
 
                     <!-- TODO: added functionality here -->
                     <!-- login button -->
@@ -46,6 +59,13 @@ $this->basic->headerBootstrap();
         </form>
         <!-- end login page -->
     </div>
+
+    <script>
+        // hide error after 3 seconds
+        setTimeout(function() {
+            document.getElementById("error").setAttribute("hidden", "");
+        }, 3000);
+    </script>
 
     <!-- footer scripts -->
     <?php
