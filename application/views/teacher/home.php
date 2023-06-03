@@ -20,10 +20,7 @@ $this->basic->headerBootstrap();
 
                     <div class="">
                         <!-- teacher avatar here -->
-                        <?php $this->teacher->avatarProfileImg() ?>
-
-
-                        <!-- TODO: added functionality here -->
+                        <?php $this->teacher->avatarProfileImg($this->session->name) ?>
 
                         <!-- start class -->
                         <div class="col-10 float-end w-75">
@@ -41,9 +38,12 @@ $this->basic->headerBootstrap();
                                         <div class="fs-15 ms-1 mt-3">20 Anggota</div>
                                         <hr class="border border-1 border-black">
 
+                                        <!-- TODO: create form to edit class -->
                                         <!-- start buttons -->
                                         <div class="d-flex justify-content-between">
-                                            <button class="btn bg-white shadow ps-5 pe-5">Edit</button>
+                                            <!-- TODO: post to edit page -->
+                                            <button type="submit" class="btn bg-white shadow ps-5 pe-5">Edit</button>
+                                            <!-- TODO: ask where is "Lihat Hasil" page? -->
                                             <button class="btn bg-white shadow ps-5 pe-5">Lihat Hasil</button>
                                         </div>
                                         <!-- end buttons -->
@@ -52,7 +52,7 @@ $this->basic->headerBootstrap();
                                 <?php } ?>
 
                                 <!-- button to create a new class -->
-                                <button class="btn btn-info shadow-lg text-capitalize text-black font-weight-bold float-end mt-4 ps-5 pe-5" style="background: #79E0EE;">buat kelas</button>
+                                <button id="createNewClass" class="btn btn-info shadow-lg text-capitalize text-black font-weight-bold float-end mt-4 ps-5 pe-5" style="background: #79E0EE;">buat kelas</button>
                             </div>
                         </div>
                         <!-- end class -->
@@ -62,6 +62,7 @@ $this->basic->headerBootstrap();
 
                 <!-- next button -->
                 <div class="d-flex align-items-end justify-content-end">
+                    <!-- TODO: ask where is "Selanjutnya" page? -->
                     <button type="submit" class="btn shadow bg-white ps-5 pe-5">Selanjutnya</button>
                 </div>
             </div>
@@ -69,6 +70,12 @@ $this->basic->headerBootstrap();
         </div>
     </div>
     <!-- end login page -->
+
+    <script>
+        document.getElementById("createNewClass").addEventListener("click", function() {
+            window.location.href = "<?= base_url() ?>teacher/class/new"
+        })
+    </script>
 
     <!-- footer scripts -->
     <?php

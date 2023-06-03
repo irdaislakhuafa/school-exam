@@ -26,7 +26,7 @@ $this->basic->headerBootstrap();
                             <!-- start class -->
                             <div class="col-10 float-start w-50">
                                 <div class="ms-5 me-5">
-                                    <div class="mb-3 font-weight-bold">Buat Kelas :</div>
+                                    <div class="mb-3 font-weight-bold">Edit Kelas :</div>
                                     <div class="fs-18">
 
                                         <!-- class name -->

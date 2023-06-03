@@ -12,37 +12,40 @@ $this->basic->headerBootstrap();
         <?php $this->island->showTinyIslands() ?>
 
         <!-- start login page -->
-        <div class="position-absolute top-0 start-50 translate-middle-x mt-5">
-            <h1 class="text-uppercase font-weight-bold mb-5 fs-30 text-center text-white">halaman login guru</h1>
-            <!-- start card -->
-            <div class="card p-4 shadow  fs-24 rounded-4 " style="width: 40rem; height: max-content">
-                <div class="card-body">
-                    <!-- name of student -->
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Login Guru</label>
-                        <div class="input-group mb-3">
-                            <input id="name" name="name" type="text" class="form-control rounded-3" placeholder="Masukan Nama" aria-label="Masukan Nama" aria-describedby="basic-addon2">
+        <form action="<?= base_url() ?>teacher/home" method="post">
+            <div class="position-absolute top-0 start-50 translate-middle-x mt-5">
+                <h1 class="text-uppercase font-weight-bold mb-5 fs-30 text-center text-white">halaman login guru</h1>
+                <!-- start card -->
+                <div class="card p-4 shadow  fs-24 rounded-4 " style="width: 40rem; height: max-content">
+                    <div class="card-body">
+                        <!-- name of student -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Login Guru</label>
+                            <div class="input-group mb-3">
+                                <input id="email" name="email" type="email" class="form-control rounded-3" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2">
+                            </div>
+                        </div>
+                        <!-- absen code of student -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-group mb-3">
+                                <input id="password" name="password" type="password" class="form-control rounded-3" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2">
+                                <span class="input-group-text"><span class="fa-eye"></span></span>
+                            </div>
                         </div>
                     </div>
-                    <!-- absen code of student -->
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Password</label>
-                        <div class="input-group mb-3">
-                            <input id="name" name="name" type="text" class="form-control rounded-3" placeholder="Masukan No. Absen" aria-label="Masukan No. Absen" aria-describedby="basic-addon2">
-                        </div>
-                    </div>
-                </div>
 
-                <!-- TODO: added functionality here -->
-                <!-- login button -->
-                <div class="d-flex align-items-center justify-content-center">
-                    <button type="submit" class="btn shadow btn-info w-25">Masuk</button>
+                    <!-- TODO: added functionality here -->
+                    <!-- login button -->
+                    <div class="d-flex align-items-center justify-content-center">
+                        <button type="submit" class="btn shadow btn-info w-25">Masuk</button>
+                    </div>
                 </div>
+                <!-- end card -->
             </div>
-            <!-- end card -->
-        </div>
+        </form>
+        <!-- end login page -->
     </div>
-    <!-- end login page -->
 
     <!-- footer scripts -->
     <?php

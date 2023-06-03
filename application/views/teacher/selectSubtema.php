@@ -20,7 +20,7 @@ $this->basic->headerBootstrap();
 
                     <div class="">
                         <!-- teacher avatar here -->
-                        <?php $this->teacher->avatarProfileImg() ?>
+                        <?php $this->teacher->avatarProfileImg($this->session->name) ?>
 
                         <!-- TODO: added functionality here -->
 
@@ -31,11 +31,11 @@ $this->basic->headerBootstrap();
 
                                 <!-- start list subtema -->
                                 <?php for ($i = 0; $i < 6; $i++) { ?>
-                                    <div class="mb-3 w-100 row">
+                                    <a href="<?= base_url() ?>teacher/class/subtema/new/TODO: subtema code here" class="mb-3 w-100 row">
                                         <button class="btn shadow" style="background-color: #F5F5F5;">
                                             <div class="text-up float-start">subtema <?= $i + 1 ?></div>
                                         </button>
-                                    </div>
+                                    </a>
                                 <?php } ?>
                                 <!-- end list subtema -->
 
@@ -48,14 +48,22 @@ $this->basic->headerBootstrap();
 
                 <!-- next button -->
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn shadow bg-white ps-5 pe-5">Kembali</button>
-                    <button type="submit" class="btn shadow bg-white ps-5 pe-5">Selanjutnya</button>
+                    <button id="back" type="submit" class="btn shadow bg-white ps-5 pe-5">Kembali</button>
+                    <!-- <button id="save" type="submit" class="btn shadow bg-white ps-5 pe-5">Simpan</button> -->
                 </div>
             </div>
             <!-- end card -->
         </div>
     </div>
     <!-- end login page -->
+
+    <script>
+        // back
+        document.getElementById("back").addEventListener("click", () => window.location.href = "<?= base_url()  ?>teacher/home");
+        // save
+        // TODO: save subtema here and redirect to home page
+        // document.getElementById("save").addEventListener("click", () => window.location.href = "teacher/class/subtema/save");
+    </script>
 
     <!-- footer scripts -->
     <?php

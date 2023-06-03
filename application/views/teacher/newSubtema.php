@@ -53,14 +53,21 @@ $this->basic->headerBootstrap();
 
                 <!-- next button -->
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn shadow bg-white ps-5 pe-5">Kembali</button>
-                    <button type="submit" class="btn shadow bg-white ps-5 pe-5">Selanjutnya</button>
+                    <button id="back" type="submit" class="btn shadow bg-white ps-5 pe-5">Kembali</button>
+                    <button id="save" type="submit" class="btn shadow bg-white ps-5 pe-5">Simpan</button>
                 </div>
             </div>
             <!-- end card -->
         </div>
     </div>
     <!-- end login page -->
+
+    <script>
+        // back
+        document.getElementById("back").addEventListener("click", () => window.location.href = "<?= base_url() ?>teacher/class/subtema/select")
+        // TODO: save and redirect to teacher/class/subtema/select
+        document.getElementById("save").addEventListener("click", () => window.location.href = "<?= base_url() ?>teacher/class/subtema/select")
+    </script>
 
     <!-- footer scripts -->
     <?php
