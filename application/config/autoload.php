@@ -148,4 +148,5 @@ $autoload['model'] = array(
     "TeacherModel" => "teacherModel",
     "ClassModel" => "classModel",
     "StudentModel" => "studentModel",
+    "SubtemaModel" => "subtemaModel",
 );

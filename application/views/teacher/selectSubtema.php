@@ -30,10 +30,10 @@ $this->basic->headerBootstrap();
                                 <div class="mb-3 font-weight-bold">Pilih Subtema :</div>
 
                                 <!-- start list subtema -->
-                                <?php for ($i = 0; $i < 6; $i++) { ?>
-                                    <a href="<?= base_url() ?>teacher/class/subtema/new/TODO: subtema code here" class="mb-3 w-100 row">
+                                <?php foreach ($listSubtema as $i => $subtema) { ?>
+                                    <a href="<?= base_url() ?>teacher/class/subtema/new/<?= $subtema->id ?>" class="mb-3 w-100 row">
                                         <button class="btn shadow" style="background-color: #F5F5F5;">
-                                            <div class="text-up float-start">subtema <?= $i + 1 ?></div>
+                                            <div class="text-up float-start">subtema <?= $subtema->name ?></div>
                                         </button>
                                     </a>
                                 <?php } ?>

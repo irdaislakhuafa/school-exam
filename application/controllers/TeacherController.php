@@ -132,11 +132,12 @@ class TeacherController extends CI_Controller
 
     public function selectSubtema()
     {
-        $this->load->view("teacher/selectSubtema");
+        $data['listSubtema'] = $this->subtemaModel->getList();
+        $this->load->view("teacher/selectSubtema", $data);
     }
-    public function newSubtema($subtemaCode)
+    public function newSubtema($subtemaId)
     {
-        $data['subtemaNumber'] = $subtemaCode;
+        $data['subtema'] = $this->subtemaModel->get(array('id' => $subtemaId));
         $this->load->view("teacher/newSubtema", $data);
     }
 }
