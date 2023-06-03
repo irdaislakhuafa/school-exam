@@ -135,9 +135,20 @@ class TeacherController extends CI_Controller
         $data['listSubtema'] = $this->subtemaModel->getList();
         $this->load->view("teacher/selectSubtema", $data);
     }
-    public function newSubtema($subtemaId)
+    public function newSubtema($subtemaId, $questionNumber = 1)
     {
         $data['subtema'] = $this->subtemaModel->get(array('id' => $subtemaId));
-        $this->load->view("teacher/newSubtema", $data);
+        $data['questionNumber'] = $questionNumber;
+
+        if ($questionNumber <= 5) {
+            $this->load->view("teacher/newSubtema", $data);
+        } else {
+            redirect(base_url() . '/teacher/home');
+        }
+    }
+
+    public function createSubtema()
+    {
+        // $subtema = $this->input->post();
     }
 }

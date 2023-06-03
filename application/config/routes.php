@@ -69,4 +69,6 @@ $route['teacher/class/create'] = 'TeacherController/createClass';
 $route['teacher/class/edit'] = 'TeacherController/editClass';
 $route['teacher/class/subtema/select'] = 'TeacherController/selectSubtema';
 $route['teacher/class/subtema/new/(:any)'] = 'TeacherController/newSubtema/$1';
+$route['teacher/class/subtema/new/(:any)/(:any)'] = 'TeacherController/newSubtema/$1/$2';
+$route['teacher/class/subtema/create'] = 'TeacherController/newSubtema/createSubtema';
 $route['teacher/class/materi/new'] = 'TeacherController/newMateriSoal';

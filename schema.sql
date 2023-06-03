@@ -36,7 +36,10 @@ CREATE TABLE `question` (
   `content` text NOT NULL,
   `image1Url` text,
   `image2Url` text,
-  `image3Url` text
+  `image3Url` text,
+  `image1Text` text,
+  `image2Text` text,
+  `image3Text` text
 );
 
 CREATE TABLE `answer` (
@@ -44,6 +47,7 @@ CREATE TABLE `answer` (
   `questionId` varchar(255) NOT NULL,
   `content` text NOT NULL
 );
+
 
 -- end schema
 

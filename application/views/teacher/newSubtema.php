@@ -13,7 +13,7 @@ $this->basic->headerBootstrap();
 
         <!-- TODO: soalnya ada 5 -->
         <!-- TODO: save soal -->
-        <form action="" method="post">
+        <form action="<?= base_url() ?>teacher/class/subtema/new/<?= $subtema->id ?>/<?= $questionNumber ?>" method="post">
             <!-- start subtema/soal page -->
             <div class="position-absolute top-0 start-50 translate-middle-x mt-5">
                 <!-- start card -->
@@ -36,7 +36,7 @@ $this->basic->headerBootstrap();
                                     <div class="">
                                         <!-- materi -->
                                         <div class="mb-3">
-                                            <label for="exampleFormControlTextarea1" class="form-label">Materi</label>
+                                            <label for="exampleFormControlTextarea1" class="form-label">Materi : <?= $questionNumber ?> </label>
                                             <textarea class="form-control shadow rounded-2" rows="13" style="background-color: #F5F5F5 !important;" id="exampleFormControlTextarea1" rows="3"></textarea>
                                             <div class="row">
                                                 <?php for ($i = 1; $i <= 3; $i++) { ?>
@@ -49,7 +49,7 @@ $this->basic->headerBootstrap();
                                         </div>
                                         <!-- soal -->
                                         <div class="mb-3">
-                                            <label for="exampleFormControlTextarea1" class="form-label">Soal</label>
+                                            <label for="" class="form-label">Soal : <?= $questionNumber ?></label>
                                             <textarea class="form-control shadow rounded-2" rows="8" style="background-color: #F5F5F5 !important;" id="exampleFormControlTextarea1" rows="3"></textarea>
                                         </div>
                                     </div>
@@ -65,7 +65,15 @@ $this->basic->headerBootstrap();
                     <!-- next button -->
                     <div class="d-flex justify-content-between">
                         <button id="back" type="submit" class="btn shadow bg-white ps-5 pe-5">Kembali</button>
-                        <button id="save" type="submit" class="btn shadow bg-white ps-5 pe-5">Simpan</button>
+                        <button id="save" type="submit" class="btn shadow bg-white ps-5 pe-5">
+                            <?php
+                            if ($questionNumber <= 4) {
+                                echo "Selanjutnya";
+                            } else {
+                                echo "Simpan";
+                            }
+                            ?>
+                        </button>
                     </div>
                 </div>
                 <!-- end card -->
