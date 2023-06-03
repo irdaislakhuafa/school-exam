@@ -60,13 +60,6 @@ $this->basic->headerBootstrap();
         <!-- end login page -->
     </div>
 
-    <script>
-        // hide error after 3 seconds
-        setTimeout(function() {
-            document.getElementById("error").setAttribute("hidden", "");
-        }, 3000);
-    </script>
-
     <!-- footer scripts -->
     <?php
     $this->basic->footerScripts();

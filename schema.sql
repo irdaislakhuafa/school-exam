@@ -21,7 +21,7 @@ CREATE TABLE `classData` (
   `id` varchar(255) PRIMARY KEY,
   `teacherId` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `code` varchar(255) UNIQUE NOT NULL,
+  `code` varchar(255) NOT NULL,
   `tema` varchar(255) NOT NULL
 );
 
@@ -44,6 +44,7 @@ CREATE TABLE `answer` (
   `questionId` varchar(255) NOT NULL,
   `content` text NOT NULL
 );
+
 -- end schema
 
 -- TODO: maybe remove this

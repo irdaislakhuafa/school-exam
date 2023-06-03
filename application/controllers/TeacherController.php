@@ -6,12 +6,21 @@ class TeacherController extends CI_Controller
         parent::__construct();
     }
 
+    public function auth()
+    {
+        $currentUser = $this->session->get_userdata();
+        if (isset($currentUser)) {
+            if (isset($currentUser["userId"])) {
+                if ($this->teacherModel->get(array('id' => $currentUser["userId"]))) {
+                    return;
+                }
+            }
+        }
+        redirect(base_url() . "teacher/login");
+    }
+
     public function index()
     {
-        // TODO: handle this
-        $this->session->set_userdata(array(
-            "name" => $this->input->post("email"),
-        ));
         $this->load->view("teacher/login");
     }
 
@@ -19,7 +28,6 @@ class TeacherController extends CI_Controller
     {
         // retrieve login data (email, password)
         $formLogin = $this->input->post();
-        $this->load->library('form_validation');
         $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         if ($this->form_validation->run() == FALSE) {
@@ -51,12 +59,13 @@ class TeacherController extends CI_Controller
 
     public function home()
     {
-        // get list class by teacher id
+        // add auth
+        $this->auth();
         $currentUser = $this->session->get_userdata();
-        $listClass = $this->classModel->getListByTeacherId($currentUser["userId"]);
 
+        // get list class by teacher id
+        $listClass = $this->classModel->getListByTeacherId($currentUser["userId"]);
         for ($i = 0; $i < count($listClass); $i++) {
-            // TODO: get list student by class id
             $listStudent = $this->studentModel->getListByClassId($listClass[$i]["id"]);
             if ($listStudent != null || $listStudent != array()) {
                 $listClass[$i]["totalStudent"] = count($listStudent);
@@ -77,10 +86,47 @@ class TeacherController extends CI_Controller
     // TODO: add login to create new class
     public function createClass()
     {
+        // auth
+        if ($this->session->get_userdata()) {
+            redirect(base_url() . "teacher/login");
+        }
+
+        // array
         $classData = $this->input->post();
-        // TODO: added logic here
-        redirect(base_url() . "teacher/class/subtema/select");
+
+        // handle input validation
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('tema', 'Tema', 'required');
+        $this->form_validation->set_rules('code', 'Code', 'required');
+        if ($this->form_validation->run() == FALSE) {
+            $this->session->set_flashdata('error', 'semua data harus di isi!');
+            redirect(base_url() . "teacher/class/new");
+        }
+
+        // TODO: handle if class code already exists
+        // TODO: get class by code
+        $currentUser = $this->session->get_userdata();
+
+        $existingClass = $this->classModel->getByCodeAndTeacherId($classData["code"], $currentUser["userId"]);
+        var_dump($existingClass);
+
+        // if ($existingClass != null || count($existingClass) <= 0) {
+        //     $this->session->set_flashdata('error', 'kode kelas sudah ada dikelas');
+        //     redirect(base_url() . "teacher/class/new");
+        // }
+
+        // // save it to database
+        // $isOk = $this->classModel->insert($classData);
+        // if (!$isOk) {
+        //     $this->session->set_flashdata('error', 'gagal menyimpan data');
+        //     redirect(base_url() . "teacher/class/new");
+        // } else {
+        //     // TODO: a dded logic here
+        //     redirect(base_url() . "teacher/class/subtema/select");
+        // }
     }
+    // TODO: added method to edit class
+    // TODO: added method to view scores student of class
     public function editClass()
     {
         $classData = $this->input->post();

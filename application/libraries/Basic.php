@@ -53,6 +53,7 @@ class Basic
         <!--===============================================================================================-->
         <script src="<?= base_url() ?>assets/js/main.js"></script>
         <script src="<?= base_url() ?>assets/js/idk.js"></script>
+        <script src="<?= base_url() ?>assets/js/error.js"></script>
     <?php
     }
 

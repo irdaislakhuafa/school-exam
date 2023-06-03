@@ -31,21 +31,32 @@ $this->basic->headerBootstrap();
 
                                         <!-- class name -->
                                         <div class="mb-3">
-                                            <label for="exampleFormControlInput1" class="font-weight-bold form-label">Nama Kelas</label>
-                                            <input name="className" type="text" class="form-control shadow rounded-3b" style="background-color: #F5F5F5;" id="" placeholder="Nama Kelas">
+                                            <label for="name" class="font-weight-bold form-label">Nama Kelas</label>
+                                            <input id="name" name="name" type="text" class="form-control shadow rounded-3b" style="background-color: #F5F5F5;" id="" placeholder="Nama Kelas">
                                         </div>
 
                                         <!-- class tema -->
                                         <div class="mb-3">
-                                            <label for="exampleFormControlInput1" class="font-weight-bold form-label">Tema</label>
-                                            <input name="classTema" type="text" class="form-control shadow rounded-3b" style="background-color: #F5F5F5;" id="" placeholder="Tema">
+                                            <label for="tema" class="font-weight-bold form-label">Tema</label>
+                                            <input id="tema" name="tema" type="text" class="form-control shadow rounded-3b" style="background-color: #F5F5F5;" id="" placeholder="Tema">
                                         </div>
 
                                         <!-- class code -->
                                         <div class="mb-3">
-                                            <label for="exampleFormControlInput1" class="font-weight-bold form-label">Kode Kelas</label>
-                                            <input name="classCode" type="text" class="form-control shadow rounded-3b" style="background-color: #F5F5F5;" id="" placeholder="Masukan Kode">
+                                            <label for="code" class="font-weight-bold form-label">Kode Kelas</label>
+                                            <input id="code" name="code" type="text" class="form-control shadow rounded-3b" style="background-color: #F5F5F5;" id="" placeholder="Masukan Kode">
                                         </div>
+
+                                        <!-- error message -->
+                                        <?php
+                                        $error = $this->session->flashdata('error');
+                                        if ($error != null || $error != "") { ?>
+                                            <div class="mb-3" id="error">
+                                                <div class="alert alert-danger fs-16" role="alert">
+                                                    <?= $error ?>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -63,7 +74,6 @@ $this->basic->headerBootstrap();
                 <!-- end card -->
             </div>
             <!-- end class -->
-
         </form>
         <!-- end form create class -->
     </div>
