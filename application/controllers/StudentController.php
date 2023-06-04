@@ -6,13 +6,58 @@ class StudentController extends CI_Controller
         parent::__construct();
     }
 
+    public function auth()
+    {
+        $currentUser = $this->session->get_userdata();
+        if (isset($currentUser)) {
+            if (isset($currentUser["userId"])) {
+                if ($this->teacherModel->get(array('id' => $currentUser["userId"]))) {
+                    return;
+                }
+            }
+        }
+        // redirect(base_url() . "student/");
+    }
+
     public function index()
     {
         $this->load->view("student/login");
     }
+    public function login()
+    {
+
+        $class = $this->classModel->get(array("code" => $this->input->post("classCode")));
+        if ($class == null) {
+            // var_dump($this->input->post("name"));
+            $this->session->set_flashdata('error', "Kelas dengan kode " . $this->input->post("classCode") . " tidak ada!");
+            // redirect(base_url() . "student/");
+            return;
+        }
+
+        $student = $this->studentModel->get(array(
+            "name" => $this->input->post("name"),
+            "noAbsen" => $this->input->post("absenCode"),
+            "classId" => $class->id,
+        ));
+        if ($student == null) {
+            $this->session->set_flashdata('error', "Siswa tidak terdaftar");
+            // var_dump($student);
+            redirect(base_url() . "student/");
+            return;
+        }
+
+        $this->session->set_userdata(array(
+            "userId" => $student->id,
+            "userName" => $student->name,
+            "classId" => $class->id
+        ));
+        redirect(base_url() . "student/maps");
+    }
 
     public function maps($placeCode = "")
     {
+        $this->auth();
+
         // TODO: check student absen code and class code
         $student = array(
             "name" => $this->input->post("name"),

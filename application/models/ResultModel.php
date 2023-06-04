@@ -30,10 +30,10 @@ class ResultModel extends CI_Model
             ->where($result)
             ->delete(ResultModel::$TABLE);
     }
-    public function insert($class)
+    public function insert($result)
     {
-        $class["id"] = $this->random->generateUUID();
+        $result["id"] = $this->random->generateUUID();
         return $this->db
-            ->insert(ResultModel::$TABLE, $class);
+            ->insert(ResultModel::$TABLE, $result);
     }
 }

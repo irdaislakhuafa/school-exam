@@ -83,5 +83,6 @@ INSERT INTO `classData` (`id`, `teacherId`, `name`, `code`, `tema`) VALUES
 -- example student data
 INSERT INTO `student` (`id`, `name`, `noAbsen`, `classId`) VALUES
   ('88fc0ea7-57f5-4e71-89db-d79771daaa39', "student dummy 1", "12345","cf1765b0-7355-42a0-b028-dc37c1f690da"),
-  ('e7f0154e-8444-4b5e-bb74-1c061b9959e7', "student dummy 2", "12345","cf1765b0-7355-42a0-b028-dc37c1f690da")
+  ('e7f0154e-8444-4b5e-bb74-1c061b9959e7', "student dummy 2", "67890","cf1765b0-7355-42a0-b028-dc37c1f690da")
 ;
+
