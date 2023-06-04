@@ -34,6 +34,15 @@ $this->basic->headerBootstrap();
                                     </div>
                                 <?php } ?>
 
+                                <!-- success message -->
+                                <?php
+                                $success = $this->session->flashdata('success');
+                                if ($success != null && $success != "") { ?>
+                                    <div id="success" class="alert fs-16 alert-success" style="margin-left: -16px;" role="alert">
+                                        <?= $success ?>
+                                    </div>
+                                <?php } ?>
+
                                 <?php foreach ($listClass as $i => $class) { ?>
                                     <!-- start form -->
                                     <form action="<?= base_url() ?>teacher/class/edit" method="post">

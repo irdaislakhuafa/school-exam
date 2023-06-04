@@ -144,6 +144,11 @@ class TeacherController extends CI_Controller
         if (!$this->classModel->update(array("id" => $requestBody["id"]), $requestBody)) {
             $this->session->set_flashdata('error', 'gagal mengupdate data');
         }
+        // TODO: update materi/subtema
+
+        $this->session->set_flashdata('success', 'Data berhasil update');
+        // TODO: update materi/subtema later
+        // redirect(base_url() . "teacher/class/subtema/selectEdit");
         redirect(base_url() . "teacher/home");
     }
 
@@ -251,6 +256,22 @@ class TeacherController extends CI_Controller
             $this->load->view("teacher/newMateri", $data);
         }
 
+        return;
+    }
+
+    // TODO: add auth
+    public function selectEditSubtema()
+    {
+        $listSubtema = $this->subtemaModel->getList();
+        $data['listSubtema'] = $listSubtema;
+        $this->load->view("teacher/selectEditSubtema", $data);
+        return;
+    }
+
+    // TODO: add auth
+    // TODO: add support to update subtema
+    public function updateSubtema()
+    {
         return;
     }
 }
