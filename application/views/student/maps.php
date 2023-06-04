@@ -22,7 +22,7 @@ $this->basic->headerBootstrap();
             <!-- place 1 -->
             <div class="position-absolute top-50 pt-2 mt-5 current-place" id="place-1" style="margin-left: 200px;">
                 <!-- TODO: code subtema here -->
-                <div id="code" hidden><?= "CODE HERE" ?></div>
+                <div id="code" hidden><?= $listSubtema[0]->id ?></div>
                 <div id="empty">
                     <?php $this->place->emptyPlace(1) ?>
                 </div>
@@ -34,7 +34,7 @@ $this->basic->headerBootstrap();
             <!-- place 2 -->
             <div class="position-absolute place" id="place-2" style="margin-left: 281px; margin-top: -295px;">
                 <!-- TODO: code subtema here -->
-                <div id="code" hidden><?= "CODE HERE" ?></div>
+                <div id="code" hidden><?= $listSubtema[1]->id ?></div>
                 <div id="empty" style="margin-top: 28px; margin-left: 18px;">
                     <?php $this->place->emptyPlace(2) ?>
                 </div>
@@ -46,7 +46,7 @@ $this->basic->headerBootstrap();
             <!-- place 3 -->
             <div class="position-absolute top-0 offset-2 place" id="place-3" style="margin-top: 200px; margin-left: 245px;">
                 <!-- TODO: code subtema here -->
-                <div id="code" hidden><?= "CODE HERE" ?></div>
+                <div id="code" hidden><?= $listSubtema[2]->id ?></div>
                 <div id="empty">
                     <?php $this->place->emptyPlace(3) ?>
                 </div>
@@ -58,7 +58,7 @@ $this->basic->headerBootstrap();
             <!-- place 4 -->
             <div class="position-absolute top-0 offset-2 place" id="place-4" style="margin-top: 100px; margin-left: 221px;">
                 <!-- TODO: code subtema here -->
-                <div id="code" hidden><?= "CODE HERE" ?></div>
+                <div id="code" hidden><?= $listSubtema[3]->id ?></div>
                 <div id="empty">
                     <?php $this->place->emptyPlace(4) ?>
                 </div>
@@ -70,7 +70,7 @@ $this->basic->headerBootstrap();
             <!-- place 5 -->
             <div class="position-absolute top-0 offset-2 place" id="place-5" style="margin-top: 64px; margin-left: 381px;">
                 <!-- TODO: code subtema here -->
-                <div id="code" hidden><?= "CODE HERE" ?></div>
+                <div id="code" hidden><?= $listSubtema[4]->id ?></div>
                 <div id="empty">
                     <?php $this->place->emptyPlace(5) ?>
                 </div>
@@ -82,7 +82,7 @@ $this->basic->headerBootstrap();
             <!-- place 6 -->
             <div class="position-absolute top-0 offset-2 place" id="place-6" style="margin-top: 37px; margin-left: 248px;">
                 <!-- TODO: code subtema here -->
-                <div id="code" hidden><?= "CODE HERE" ?></div>
+                <div id="code" hidden><?= $listSubtema[5]->id ?></div>
                 <div id="empty">
                     <?php $this->place->emptyPlace(6) ?>
                 </div>

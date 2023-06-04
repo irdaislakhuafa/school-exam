@@ -58,11 +58,9 @@ class StudentController extends CI_Controller
     {
         $this->auth();
 
-        // TODO: check student absen code and class code
         $student = $this->studentModel->get(array("id" => $this->session->get_userdata()["userId"]));
-
-        // handle current place
         $data["student"] = $student;
+        $data["listSubtema"] = $this->subtemaModel->getList();
         $this->load->view("student/maps", $data);
     }
 
