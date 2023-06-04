@@ -3,9 +3,9 @@
 class MateriModel extends CI_Model
 {
     private static $TABLE = 'materi';
-    public function insert($materi)
+    public function insert($materi, $id = $this->random->generateUUID())
     {
-        $materi['id'] = $this->random->generateUUID();
+        $materi['id'] = $id;
         return $this->db
             ->insert(MateriModel::$TABLE, $materi);
     }

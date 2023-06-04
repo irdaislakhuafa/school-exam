@@ -187,12 +187,26 @@ class TeacherController extends CI_Controller
                 "subtemaId" => $requestBody['subtemaId'],
                 "content" => $requestBody['content'],
             );
-            if (!$this->materiModel->insert($materi)) {
+            $materiId = $this->random->generateUUID();
+            if (!$this->materiModel->insert($materi, $materiId)) {
                 var_dump("Failed to insert materi");
                 return;
             }
 
             // save images data
+            foreach ($images as $i => $value) {
+                $key = 'image' . $i;
+                $image = array(
+                    "materiId" => $materiId,
+                    "name" => $value[$key],
+                    "description" => $value[$key . "Description"],
+                );
+
+                if (!$this->imagesModel->insert($image)) {
+                    var_dump("Failed to insert image");
+                    return;
+                }
+            }
 
             // TODO: save soal
 
