@@ -12,7 +12,7 @@ $this->basic->headerBootstrap();
         <?php $this->island->showTinyIslands() ?>
 
         <!-- start form create class -->
-        <form action="<?= base_url() ?>teacher/class/create" method="post">
+        <form action="<?= base_url() ?>teacher/class/update" method="post">
             <!-- start class -->
             <div id="class" class="position-absolute top-0 start-50 translate-middle-x mt-5">
                 <!-- start card -->
@@ -31,20 +31,20 @@ $this->basic->headerBootstrap();
 
                                         <!-- class name -->
                                         <div class="mb-3">
-                                            <label for="exampleFormControlInput1" class="font-weight-bold form-label">Nama Kelas</label>
-                                            <input name="className" type="text" class="form-control shadow rounded-3b" style="background-color: #F5F5F5;" id="" placeholder="Nama Kelas">
+                                            <label for="name" class="font-weight-bold form-label">Nama Kelas</label>
+                                            <input value="<?= $class->name ?>" required name="name" type="text" class="form-control shadow rounded-3b" style="background-color: #F5F5F5;" id="name" placeholder="Nama Kelas">
                                         </div>
 
                                         <!-- class tema -->
                                         <div class="mb-3">
-                                            <label for="exampleFormControlInput1" class="font-weight-bold form-label">Tema</label>
-                                            <input name="classTema" type="text" class="form-control shadow rounded-3b" style="background-color: #F5F5F5;" id="" placeholder="Tema">
+                                            <label for="tema" class="font-weight-bold form-label">Tema</label>
+                                            <input value="<?= $class->tema ?>" required name="tema" type="text" class="form-control shadow rounded-3b" style="background-color: #F5F5F5;" id="tema" placeholder="Tema">
                                         </div>
 
                                         <!-- class code -->
                                         <div class="mb-3">
-                                            <label for="exampleFormControlInput1" class="font-weight-bold form-label">Kode Kelas</label>
-                                            <input name="classCode" type="text" class="form-control shadow rounded-3b" style="background-color: #F5F5F5;" id="" placeholder="Masukan Kode">
+                                            <label for="code" class="font-weight-bold form-label">Kode Kelas</label>
+                                            <input value="<?= $class->code ?>" required name="code" type="text" class="form-control shadow rounded-3b" style="background-color: #F5F5F5;" id="code" placeholder="Masukan Kode">
                                         </div>
                                     </div>
                                 </div>

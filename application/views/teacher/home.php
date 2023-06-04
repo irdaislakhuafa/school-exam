@@ -26,6 +26,13 @@ $this->basic->headerBootstrap();
                         <div class="col-10 float-end w-75">
                             <div class="ms-0 me-5">
                                 <div class="mb-3 font-weight-bold">Kelas Anda :</div>
+                                <?php
+                                $error = $this->session->flashdata('error');
+                                if ($error != null || $error != "") { ?>
+                                    <div id="error" class="alert fs-16 alert-danger" role="alert">
+                                        <?= $error ?>
+                                    </div>
+                                <?php } ?>
 
                                 <?php foreach ($listClass as $i => $class) { ?>
                                     <!-- start form -->
@@ -33,7 +40,7 @@ $this->basic->headerBootstrap();
                                         <!-- start list class -->
                                         <div class="card mb-3 shadow-lg p-4 rounded-4" style="background: #79E0EE;">
                                             <!-- class code/id -->
-                                            <div name="code" hidden></div>
+                                            <input type="text" name="id" value="<?= $class["id"] ?>" hidden></input>
                                             <!-- tema title -->
                                             <div class="font-weight-bold text-capitalize">
                                                 <span class="badge text-bg-danger"><?= $class["tema"] ?></span>

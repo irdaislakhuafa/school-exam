@@ -29,4 +29,22 @@ class ClassModel extends CI_Model
             ->row_object();
         return $result;
     }
+
+    // result is list of object
+    public function getList($class = array())
+    {
+        $result = $this->db
+            ->where($class)
+            ->get(ClassModel::$TABLE);
+        return $result->result_object();
+    }
+
+    // result is one object
+    public function get($class = array())
+    {
+        $result = $this->db
+            ->where($class)
+            ->get(ClassModel::$TABLE);
+        return $result->row_object();
+    }
 }

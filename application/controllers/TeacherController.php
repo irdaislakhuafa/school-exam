@@ -19,6 +19,7 @@ class TeacherController extends CI_Controller
         redirect(base_url() . "teacher/login");
     }
 
+    // TODO: add auth
     public function index()
     {
         $this->load->view("teacher/login");
@@ -55,8 +56,6 @@ class TeacherController extends CI_Controller
         redirect(base_url() . "teacher/home");
     }
 
-    // TODO: added function to check login teacher and redirect to home if true
-
     public function home()
     {
         // add auth
@@ -78,11 +77,13 @@ class TeacherController extends CI_Controller
         $this->load->view("teacher/home", $data);
     }
 
+    // TODO: add auth
     public function newClass()
     {
         $this->load->view("teacher/newClass");
     }
 
+    // TODO: add auth
     // TODO: add login to create new class
     public function createClass()
     {
@@ -123,19 +124,33 @@ class TeacherController extends CI_Controller
     }
     // TODO: added method to edit class
     // TODO: added method to view scores student of class
+    // TODO: add auth
     public function editClass()
     {
-        $classData = $this->input->post();
-        // TODO: get class by class code and send to view
-        $this->load->view("teacher/editClass");
+        $requestBody = $this->input->post();
+        $class = $this->classModel->get(array('id' => $requestBody["id"]));
+        if ($class == null) {
+            $this->session->set_flashdata('error', 'kelas dengan id' . $requestBody["id"] . " tidak ada!");
+            redirect(base_url() . "teacher/home");
+        }
+
+        $data["class"] = $class;
+        $this->load->view("teacher/editClass", $data);
     }
 
+    public function updateClass()
+    {
+        $requestBody = $this->input->post();
+    }
+
+    // TODO: add auth
     public function selectSubtema()
     {
         $data['listSubtema'] = $this->subtemaModel->getList();
         $this->load->view("teacher/selectSubtema", $data);
     }
 
+    // TODO: add auth
     public function newMateri($subtemaId, $questionNumber = 0)
     {
         $data['subtema'] = $this->subtemaModel->get(array('id' => $subtemaId));
