@@ -30,7 +30,7 @@ CREATE TABLE `subtema` (
   `name` varchar(255) UNIQUE NOT NULL
 );
 
-CREATE TABLE `question` (
+CREATE TABLE `materi` (
   `id` varchar(255) PRIMARY KEY,
   `subtemaId` varchar(255),
   `content` text NOT NULL,
@@ -42,12 +42,19 @@ CREATE TABLE `question` (
   `image3Text` text
 );
 
-CREATE TABLE `answer` (
+CREATE TABLE `soal` (
   `id` varchar(255) PRIMARY KEY,
-  `questionId` varchar(255) NOT NULL,
-  `content` text NOT NULL
+  `materiId` varchar(255) NOT NULL,
+  `answer` text NOT NULL
 );
 
+CREATE TABLE `scores` (
+  `id` varchar(255) PRIMARY KEY,
+  `subtemaId` varchar(255) NOT NULL,
+  `materiId` varchar(255) NOT NULL,
+  `studentId` varchar(255) NOT NULL,
+  `value` varchar(255) NOT NULL
+);
 
 -- end schema
 

@@ -13,7 +13,7 @@ $this->basic->headerBootstrap();
 
         <!-- TODO: soalnya ada 5 -->
         <!-- TODO: save soal -->
-        <form action="<?= base_url() ?>teacher/class/subtema/new/<?= $subtema->id ?>/<?= $questionNumber ?>" method="post">
+        <form action="<?= base_url() ?>teacher/class/subtema/materi/new/<?= $subtema->id ?>/<?= $questionNumber + 1 ?>" method="post" enctype="multipart/form-data">
             <!-- start subtema/soal page -->
             <div class="position-absolute top-0 start-50 translate-middle-x mt-5">
                 <!-- start card -->
@@ -34,10 +34,14 @@ $this->basic->headerBootstrap();
 
                                     <!-- start input subtema -->
                                     <div class="">
-                                        <!-- materi -->
+                                        <!-- subtema id -->
+                                        <input required name="subtemaId" value="<?= $subtema->id ?>" hidden type="text">
                                         <div class="mb-3">
-                                            <label for="exampleFormControlTextarea1" class="form-label">Materi : <?= $questionNumber ?> </label>
-                                            <textarea class="form-control shadow rounded-2" rows="13" style="background-color: #F5F5F5 !important;" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <!-- materi -->
+                                            <label for="materi" class="form-label">Materi : <?= $questionNumber ?> </label>
+                                            <textarea required name="content" class="form-control shadow rounded-2" rows="13" style="background-color: #F5F5F5 !important;" id="materi" rows="3"></textarea>
+
+                                            <!-- upload list image -->
                                             <div class="row">
                                                 <?php for ($i = 1; $i <= 3; $i++) { ?>
                                                     <div class="col-4 w-100 me-5 fs-16">
@@ -49,8 +53,15 @@ $this->basic->headerBootstrap();
                                         </div>
                                         <!-- soal -->
                                         <div class="mb-3">
-                                            <label for="" class="form-label">Soal : <?= $questionNumber ?></label>
-                                            <textarea class="form-control shadow rounded-2" rows="8" style="background-color: #F5F5F5 !important;" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <div class="row">
+                                                <label for="" class="form-label">Soal Pertanyaan : <?= $questionNumber ?></label>
+                                                <div class="col-6">
+                                                    <textarea required class="form-control shadow rounded-2" rows="8" style="background-color: #F5F5F5 !important;" id="soal1" rows="3" cols="10"></textarea>
+                                                </div>
+                                                <div class="col-6">
+                                                    <textarea required class="form-control shadow rounded-2" rows="8" style="background-color: #F5F5F5 !important;" id="soal2" rows="3" cols="10"></textarea>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <!-- end input subtema -->
@@ -62,9 +73,11 @@ $this->basic->headerBootstrap();
                     </div>
                     <!-- end card body -->
 
+                    <!-- TODO: handle save new soal here -->
+
                     <!-- next button -->
                     <div class="d-flex justify-content-between">
-                        <button id="back" type="submit" class="btn shadow bg-white ps-5 pe-5">Kembali</button>
+                        <a href="<?= base_url() . "teacher/class/subtema/select" ?>" id="back" class="btn shadow bg-white ps-5 pe-5">Kembali</a>
                         <button id="save" type="submit" class="btn shadow bg-white ps-5 pe-5">
                             <?php
                             if ($questionNumber <= 4) {
@@ -85,9 +98,9 @@ $this->basic->headerBootstrap();
 
     <script>
         // back
-        document.getElementById("back").addEventListener("click", () => window.location.href = "<?= base_url() ?>teacher/class/subtema/select")
+        // document.getElementById("back").addEventListener("click", () => window.location.href = "<?= base_url() ?>teacher/class/subtema/select")
         // TODO: save and redirect to teacher/class/subtema/select
-        document.getElementById("save").addEventListener("click", () => window.location.href = "<?= base_url() ?>teacher/class/subtema/select")
+        // document.getElementById("save").addEventListener("click", () => window.location.href = "<?= base_url() ?>teacher/class/subtema/select")
     </script>
 
     <!-- footer scripts -->

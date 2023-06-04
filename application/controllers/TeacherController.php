@@ -135,20 +135,69 @@ class TeacherController extends CI_Controller
         $data['listSubtema'] = $this->subtemaModel->getList();
         $this->load->view("teacher/selectSubtema", $data);
     }
-    public function newSubtema($subtemaId, $questionNumber = 1)
+
+    public function newMateri($subtemaId, $questionNumber = 1)
     {
         $data['subtema'] = $this->subtemaModel->get(array('id' => $subtemaId));
         $data['questionNumber'] = $questionNumber;
-
         if ($questionNumber <= 5) {
-            $this->load->view("teacher/newSubtema", $data);
-        } else {
-            redirect(base_url() . '/teacher/home');
+            // TODO: added form validation here
+            // TODO: remove this
+
+            // to store uploaded images
+            $images = array();
+
+            // upload images
+            for ($i = 1; $i <= 3; $i++) {
+                $imgKey = 'image' . $i;
+                $imgDescription = 'image' . $i . "Description";
+
+                if (isset($_FILES[$imgKey])) {
+                    // upload config
+                    $config['upload_path'] = './uploads/';
+                    $config['allowed_types'] =  'gif|jpg|jpeg|png';
+                    $config['max_size'] = (1024 * 5); // 5MB
+
+                    // $fileName = $_FILES(); 
+                    $fileName = $this->random->generateUUID() . $_FILES[$imgKey]['name'];
+                    $config['file_name'] = $fileName;
+
+                    // TODO: for loop to upload file here
+                    $this->load->library('upload', $config);
+
+                    // if upload failed
+                    if (!$this->upload->do_upload($imgKey)) {
+                        $error = $this->upload->display_errors();
+                        $this->session->set_flashdata('error', $error);
+                        // TODO: show error on display
+                        var_dump($error);
+                        return;
+                    }
+
+                    array_push($images, array(
+                        $imgKey . "Url" => $fileName,
+                        $imgKey . "Text" => $this->input->post($imgDescription),
+                    ));
+                }
+            }
+
+            $requestBody = $this->input->post();
+            // TODO: save materi
+
+            // TODO: save soal
+
+            // TODO: add logic to save new materi here
+            $this->load->view("teacher/newMateri", $data);
+            return;
         }
+
+        redirect(base_url() . '/teacher/home');
+        return;
     }
 
-    public function createSubtema()
+    public function createSubtema($subtemaId, $questionNumber)
     {
+        $data = $this->input->post();
         // $subtema = $this->input->post();
     }
 }
