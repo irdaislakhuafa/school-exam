@@ -47,4 +47,11 @@ class ClassModel extends CI_Model
             ->get(ClassModel::$TABLE);
         return $result->row_object();
     }
+
+    public function update($condition = array(), $class = array())
+    {
+        return $this->db
+            ->where($condition)
+            ->update(ClassModel::$TABLE, $class);
+    }
 }

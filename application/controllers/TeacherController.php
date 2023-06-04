@@ -141,6 +141,10 @@ class TeacherController extends CI_Controller
     public function updateClass()
     {
         $requestBody = $this->input->post();
+        if (!$this->classModel->update(array("id" => $requestBody["id"]), $requestBody)) {
+            $this->session->set_flashdata('error', 'gagal mengupdate data');
+        }
+        redirect(base_url() . "teacher/home");
     }
 
     // TODO: add auth

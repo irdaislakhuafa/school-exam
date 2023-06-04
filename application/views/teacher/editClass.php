@@ -29,6 +29,9 @@ $this->basic->headerBootstrap();
                                     <div class="mb-3 font-weight-bold">Edit Kelas :</div>
                                     <div class="fs-18">
 
+                                        <!-- id -->
+                                        <input type="text" name="id" hidden value="<?= $class->id ?>" required id="">
+
                                         <!-- class name -->
                                         <div class="mb-3">
                                             <label for="name" class="font-weight-bold form-label">Nama Kelas</label>
