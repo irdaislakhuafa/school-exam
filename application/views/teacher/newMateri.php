@@ -38,8 +38,8 @@ $this->basic->headerBootstrap();
                                         <input required name="subtemaId" value="<?= $subtema->id ?>" hidden type="text">
                                         <div class="mb-3">
                                             <!-- materi -->
-                                            <label for="materi" class="form-label">Materi : <?= $questionNumber ?> </label>
-                                            <textarea required name="content" class="form-control shadow rounded-2" rows="13" style="background-color: #F5F5F5 !important;" id="materi" rows="3"></textarea>
+                                            <label for="content" class="form-label">Materi : <?= $questionNumber ?> </label>
+                                            <textarea required name="content" class="form-control shadow rounded-2" rows="13" style="background-color: #F5F5F5 !important;" id="content" rows="3"></textarea>
 
                                             <!-- upload list image -->
                                             <div class="row">

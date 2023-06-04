@@ -33,13 +33,14 @@ CREATE TABLE `subtema` (
 CREATE TABLE `materi` (
   `id` varchar(255) PRIMARY KEY,
   `subtemaId` varchar(255),
-  `content` text NOT NULL,
-  `image1Url` text,
-  `image2Url` text,
-  `image3Url` text,
-  `image1Text` text,
-  `image2Text` text,
-  `image3Text` text
+  `content` text NOT NULL
+);
+
+CREATE TABLE `images` (
+  `id` varchar(255) PRIMARY KEY,
+  `materiId` varchar(255) NOT NULL,
+  `name` text,
+  `description` text
 );
 
 CREATE TABLE `soal` (

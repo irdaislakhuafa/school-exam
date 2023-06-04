@@ -183,6 +183,12 @@ class TeacherController extends CI_Controller
 
             $requestBody = $this->input->post();
             // TODO: save materi
+            $matery = array(
+                "subtemaId" => $requestBody['subtemaId'],
+                "content" => $requestBody['content'],
+
+            );
+
 
             // TODO: save soal
 
