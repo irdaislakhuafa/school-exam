@@ -151,4 +151,5 @@ $autoload['model'] = array(
     "SubtemaModel" => "subtemaModel",
     "MateriModel" => "materiModel",
     "ImagesModel" => "imagesModel",
+    "SoalModel" => "soalModel",
 );
