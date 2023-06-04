@@ -3,8 +3,12 @@
 class MateriModel extends CI_Model
 {
     private static $TABLE = 'materi';
-    public function insert($materi, $id = $this->random->generateUUID())
+    public function insert($materi, $id = "")
     {
+        if ($id == "") {
+            $id = $this->random->generateUUID();
+        }
+
         $materi['id'] = $id;
         return $this->db
             ->insert(MateriModel::$TABLE, $materi);

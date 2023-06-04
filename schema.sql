@@ -46,7 +46,7 @@ CREATE TABLE `images` (
 CREATE TABLE `soal` (
   `id` varchar(255) PRIMARY KEY,
   `materiId` varchar(255) NOT NULL,
-  `answer` text NOT NULL
+  `question` text NOT NULL
 );
 
 CREATE TABLE `scores` (

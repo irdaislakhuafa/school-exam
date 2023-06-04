@@ -3,8 +3,12 @@
 class SoalModel extends CI_Model
 {
     private static $TABLE = 'soal';
-    public function insert($soal, $id = $this->random->generateUUID())
+    public function insert($soal, $id = "")
     {
+        if ($id == "") {
+            $id = $this->random->generateUUID();
+        }
+
         $soal['id'] = $id;
         return $this->db
             ->insert(SoalModel::$TABLE, $soal);

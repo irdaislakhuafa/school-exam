@@ -56,10 +56,12 @@ $this->basic->headerBootstrap();
                                             <div class="row">
                                                 <label for="" class="form-label">Soal Pertanyaan : <?= $questionNumber ?></label>
                                                 <div class="col-6">
-                                                    <textarea required class="form-control shadow rounded-2" rows="8" style="background-color: #F5F5F5 !important;" id="soal1" rows="3" cols="10"></textarea>
+                                                    <span>Soal 1</span>
+                                                    <textarea required class="form-control shadow rounded-2" rows="8" style="background-color: #F5F5F5 !important;" id="question1" rows="3" cols="10"></textarea>
                                                 </div>
                                                 <div class="col-6">
-                                                    <textarea required class="form-control shadow rounded-2" rows="8" style="background-color: #F5F5F5 !important;" id="soal2" rows="3" cols="10"></textarea>
+                                                    <span>Soal 2</span>
+                                                    <textarea required class="form-control shadow rounded-2" rows="8" style="background-color: #F5F5F5 !important;" id="question2" rows="3" cols="10"></textarea>
                                                 </div>
                                             </div>
                                         </div>

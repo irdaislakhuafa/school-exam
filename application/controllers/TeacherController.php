@@ -140,10 +140,7 @@ class TeacherController extends CI_Controller
     {
         $data['subtema'] = $this->subtemaModel->get(array('id' => $subtemaId));
         $data['questionNumber'] = $questionNumber;
-        if ($questionNumber <= 5) {
-            // TODO: added form validation here
-            // TODO: remove this
-
+        if ($questionNumber != 1 && $questionNumber <= 5) {
             // to store uploaded images
             $images = array();
 
@@ -152,41 +149,48 @@ class TeacherController extends CI_Controller
                 $imgKey = 'image' . $i;
                 $imgDescription = 'image' . $i . "Description";
 
-                if (isset($_FILES[$imgKey])) {
-                    // upload config
-                    $config['upload_path'] = './uploads/';
-                    $config['allowed_types'] =  'gif|jpg|jpeg|png';
-                    $config['max_size'] = (1024 * 5); // 5MB
+                // var_dump(isset($_FILES[$imgKey]));
+                // var_dump($_FILES[$imgKey]);
+                if (isset($_FILES[$imgKey]) == true) {
+                    if ($_FILES[$imgKey]['name'] != "") {
+                        // upload config
+                        $config['upload_path'] = './uploads/';
+                        $config['allowed_types'] =  'gif|jpg|jpeg|png';
+                        $config['max_size'] = (1024 * 5); // 5MB
 
-                    // $fileName = $_FILES(); 
-                    $fileName = $this->random->generateUUID() . $_FILES[$imgKey]['name'];
-                    $config['file_name'] = $fileName;
+                        // $fileName = $_FILES(); 
+                        $fileName = $this->random->generateUUID() . $_FILES[$imgKey]['name'];
+                        $config['file_name'] = $fileName;
 
-                    // TODO: for loop to upload file here
-                    $this->load->library('upload', $config);
+                        // TODO: for loop to upload file here
+                        $this->load->library('upload', $config);
 
-                    // if upload failed
-                    if (!$this->upload->do_upload($imgKey)) {
-                        $error = $this->upload->display_errors();
-                        $this->session->set_flashdata('error', $error);
-                        // TODO: show error on display
-                        var_dump($error);
-                        return;
+                        // if upload failed
+                        if (!$this->upload->do_upload($imgKey)) {
+                            $error = $this->upload->display_errors();
+                            $this->session->set_flashdata('error', $error);
+                            // TODO: show error on display
+                            var_dump($error);
+                            return;
+                        }
+
+                        array_push($images, array(
+                            $imgKey . "Url" => $fileName,
+                            $imgKey . "Text" => $this->input->post($imgDescription),
+                        ));
                     }
-
-                    array_push($images, array(
-                        $imgKey . "Url" => $fileName,
-                        $imgKey . "Text" => $this->input->post($imgDescription),
-                    ));
                 }
             }
 
-            $requestBody = $this->input->post();
+            // $requestBody = ;
+
             // save materi
             $materi = array(
-                "subtemaId" => $requestBody['subtemaId'],
-                "content" => $requestBody['content'],
+                "subtemaId" => $subtemaId,
+                "content" => $this->input->post('content'),
             );
+
+            var_dump($materi);
             $materiId = $this->random->generateUUID();
             if (!$this->materiModel->insert($materi, $materiId)) {
                 var_dump("Failed to insert materi");
@@ -208,20 +212,115 @@ class TeacherController extends CI_Controller
                 }
             }
 
-            // TODO: save soal
+            //  save soal
+            for ($i = 1; $i <= 2; $i++) {
+                $soal = array(
+                    "materiId" => $materiId,
+                    "question" => $this->input->post("question" . $i),
+                );
 
-            // TODO: add logic to save new materi here
-            $this->load->view("teacher/newMateri", $data);
-            return;
+                if (!$this->soalModel->insert($soal)) {
+                    var_dump("Failed to insert soal");
+                    return;
+                }
+            }
         }
 
-        redirect(base_url() . '/teacher/home');
+        $this->load->view("teacher/newMateri", $data);
         return;
+
+        // redirect(base_url() . '/teacher/home');
+        // return;
     }
 
-    public function createSubtema($subtemaId, $questionNumber)
+    public function createMateri($subtemaId, $questionNumber)
     {
-        $data = $this->input->post();
-        // $subtema = $this->input->post();
+        //     if ($questionNumber <= 5) {
+        //         // to store uploaded images
+        //         $images = array();
+
+        //         // upload images
+        //         for ($i = 1; $i <= 3; $i++) {
+        //             $imgKey = 'image' . $i;
+        //             $imgDescription = 'image' . $i . "Description";
+
+        //             if (isset($_FILES[$imgKey])) {
+        //                 // upload config
+        //                 $config['upload_path'] = './uploads/';
+        //                 $config['allowed_types'] =  'gif|jpg|jpeg|png';
+        //                 $config['max_size'] = (1024 * 5); // 5MB
+
+        //                 // $fileName = $_FILES(); 
+        //                 $fileName = $this->random->generateUUID() . $_FILES[$imgKey]['name'];
+        //                 $config['file_name'] = $fileName;
+
+        //                 // TODO: for loop to upload file here
+        //                 $this->load->library('upload', $config);
+
+        //                 // if upload failed
+        //                 if (!$this->upload->do_upload($imgKey)) {
+        //                     $error = $this->upload->display_errors();
+        //                     $this->session->set_flashdata('error', $error);
+        //                     // TODO: show error on display
+        //                     var_dump($error);
+        //                     return;
+        //                 }
+
+        //                 array_push($images, array(
+        //                     $imgKey . "Url" => $fileName,
+        //                     $imgKey . "Text" => $this->input->post($imgDescription),
+        //                 ));
+        //             }
+        //         }
+
+        //         // $requestBody = ;
+
+        //         // save materi
+        //         $materi = array(
+        //             "subtemaId" => $subtemaId,
+        //             "content" => $this->input->post('content'),
+        //         );
+
+        //         var_dump($materi);
+        //         $materiId = $this->random->generateUUID();
+        //         if (!$this->materiModel->insert($materi, $materiId)) {
+        //             var_dump("Failed to insert materi");
+        //             return;
+        //         }
+
+        //         // save images data
+        //         foreach ($images as $i => $value) {
+        //             $key = 'image' . $i;
+        //             $image = array(
+        //                 "materiId" => $materiId,
+        //                 "name" => $value[$key],
+        //                 "description" => $value[$key . "Description"],
+        //             );
+
+        //             if (!$this->imagesModel->insert($image)) {
+        //                 var_dump("Failed to insert image");
+        //                 return;
+        //             }
+        //         }
+
+        //         //  save soal
+        //         for ($i = 1; $i <= 2; $i++) {
+        //             $soal = array(
+        //                 "materiId" => $materiId,
+        //                 "question" => $requestBody['question' . $i],
+        //             );
+
+        //             if (!$this->soalModel->insert($soal)) {
+        //                 var_dump("Failed to insert soal");
+        //                 return;
+        //             }
+        //         }
+
+        //         $this->load->view("teacher/newMateri", $data);
+        //         return;
+        //     }
+
+        //     redirect(base_url() . '/teacher/home');
+        //     return;
     }
 }
