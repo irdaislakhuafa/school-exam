@@ -190,7 +190,7 @@ class TeacherController extends CI_Controller
                 "content" => $this->input->post('content'),
             );
 
-            var_dump($materi);
+            var_dump($images);
             $materiId = $this->random->generateUUID();
             if (!$this->materiModel->insert($materi, $materiId)) {
                 var_dump("Failed to insert materi");
@@ -199,11 +199,11 @@ class TeacherController extends CI_Controller
 
             // save images data
             foreach ($images as $i => $value) {
-                $key = 'image' . $i;
+                $key = 'image' . ($i + 1);
                 $image = array(
                     "materiId" => $materiId,
-                    "name" => $value[$key],
-                    "description" => $value[$key . "Description"],
+                    "name" => $value[$key . "Url"],
+                    "description" => $value[$key . "Text"],
                 );
 
                 if (!$this->imagesModel->insert($image)) {
