@@ -38,7 +38,7 @@ $this->basic->headerBootstrap();
                                         <input required name="subtemaId" value="<?= $subtema->id ?>" hidden type="text">
                                         <div class="mb-3">
                                             <!-- materi -->
-                                            <label for="content" class="form-label">Materi : <?= $questionNumber ?> </label>
+                                            <label for="content" class="form-label">Materi : <?= $questionNumber  ?> </label>
                                             <textarea required name="content" class="form-control shadow rounded-2" rows="13" style="background-color: #F5F5F5 !important;" id="content" rows="3"></textarea>
 
                                             <!-- upload list image -->
@@ -54,7 +54,7 @@ $this->basic->headerBootstrap();
                                         <!-- soal -->
                                         <div class="mb-3">
                                             <div class="row">
-                                                <label for="" class="form-label">Soal Pertanyaan : <?= $questionNumber ?></label>
+                                                <label for="" class="form-label">Soal Pertanyaan : <?= $questionNumber  ?></label>
                                                 <div class="col-6">
                                                     <span>Soal 1</span>
                                                     <textarea id="question1" name="question1" required class="form-control shadow rounded-2" rows="8" style="background-color: #F5F5F5 !important;" rows="3" cols="10"></textarea>
@@ -80,15 +80,16 @@ $this->basic->headerBootstrap();
                     <!-- next button -->
                     <div class="d-flex justify-content-between">
                         <a href="<?= base_url() . "teacher/class/subtema/select" ?>" id="back" class="btn shadow bg-white ps-5 pe-5">Kembali</a>
-                        <button id="save" type="submit" class="btn shadow bg-white ps-5 pe-5">
-                            <?php
-                            if ($questionNumber <= 4) {
-                                echo "Selanjutnya";
-                            } else {
-                                echo "Simpan";
-                            }
-                            ?>
-                        </button>
+                        <?php
+                        if ($questionNumber < 5) { ?>
+                            <button id="save" type="submit" class="btn shadow bg-white ps-5 pe-5">Selanjutnya</button>
+                        <?php
+                        } else { ?>
+                            <button id="save" type="submit" class="btn shadow bg-white ps-5 pe-5">Simpan</button>
+                            <!-- <a id="save" href="<?= base_url() ?>teacher/class/subtema/select" class="btn shadow bg-white ps-5 pe-5"> Simpan</a> -->
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
                 <!-- end card -->
