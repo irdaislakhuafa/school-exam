@@ -101,8 +101,8 @@ $this->basic->headerBootstrap();
                 <!-- name -->
                 <div class="mb-2 text-capitalize">
                     <?php
-                    if ($student["name"] != null && $student["name"] != "") {
-                        echo $student["name"];
+                    if ($student->name != null && $student->name != "") {
+                        echo $student->name;
                     } else {
                         echo "Student Name";
                     }
@@ -111,8 +111,8 @@ $this->basic->headerBootstrap();
                 <!-- no. absen -->
                 <div class="mb-2">
                     <?php
-                    if ($student["absenCode"] != null && $student["absenCode"] != "") {
-                        echo $student["absenCode"];
+                    if ($student->noAbsen != null && $student->noAbsen != "") {
+                        echo $student->noAbsen;
                     } else {
                         echo "No Absen";
                     }

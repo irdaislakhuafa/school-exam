@@ -59,13 +59,9 @@ class StudentController extends CI_Controller
         $this->auth();
 
         // TODO: check student absen code and class code
-        $student = array(
-            "name" => $this->input->post("name"),
-            "absenCode" => $this->input->post("absenCode"),
-            "classCode" => $this->input->post("classCode"),
-        );
+        $student = $this->studentModel->get(array("id" => $this->session->get_userdata()["userId"]));
 
-        // TODO: handle current place
+        // handle current place
         $data["student"] = $student;
         $this->load->view("student/maps", $data);
     }
