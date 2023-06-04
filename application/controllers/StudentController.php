@@ -64,15 +64,16 @@ class StudentController extends CI_Controller
         $this->load->view("student/maps", $data);
     }
 
-    public function subtema($subtema)
+    public function subtema($subtemaId)
     {
-        $data["subtema_number"] = $subtema;
+        $data["subtema"] = $this->subtemaModel->get(array("id" => $subtemaId));
+        $data["listMateri"] = $this->materiModel->getList();
+
         $this->load->view("student/subtema", $data);
     }
 
     public function soal($subtema)
     {
-        echo $subtema;
         $this->load->view("student/soal");
     }
     public function nilai($id)

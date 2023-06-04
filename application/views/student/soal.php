@@ -65,8 +65,9 @@ $this->basic->headerBootstrap();
         let btnNext = document.getElementById("next")
 
         btnBack.addEventListener('click', function() {
-            // TODO: redirect to subtema
-            window.location.href = '<?= base_url() ?>student/subtema/xx'
+            // TODO: redirect to subtema           
+            history.back();
+
         })
 
         btnNext.addEventListener('click', function() {

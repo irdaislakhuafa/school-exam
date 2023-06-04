@@ -39,7 +39,11 @@ $this->basic->headerBootstrap();
                                         <div class="mb-3">
                                             <!-- materi -->
                                             <label for="content" class="form-label">Materi : <?= $questionNumber  ?> </label>
-                                            <textarea required name="content" class="form-control shadow rounded-2" rows="13" style="background-color: #F5F5F5 !important;" id="content" rows="3"></textarea>
+                                            <div class="input-group mb-3  shadow rounded-2">
+                                                <span class="input-group-text" id="title">Judul</span>
+                                                <input required name="title" type="text" class="form-control" placeholder="Tulis Judul Materi" aria-label="title" aria-describedby="title">
+                                            </div>
+                                            <textarea required name="content" class="form-control shadow rounded-2" rows="13" style="background-color: #F5F5F5 !important;" id="content"></textarea>
 
                                             <!-- upload list image -->
                                             <div class="row">
