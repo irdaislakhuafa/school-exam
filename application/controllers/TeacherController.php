@@ -182,13 +182,17 @@ class TeacherController extends CI_Controller
             }
 
             $requestBody = $this->input->post();
-            // TODO: save materi
-            $matery = array(
+            // save materi
+            $materi = array(
                 "subtemaId" => $requestBody['subtemaId'],
                 "content" => $requestBody['content'],
-
             );
+            if (!$this->materiModel->insert($materi)) {
+                var_dump("Failed to insert materi");
+                return;
+            }
 
+            // save images data
 
             // TODO: save soal
 
