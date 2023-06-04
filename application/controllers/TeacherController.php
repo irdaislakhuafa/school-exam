@@ -274,4 +274,20 @@ class TeacherController extends CI_Controller
     {
         return;
     }
+
+    // TODO: add auth
+    public function selectSubtemaResult()
+    {
+        $listSubtema = $this->subtemaModel->getList();
+        $data['listSubtema'] = $listSubtema;
+        $this->load->view("teacher/selectSubtemaResult", $data);
+        return;
+    }
+
+    // TODO: add auth
+    public function result($classId, $subtemaId)
+    {
+        // TODO: added functionality here
+        return;
+    }
 }
