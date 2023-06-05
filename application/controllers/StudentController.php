@@ -64,17 +64,41 @@ class StudentController extends CI_Controller
         $this->load->view("student/maps", $data);
     }
 
-    public function subtema($subtemaId)
+    public function subtema($subtemaId, $number = 1)
     {
         $data["subtema"] = $this->subtemaModel->get(array("id" => $subtemaId));
-        $data["listMateri"] = $this->materiModel->getList();
+        if (!$data["subtema"]) {
+            echo "Subtema tidak ada";
+            return;
+        }
 
+        $data["materi"] = $this->materiModel->get(array("subtemaId" => $subtemaId, "number" => $number));
+        if (!$data["materi"]) {
+            echo "Materi tidak ada";
+            return;
+        }
         $this->load->view("student/subtema", $data);
     }
 
-    public function soal($subtema)
+    public function soal($materiId)
     {
-        $this->load->view("student/soal");
+        // TODO: get list soal by materi id
+        $listSoal = $this->soalModel->getList(array("materiId" => $materiId));
+        if (!$listSoal) {
+            var_dump("gagal mengambil list soal");
+            return;
+        }
+
+        $materi = $this->materiModel->get(array("id" => $materiId, "number" => 1));
+        if (!$listSoal) {
+            var_dump("gagal mengambil materi " . $materiId);
+            return;
+        }
+
+        $data["listSoal"] = $listSoal;
+        $data["materi"] = $materi;
+        $data["subtemaId"] = $materi["subtemaId"];
+        $this->load->view("student/soal", $data);
     }
     public function nilai($id)
     {

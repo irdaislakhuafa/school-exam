@@ -37,6 +37,7 @@ $this->basic->headerBootstrap();
                                         <!-- subtema id -->
                                         <input required name="subtemaId" value="<?= $subtema->id ?>" hidden type="text">
                                         <div class="mb-3">
+                                            <input type="number" name="number" id="number" hidden value="<?= $questionNumber ?>">
                                             <!-- materi -->
                                             <label for="content" class="form-label">Materi : <?= $questionNumber  ?> </label>
                                             <div class="input-group mb-3  shadow rounded-2">

@@ -214,6 +214,7 @@ class TeacherController extends CI_Controller
                 "subtemaId" => $subtemaId,
                 "content" => $this->input->post('content'),
                 "title" => $this->input->post('title'),
+                "number" => $this->input->post('number'),
             );
 
             $materiId = $this->random->generateUUID();

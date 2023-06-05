@@ -22,20 +22,24 @@ $this->basic->headerBootstrap();
                     <p class="text-black fs-20">Tuliskan pokok pikiran dari setiap paragraf. </p>
 
                     <!-- start input answer -->
-                    <div class="">
-                        <!-- pokok paragraf 1 -->
-                        <span class="fs-20 mb-5 pb-5">Pokok pikiran paragraf 1 :</span>
-                        <div class="input-group">
-                            <textarea class="form-control fs-20" aria-label="With textarea" rows="10"></textarea>
-                        </div>
+                    <form action="" method="post">
+                        <div class="">
+                            <?php foreach ($listSoal as $index => $soal) { ?>
+                                <!-- pokok paragraf 1 -->
+                                <span class="fs-20 mb-5 pb-5"><?= $soal->question ?></span>
+                                <div class="input-group">
+                                    <textarea name="soal<?= $index + 1 ?>" class="form-control fs-20" aria-label="With textarea" rows="10"></textarea>
+                                </div>
+                            <?php } ?>
 
-                        <!-- pokok paragraf 2 -->
-                        <span class="fs-20 mb-5 pb-5">Pokok pikiran paragraf 1 :</span>
-                        <div class="input-group">
-                            <textarea class="form-control fs-20" aria-label="With textarea" rows="10"></textarea>
+                            <!-- pokok paragraf 2 -->
+                            <!-- <span class="fs-20 mb-5 pb-5">Pokok pikiran paragraf 1 :</span>
+                            <div class="input-group">
+                                <textarea class="form-control fs-20" aria-label="With textarea" rows="10"></textarea>
+                            </div> -->
                         </div>
-                    </div>
-                    <!-- end input answer -->
+                        <!-- end input answer -->
+                    </form>
                 </div>
 
                 <!-- <div class="position-absolute top-100 end-0" style="margin-top: 68px; margin-right: 100px;">
@@ -72,8 +76,8 @@ $this->basic->headerBootstrap();
 
         btnNext.addEventListener('click', function() {
             // TODO: handle redirect soal here and ask where Destination
-            alert("Destination of this button is unknown")
-            // window.location.href = 'student/soal/xxx'
+            // alert("Destination of this button is unknown")
+            window.location.href = '<?= base_url() ?>student/subtema/<?= $subtemaId ?>/<?= $materi->number + 1 ?>'
         })
     </script>
 
