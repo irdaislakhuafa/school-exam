@@ -154,7 +154,7 @@ $this->basic->headerBootstrap();
 
                 }
 
-                if (confirm(`Lanjutkan untuk membuka Subtema ${i}?`)) {
+                if (window.confirm(`Lanjutkan untuk membuka Subtema ${i}?`)) {
                     window.location.href = '<?= base_url() ?>student/subtema/' + place.querySelector("#code").textContent;
                 }
             })
