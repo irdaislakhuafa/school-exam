@@ -126,9 +126,6 @@ $this->basic->headerBootstrap();
     </div>
 
     <script>
-        // TODO: added functionality here
-        // TODO: added logic on click place here
-
         const totalPlaces = 6
         for (let i = 1; i <= totalPlaces; i++) {
             let place = document.getElementById(`place-${i}`);
@@ -154,9 +151,9 @@ $this->basic->headerBootstrap();
 
                 }
 
-                if (window.confirm(`Lanjutkan untuk membuka Subtema ${i}?`)) {
-                    window.location.href = '<?= base_url() ?>student/subtema/' + place.querySelector("#code").textContent;
-                }
+                // if (window.confirm(`Lanjutkan untuk membuka Subtema ${i}?`)) {
+                window.location.href = '<?= base_url() ?>student/subtema/' + place.querySelector("#code").textContent;
+                // }
             })
         }
 
