@@ -80,7 +80,7 @@ class StudentController extends CI_Controller
         $this->load->view("student/subtema", $data);
     }
 
-    public function soal($materiId)
+    public function soal($materiId, $materiNumber = 1)
     {
         // TODO: get list soal by materi id
         $listSoal = $this->soalModel->getList(array("materiId" => $materiId));
@@ -89,7 +89,7 @@ class StudentController extends CI_Controller
             return;
         }
 
-        $materi = $this->materiModel->get(array("id" => $materiId, "number" => 1));
+        $materi = $this->materiModel->get(array("id" => $materiId, "number" => $materiNumber));
         if (!$listSoal) {
             var_dump("gagal mengambil materi " . $materiId);
             return;

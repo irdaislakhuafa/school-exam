@@ -20,7 +20,7 @@ $this->basic->headerBootstrap();
                 <div class="font-weight-bold text-up"><?= $materi->title ?></div>
                 <!-- start card body -->
                 <div class="card-body">
-                    <p class="text-black fs-20">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est natus deserunt ut, fuga atque quos in quibusdam earum ad, praesentium consequatur maxime dignissimos vel quis molestias consequuntur numquam. Veritatis, deleniti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam amet veritatis maiores quia qui natus, quidem architecto voluptatum. Dignissimos aliquid sapiente commodi adipisci eos. Quaerat voluptatum minima consequuntur laboriosam sapiente. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, maiores omnis. Eum, deserunt adipisci labore voluptatum provident reiciendis voluptas. Quidem ratione cum praesentium repudiandae harum nesciunt maiores ducimus aspernatur vel? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas itaque corrupti culpa. Vero enim ut inventore, corporis iste magni facilis nobis? Numquam atque id aspernatur fuga saepe non reprehenderit omnis? </p>
+                    <p class="text-black fs-20"><?= $materi->content ?></p>
                 </div>
 
                 <!-- start image -->
@@ -77,7 +77,7 @@ $this->basic->headerBootstrap();
 
         btnNext.addEventListener('click', function() {
             // TODO: handle redirect soal here
-            window.location.href = '<?= base_url() ?>student/soal/<?= $materi->id ?>'
+            window.location.href = '<?= base_url() ?>student/soal/<?= $materi->id . "/" . ($materi->number + 1) ?>'
         })
     </script>
 
