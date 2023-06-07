@@ -289,7 +289,6 @@ class TeacherController extends CI_Controller
     // TODO: add auth
     public function resultMateri($classId, $subtemaId)
     {
-        // TODO: added functionality here
         $data["listMateri"] = $this->materiModel->getList(array("classId" => $classId, "subtemaId" => $subtemaId));
         $this->load->view("teacher/resultMateri", $data);
         return;
@@ -301,6 +300,36 @@ class TeacherController extends CI_Controller
         $data['listSubtema'] = $listSubtema;
         $data["classId"] = $classId;
         $this->load->view("teacher/resultSubtema", $data);
+        return;
+    }
+
+    public function resultStudent($classId, $materiId)
+    {
+        $data["listStudent"] = $this->studentModel->getList(array("classId" => $classId));
+        $data["materi"] = $this->materiModel->get(array("id" => $materiId));
+
+        $listSoal = $this->soalModel->getList(array("materiId" => $materiId));
+        for ($i = 0; $i < count($data["listStudent"]); $i++) {
+            $data["listStudent"][$i]->listSoal = array();
+            foreach ($listSoal as $value) {
+                $answer = $this->answerModel->get(array("soalId" => $value->soalId, "studentId" => $data["listStudent"][$i]->id));
+
+                if ($answer == null) {
+                    $answer = "";
+                } else {
+                    $answer = $answer->answer;
+                }
+
+                $soal = array(
+                    "question" => $value->question,
+                    "answer" => $answer,
+                );
+
+                array_push($data["listStudent"][$i]->listSoal, $soal);
+            }
+        }
+
+        $this->load->view("teacher/resultStudent", $data);
         return;
     }
 }

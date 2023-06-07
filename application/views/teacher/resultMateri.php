@@ -44,7 +44,7 @@ $this->basic->headerBootstrap();
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="btn btn-primary">Lihat</div>
+                                        <a class="btn btn-primary" href="<?= base_url() ?>teacher/class/subtema/resultStudent/<?= $materi->classId ?>/<?= $materi->id ?>">Lihat</a>
                                     </td>
                                 </tr>
                             <?php  } ?>
