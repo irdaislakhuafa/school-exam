@@ -77,6 +77,9 @@ class StudentController extends CI_Controller
             echo "Materi tidak ada";
             return;
         }
+
+        $data["images"] = $this->imagesModel->getList(array("materiId" => $data["materi"]->id));
+
         $this->load->view("student/subtema", $data);
     }
 
@@ -90,14 +93,13 @@ class StudentController extends CI_Controller
         }
 
         $materi = $this->materiModel->get(array("id" => $materiId, "number" => $materiNumber));
-        if (!$listSoal) {
+        if (!$listSoal || $listSoal == null || count($listSoal) == 0) {
             var_dump("gagal mengambil materi " . $materiId);
             return;
         }
 
         $data["listSoal"] = $listSoal;
         $data["materi"] = $materi;
-        $data["subtemaId"] = $materi["subtemaId"];
         $this->load->view("student/soal", $data);
     }
     public function nilai($id)

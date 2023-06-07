@@ -77,7 +77,7 @@ $this->basic->headerBootstrap();
         btnNext.addEventListener('click', function() {
             // TODO: handle redirect soal here and ask where Destination
             // alert("Destination of this button is unknown")
-            window.location.href = '<?= base_url() ?>student/subtema/<?= $subtemaId ?>/<?= $materi->number + 1 ?>'
+            window.location.href = '<?= base_url() ?>student/subtema/<?= $materi->subtemaId ?>/<?= $materi->number + 1 ?>'
         })
     </script>
 

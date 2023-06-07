@@ -17,26 +17,35 @@ $this->basic->headerBootstrap();
             <h1 class="text-uppercase font-weight-bold mb-2 fs-30 text-left text-white">SUBTEMA <?= $subtema->name ?> </h1>
             <!-- start card -->
             <div class="card p-4 shadow  fs-24 rounded-5 " style="width: 80rem; height: min-content">
-                <div class="font-weight-bold text-up"><?= $materi->title ?></div>
+                <div class="font-weight-bold text-up"><?= "Materi " . $materi->number . ": " . $materi->title ?></div>
                 <!-- start card body -->
                 <div class="card-body">
                     <p class="text-black fs-20"><?= $materi->content ?></p>
                 </div>
 
+                <!-- <div class="row d-flex justify-content-between">
+                    <div class="col-4 card-image">
+                        <img src="<?= base_url() ?>assets/images/tiny-island-3.png" class="w-50 h-auto" alt="island 1"><br>
+                        <span class="fs-20 font-weight-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. </span>
+                    </div>
+                    <div class="col-4 card-image">
+                        <img src="<?= base_url() ?>assets/images/tiny-island-3.png" class="w-50 h-auto" alt="island 1"><br>
+                        <span class="fs-20 font-weight-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. </span>
+                    </div>
+                    <div class="col-4 card-image">
+                        <img src="<?= base_url() ?>assets/images/tiny-island-3.png" class="w-50 h-auto" alt="island 1"><br>
+                        <span class="fs-20 font-weight-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. </span>
+                    </div>
+                </div> -->
+
                 <!-- start image -->
                 <div class="row d-flex justify-content-between">
-                    <div class="col-4 card-image">
-                        <img src="<?= base_url() ?>assets/images/tiny-island-3.png" class="w-50 h-auto" alt="island 1"><br>
-                        <span class="fs-20 font-weight-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. </span>
-                    </div>
-                    <div class="col-4 card-image">
-                        <img src="<?= base_url() ?>assets/images/tiny-island-3.png" class="w-50 h-auto" alt="island 1"><br>
-                        <span class="fs-20 font-weight-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. </span>
-                    </div>
-                    <div class="col-4 card-image">
-                        <img src="<?= base_url() ?>assets/images/tiny-island-3.png" class="w-50 h-auto" alt="island 1"><br>
-                        <span class="fs-20 font-weight-bold">Lorem ipsum, dolor sit amet consectetur adipisicing elit. </span>
-                    </div>
+                    <?php foreach ($images as $index => $image) { ?>
+                        <div class="col-4 card-image">
+                            <img src="<?= base_url() ?>uploads/<?= $image->name ?>" class="w-50 h-auto" alt="island 1"><br>
+                            <span class="fs-20 font-weight-bold"><?= $image->description ?></span>
+                        </div>
+                    <?php } ?>
                 </div>
                 <!-- end image -->
 
@@ -71,13 +80,12 @@ $this->basic->headerBootstrap();
         let btnNext = document.getElementById("next")
 
         btnBack.addEventListener('click', function() {
-            // TODO: handle map place position here
             history.back();
         })
 
         btnNext.addEventListener('click', function() {
             // TODO: handle redirect soal here
-            window.location.href = '<?= base_url() ?>student/soal/<?= $materi->id . "/" . ($materi->number + 1) ?>'
+            window.location.href = '<?= base_url() ?>student/soal/<?= $materi->id . "/" . ($materi->number) ?>'
         })
     </script>
 
