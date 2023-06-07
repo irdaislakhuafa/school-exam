@@ -54,14 +54,43 @@ class StudentController extends CI_Controller
         redirect(base_url() . "student/maps");
     }
 
-    public function maps($placeCode = "")
+    public function maps($position = 1)
     {
         $this->auth();
 
         $student = $this->studentModel->get(array("id" => $this->session->get_userdata()["userId"]));
         $data["student"] = $student;
         $data["listSubtema"] = $this->subtemaModel->getList();
+        $data["position"] = $position;
         $this->load->view("student/maps", $data);
+    }
+
+    public function checkAlreadyAnswer($subtemaId)
+    {
+        $currentUser = $this->session->get_userdata();
+        $subtema = $this->subtemaModel->get(array("id" => $subtemaId));
+        $listMateri = $this->materiModel->getList(array('subtemaId' => $subtemaId));
+        if ($listMateri == null) {
+            $this->session->set_flashdata('error', "Materi kosong");
+            redirect(base_url() . "student/maps/" . $subtema->name);
+            return;
+        }
+
+        // TODO: check if already answered
+        // foreach ($listMateri as $im => $materi) {
+        //     $listSoal = $this->soalModel->getList(array("materiId" => $materi->id));
+        //     foreach ($listSoal as $is => $soal) {
+        //         $totalAnswered = $this->answerModel->get(array("studentId" => $currentUser["userId"], "soalId" => $soal->id));
+        //         // if already answered
+        //         if ($totalAnswered != null) {
+        //             $this->session->set_flashdata("error", "Subtema sudah di kerjakan");
+        //             redirect(base_url() . "student/maps");
+        //             return;
+        //         }
+        //     }
+        // }
+
+        redirect(base_url() . "student/materi/" . $subtemaId);
     }
 
     public function materi($subtemaId, $number = 1)

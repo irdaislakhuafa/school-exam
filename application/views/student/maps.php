@@ -19,6 +19,9 @@ $this->basic->headerBootstrap();
             <!-- end card -->
 
 
+            <!-- position -->
+            <div id="position" hidden><?= $position ?></div>
+
             <!-- place 1 -->
             <div class="position-absolute top-50 pt-2 mt-5 current-place" id="place-1" style="margin-left: 200px;">
                 <!-- TODO: code subtema here -->
@@ -95,6 +98,20 @@ $this->basic->headerBootstrap();
         </div>
         <!-- end maps page -->
 
+        <!-- error messages -->
+        <?php
+        $error = $this->session->flashdata('error');
+        if ($error != null || $error != "") {
+        ?>
+            <div class="d-flex justify-content-center">
+                <div id="error" class="alert w-25  text-capitalize fs-16 alert-warning" role="alert">
+                    <?= $error ?>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
+
         <!-- student information -->
         <div class="position-absolute bottom-0 end-0 mb-4">
             <div class="text-right pe-5 text-black">
@@ -129,8 +146,9 @@ $this->basic->headerBootstrap();
         const totalPlaces = 6
         for (let i = 1; i <= totalPlaces; i++) {
             let place = document.getElementById(`place-${i}`);
+            let position = document.getElementById("position")
 
-            if (i === 1) {
+            if (i === parseInt(position.textContent)) {
                 place.querySelector("#empty").setAttribute("hidden", "")
             } else {
                 place.querySelector("#selected").setAttribute("hidden", "")
@@ -152,7 +170,7 @@ $this->basic->headerBootstrap();
                 }
 
                 // if (window.confirm(`Lanjutkan untuk membuka Subtema ${i}?`)) {
-                window.location.href = '<?= base_url() ?>student/materi/' + place.querySelector("#code").textContent;
+                window.location.href = '<?= base_url() ?>student/checkAlreadyAnswer/' + place.querySelector("#code").textContent;
                 // }
             })
         }
