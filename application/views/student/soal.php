@@ -25,26 +25,15 @@ $this->basic->headerBootstrap();
                     <form action="" method="post">
                         <div class="">
                             <?php foreach ($listSoal as $index => $soal) { ?>
-                                <!-- pokok paragraf 1 -->
                                 <span class="fs-20 mb-5 pb-5"><?= $soal->question ?></span>
                                 <div class="input-group">
-                                    <textarea name="soal<?= $index + 1 ?>" class="form-control fs-20" aria-label="With textarea" rows="10"></textarea>
+                                    <textarea required name="soal<?= $index + 1 ?>" class="form-control fs-20" aria-label="With textarea" rows="10"></textarea>
                                 </div>
                             <?php } ?>
-
-                            <!-- pokok paragraf 2 -->
-                            <!-- <span class="fs-20 mb-5 pb-5">Pokok pikiran paragraf 1 :</span>
-                            <div class="input-group">
-                                <textarea class="form-control fs-20" aria-label="With textarea" rows="10"></textarea>
-                            </div> -->
                         </div>
                         <!-- end input answer -->
                     </form>
                 </div>
-
-                <!-- <div class="position-absolute top-100 end-0" style="margin-top: 68px; margin-right: 100px;">
-                    <div class="triangle rounded-4"></div>
-                </div> -->
             </div>
             <!-- end card body -->
         </div>
@@ -57,7 +46,13 @@ $this->basic->headerBootstrap();
             </div>
             <!-- btn next -->
             <div class="mb-5 position-absolute bottom-0 end-0 me-5 pe-4 z-1">
-                <div id="next" class="btn shadow bg-white fs-50 text-black">Selanjutnya</div>
+                <?php
+                $url = base_url() . "student/subtema/" . $materi->subtemaId . "/" . ($materi->number + 1);
+                if ($materi->number > 4) {
+                    $url = base_url() . "student/maps";
+                }
+                ?>
+                <a id="next" class="btn shadow bg-white fs-50 text-black" href="<?= $url ?>">Selanjutnya</a>
             </div>
         </div>
     </div>
@@ -72,12 +67,6 @@ $this->basic->headerBootstrap();
             // TODO: redirect to subtema           
             history.back();
 
-        })
-
-        btnNext.addEventListener('click', function() {
-            // TODO: handle redirect soal here and ask where Destination
-            // alert("Destination of this button is unknown")
-            window.location.href = '<?= base_url() ?>student/subtema/<?= $materi->subtemaId ?>/<?= $materi->number + 1 ?>'
         })
     </script>
 

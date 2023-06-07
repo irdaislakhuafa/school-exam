@@ -84,7 +84,6 @@ $this->basic->headerBootstrap();
         })
 
         btnNext.addEventListener('click', function() {
-            // TODO: handle redirect soal here
             window.location.href = '<?= base_url() ?>student/soal/<?= $materi->id . "/" . ($materi->number) ?>'
         })
     </script>
