@@ -11,7 +11,7 @@ class StudentController extends CI_Controller
         $currentUser = $this->session->get_userdata();
         if (isset($currentUser)) {
             if (isset($currentUser["userId"])) {
-                if ($this->teacherModel->get(array('id' => $currentUser["userId"]))) {
+                if ($this->studentModel->get(array('id' => $currentUser["userId"]))) {
                     return;
                 }
             }
