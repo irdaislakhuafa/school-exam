@@ -44,9 +44,7 @@ $this->basic->headerBootstrap();
                                     <td><?= $student->name ?></td>
                                     <td><?= $student->noAbsen ?></td>
                                     <td>
-                                        <!-- <div class="row"> -->
                                         <div class="btn btn-primary">Lihat</div>
-                                        <!-- </div> -->
                                     </td>
                                 </tr>
                             <?php  } ?>
