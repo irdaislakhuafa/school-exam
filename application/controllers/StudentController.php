@@ -16,7 +16,7 @@ class StudentController extends CI_Controller
                 }
             }
         }
-        // redirect(base_url() . "student/");
+        redirect(base_url() . "student/");
     }
 
     public function index()
@@ -64,7 +64,7 @@ class StudentController extends CI_Controller
         $this->load->view("student/maps", $data);
     }
 
-    public function subtema($subtemaId, $number = 1)
+    public function materi($subtemaId, $number = 1)
     {
 
         if ($number >= 6) {
@@ -86,17 +86,40 @@ class StudentController extends CI_Controller
 
         $data["images"] = $this->imagesModel->getList(array("materiId" => $data["materi"]->id));
 
-        $this->load->view("student/subtema", $data);
+        $this->load->view("student/materi", $data);
     }
 
     public function saveAnswer($subtemaId, $number)
     {
+        // redirect to maps if number of materi => 6
+        if ($number >= 6) {
+            redirect(base_url() . "student/maps");
+            return;
+        }
+
         // TODO: get materi by id
         $requestBody = $this->input->post();
-        var_dump($requestBody);
-        // TODO: save answer
-        // TODO: redirect to next materi/subtema
-        // TODO: redirect to maps if number of materi > 5
+        $currentUser = $this->session->get_userdata();
+
+
+        for ($i = 1; $i <= 2; $i++) {
+            $answer = array(
+                "studentId" => $currentUser["userId"],
+                "soalId" => $requestBody["soalId" . $i],
+                "answer" => $requestBody["answer" . $i],
+            );
+
+            // save answer
+            $result = $this->answerModel->insert($answer);
+            if ($result == null) {
+                var_dump($result);
+                return;
+            }
+        }
+
+        // redirect to next materi/subtema
+        redirect(base_url() . 'student/materi/' . $subtemaId . "/" . $number);
+        return;
     }
 
     public function soal($materiId, $materiNumber = 1)

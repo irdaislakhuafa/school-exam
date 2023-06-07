@@ -30,8 +30,10 @@ $this->basic->headerBootstrap();
                         <div class="">
                             <?php foreach ($listSoal as $index => $soal) { ?>
                                 <span class="fs-20 mb-5 pb-5"><?= $soal->question ?></span>
+                                <!-- soal id -->
+                                <input type="text" hidden name="soalId<?= $index + 1 ?>" value="<?= $soal->id ?>">
                                 <div class="input-group">
-                                    <textarea required name="soal<?= $index + 1 ?>" class="form-control fs-20" aria-label="With textarea" rows="10"></textarea>
+                                    <textarea required name="answer<?= $index + 1 ?>" class="form-control fs-20" aria-label="With textarea" rows="10"></textarea>
                                 </div>
                             <?php } ?>
                         </div>

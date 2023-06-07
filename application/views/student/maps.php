@@ -152,7 +152,7 @@ $this->basic->headerBootstrap();
                 }
 
                 // if (window.confirm(`Lanjutkan untuk membuka Subtema ${i}?`)) {
-                window.location.href = '<?= base_url() ?>student/subtema/' + place.querySelector("#code").textContent;
+                window.location.href = '<?= base_url() ?>student/materi/' + place.querySelector("#code").textContent;
                 // }
             })
         }
