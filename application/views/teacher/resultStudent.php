@@ -25,11 +25,11 @@ $this->basic->headerBootstrap();
                 </div>
             </div>
 
-            <!-- start card -->
-            <div class="card p-4 shadow  fs-16 rounded-4 " style="width: 80rem; height: max-content; min-height: 50rem;">
 
-                <!-- start form -->
-                <form action="" method="post">
+            <!-- start form -->
+            <form action="<?= base_url() ?>teacher/class/subtema/saveScores" method="post">
+                <!-- start card -->
+                <div class="card p-4 shadow  fs-16 rounded-4 " style="width: 80rem; height: max-content; min-height: 50rem;">
                     <!-- start card body -->
                     <div class="card-body">
                         <table class="table">
@@ -43,6 +43,10 @@ $this->basic->headerBootstrap();
                                 </tr>
                             </thead>
                             <tbody>
+                                <!-- length of all student -->
+                                <input name="studentLength" type="number" hidden value="<?= count($listStudent) ?>">
+                                <!-- materi id -->
+                                <input name="materiId" type="text" hidden value="<?= $materi->id ?>">
                                 <?php foreach ($listStudent as $index => $student) { ?>
                                     <tr>
                                         <th scope="row"><?= $index + 1 ?></th>
@@ -77,16 +81,16 @@ $this->basic->headerBootstrap();
                         </table>
                     </div>
                     <!-- end card body -->
-                </form>
-                <!-- end form -->
 
-                <!-- next button -->
-                <div class="d-flex justify-content-between">
-                    <button id="back" type="submit" class="btn shadow bg-white ps-5 pe-5">Kembali</button>
-                    <!-- <button id="save" type="submit" class="btn shadow bg-white ps-5 pe-5">Simpan</button> -->
+                    <!-- next button -->
+                    <div class="d-flex justify-content-between">
+                        <button id="back" type="button" class="btn shadow bg-white ps-5 pe-5">Kembali</button>
+                        <button id="save" type="submit" class="btn shadow bg-white ps-5 pe-5">Simpan</button>
+                    </div>
                 </div>
-            </div>
-            <!-- end card -->
+                <!-- end card -->
+            </form>
+            <!-- end form -->
         </div>
     </div>
     <!-- end login page -->
@@ -94,9 +98,6 @@ $this->basic->headerBootstrap();
     <script>
         // back
         document.getElementById("back").addEventListener("click", () => history.back());
-        // save
-        // TODO: save subtema here and redirect to home page
-        // document.getElementById("save").addEventListener("click", () => window.location.href = "teacher/class/subtema/save");
     </script>
 
     <!-- footer scripts -->

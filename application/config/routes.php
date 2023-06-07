@@ -83,4 +83,5 @@ $route['teacher/class/subtema/selectResult'] = 'TeacherController/selectSubtemaR
 $route['teacher/class/subtema/resultMateri/(:any)/(:any)'] = 'TeacherController/resultMateri/$1/$2';
 $route['teacher/class/subtema/resultSubtema/(:any)'] = 'TeacherController/resultSubtema/$1';
 $route['teacher/class/subtema/resultStudent/(:any)/(:any)'] = 'TeacherController/resultStudent/$1/$2';
+$route['teacher/class/subtema/saveScores'] = 'TeacherController/saveScores';
 $route['teacher/class/materi/new'] = 'TeacherController/newMateriSoal';

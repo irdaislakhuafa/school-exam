@@ -312,7 +312,7 @@ class TeacherController extends CI_Controller
         for ($i = 0; $i < count($data["listStudent"]); $i++) {
             $data["listStudent"][$i]->listSoal = array();
             foreach ($listSoal as $value) {
-                $answer = $this->answerModel->get(array("soalId" => $value->soalId, "studentId" => $data["listStudent"][$i]->id));
+                $answer = $this->answerModel->get(array("soalId" => $value->id, "studentId" => $data["listStudent"][$i]->id));
 
                 if ($answer == null) {
                     $answer = "";
@@ -330,6 +330,27 @@ class TeacherController extends CI_Controller
         }
 
         $this->load->view("teacher/resultStudent", $data);
+        return;
+    }
+
+    public function saveScores()
+    {
+        $requestBody = $this->input->post();
+        for ($i = 0; $i < $requestBody["studentLength"]; $i++) {
+            $score = array(
+                "materiId" => $requestBody["materiId"],
+                "studentId" => $requestBody["studentId" . $i],
+                "value" => $requestBody["studentScore" . $i]
+            );
+
+            $result = $this->scoresModel->insert($score);
+            if ($result == null) {
+                var_dump("error saat menyimpan nilai");
+                return;
+            }
+        }
+
+        redirect(base_url() . "teacher/home");
         return;
     }
 }

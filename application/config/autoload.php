@@ -154,4 +154,5 @@ $autoload['model'] = array(
     "ImagesModel" => "imagesModel",
     "SoalModel" => "soalModel",
     "AnswerModel" => "answerModel",
+    "ScoresModel" => "scoresModel",
 );
