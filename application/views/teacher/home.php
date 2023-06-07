@@ -74,7 +74,7 @@ $this->basic->headerBootstrap();
                                                 <!-- TODO: ask where is "Lihat Hasil" page? -->
                                                 <div>
                                                     <a id="" class="btn bg-white shadow ps-5 pe-5" href="<?= base_url() ?>teacher/class/subtema/resultSubtema/<?= $class["id"] ?>">Isi Nilai</a>
-                                                    <a id="" class="btn bg-white shadow ps-5 pe-5" href="<?= base_url() ?>teacher/class/subtema/resultSubtema/<?= $class["id"] ?>">Lihat Hasil</a>
+                                                    <a id="idk" class="btn bg-white shadow ps-5 pe-5">Lihat Hasil</a>
                                                 </div>
                                             </div>
                                             <!-- end buttons -->
