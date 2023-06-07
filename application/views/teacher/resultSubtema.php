@@ -11,16 +11,6 @@ $this->basic->headerBootstrap();
         <!-- show tiny islands -->
         <?php $this->island->showTinyIslands() ?>
 
-        <!-- TODO: remove this -->
-        <?php
-        // $students = array();
-        // for ($i = 1; $i <= 10; $i++) {
-        //     array_push($students, array(
-        //         "name" => "Student " . $i,
-        //         "noAbsen" => "12" . $i,
-        //     ));
-        // }
-        ?>
 
         <!-- start login page -->
         <div class="position-absolute top-0 start-50 translate-middle-x mt-5">
@@ -32,19 +22,17 @@ $this->basic->headerBootstrap();
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">No Absen</th>
+                                <th scope="col">Subtema</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($students as $index => $student) { ?>
+                            <?php foreach ($listSubtema as $index => $subtema) { ?>
                                 <tr>
                                     <th scope="row"><?= $index + 1 ?></th>
-                                    <td><?= $student->name ?></td>
-                                    <td><?= $student->noAbsen ?></td>
+                                    <td>Subtema <?= $subtema->name ?></td>
                                     <td>
-                                        <div class="btn btn-primary">Lihat</div>
+                                        <a href="<?= base_url() ?>teacher/class/subtema/resultMateri/<?= $classId ?>/<?= $subtema->id ?>" class="btn btn-primary">Lihat</a>
                                     </td>
                                 </tr>
                             <?php  } ?>

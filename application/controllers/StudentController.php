@@ -69,10 +69,11 @@ class StudentController extends CI_Controller
     {
         $currentUser = $this->session->get_userdata();
         $subtema = $this->subtemaModel->get(array("id" => $subtemaId));
+        var_dump($subtema);
         $listMateri = $this->materiModel->getList(array('subtemaId' => $subtemaId));
         if ($listMateri == null) {
             $this->session->set_flashdata('error', "Materi kosong");
-            redirect(base_url() . "student/maps/" . $subtema->name);
+            // redirect(base_url() . "student/maps/" . $subtema->name);
             return;
         }
 

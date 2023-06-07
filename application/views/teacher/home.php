@@ -72,7 +72,7 @@ $this->basic->headerBootstrap();
                                                 <!-- TODO: post to edit page -->
                                                 <button type="submit" class="btn bg-white shadow ps-5 pe-5">Edit</button>
                                                 <!-- TODO: ask where is "Lihat Hasil" page? -->
-                                                <a id="" class="btn bg-white shadow ps-5 pe-5" href="<?= base_url() ?>teacher/class/subtema/resultClass/<?= $class["id"] ?>">Lihat Hasil</a>
+                                                <a id="" class="btn bg-white shadow ps-5 pe-5" href="<?= base_url() ?>teacher/class/subtema/resultSubtema/<?= $class["id"] ?>">Lihat Hasil</a>
                                             </div>
                                             <!-- end buttons -->
                                         </div>

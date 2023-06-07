@@ -287,11 +287,20 @@ class TeacherController extends CI_Controller
     }
 
     // TODO: add auth
-    public function resultClass($classId)
+    public function resultMateri($classId, $subtemaId)
     {
         // TODO: added functionality here
-        $data["students"] = $this->studentModel->getList(array('classId' => $classId));
-        $this->load->view("teacher/resultClass", $data);
+        $data["listMateri"] = $this->materiModel->getList(array("classId" => $classId, "subtemaId" => $subtemaId));
+        $this->load->view("teacher/resultMateri", $data);
+        return;
+    }
+
+    public function resultSubtema($classId)
+    {
+        $listSubtema = $this->subtemaModel->getList();
+        $data['listSubtema'] = $listSubtema;
+        $data["classId"] = $classId;
+        $this->load->view("teacher/resultSubtema", $data);
         return;
     }
 }
