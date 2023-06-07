@@ -66,6 +66,12 @@ class StudentController extends CI_Controller
 
     public function subtema($subtemaId, $number = 1)
     {
+
+        if ($number >= 6) {
+            redirect(base_url() . "student/maps");
+            return;
+        }
+
         $data["subtema"] = $this->subtemaModel->get(array("id" => $subtemaId));
         if (!$data["subtema"]) {
             echo "Subtema tidak ada";
