@@ -12,7 +12,10 @@ $this->basic->headerBootstrap();
     <!-- start subtema page -->
     <div class="position-relative py-2 h-100 pt-5 px-4 align-content-center">
         <!-- start form -->
-        <form action="<?= base_url() ?>student/subtema/<?= $materi->subtemaId ?>/<?= ($materi->number + 1) ?>" method="post">
+        <form action="<?= base_url() ?>student/saveAnswer/<?= $materi->subtemaId ?>/<?= ($materi->number + 1) ?>" method="post">
+
+            <!-- materi id -->
+            <input name="materiId" hidden value="<?= $materi->id ?>" type="text" required>
 
             <div class="position-absolute top-0 start-50 translate-middle-x mt-5">
                 <h1 class="text-uppercase font-weight-bold mb-2 fs-30 text-left text-white">Soal! </h1>

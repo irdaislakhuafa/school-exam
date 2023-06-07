@@ -31,9 +31,9 @@ CREATE TABLE `subtema` (
 );
 
 CREATE TABLE `materi` (
-  `id` varchar(255) PRIMARY KEY,  
+  `id` varchar(255) PRIMARY KEY,
   `subtemaId` varchar(255),
-  `number` INT NOT null,
+  `number` int NOT NULL,
   `title` text NOT NULL,
   `content` text NOT NULL
 );
@@ -58,6 +58,14 @@ CREATE TABLE `scores` (
   `studentId` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL
 );
+
+CREATE TABLE `answer` (
+  `id` varchar(255) PRIMARY KEY,
+  `studentId` varchar(255) NOT NULL,
+  `soalId` varchar(255) NOT NULL,
+  `answer` text NOT NULL
+);
+
 
 -- end schema
 

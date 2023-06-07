@@ -89,6 +89,16 @@ class StudentController extends CI_Controller
         $this->load->view("student/subtema", $data);
     }
 
+    public function saveAnswer($subtemaId, $number)
+    {
+        // TODO: get materi by id
+        $requestBody = $this->input->post();
+        var_dump($requestBody);
+        // TODO: save answer
+        // TODO: redirect to next materi/subtema
+        // TODO: redirect to maps if number of materi > 5
+    }
+
     public function soal($materiId, $materiNumber = 1)
     {
         // TODO: get list soal by materi id

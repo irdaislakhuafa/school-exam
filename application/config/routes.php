@@ -62,6 +62,7 @@ $route['student/subtema/(:any)/(:any)'] = 'StudentController/subtema/$1/$2';
 // $route['student/subtema/(:any)/(:any)'] = 'StudentController/subtema/$1/$2';
 $route['student/soal/(:any)'] = 'StudentController/soal/$1';
 $route['student/soal/(:any)/(:any)'] = 'StudentController/soal/$1/$2';
+$route['student/saveAnswer/(:any)/(:any)'] = 'StudentController/saveAnswer/$1/$2';
 $route['student/nilai/(:any)'] = 'StudentController/nilai/$1';
 
 // teachers
