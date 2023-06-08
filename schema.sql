@@ -70,7 +70,7 @@ CREATE TABLE `answer` (
 
 -- end schema
 
--- done remove this
+-- dont remove this
 INSERT INTO `subtema` (`id`, `name`) VALUES
   ('488f93d8-86ca-4452-90df-b9271f9cb490', '1'),
   ('87e274de-f8cd-4192-bc33-a8b8687f9ff4', '2'),
@@ -83,18 +83,18 @@ INSERT INTO `subtema` (`id`, `name`) VALUES
 -- TODO: maybe remove this
 -- example teacher
 INSERT INTO `teacher` (`id`, `name`, `email`, `password`) VALUES 
-  ('ad2712f7-e998-4358-abf0-42a844766125', 'Admin', 'admin@example.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918') -- admin
+  ('ad2712f7-e998-4358-abf0-42a844766125', 'guru', 'guru@gmail.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918') -- guru
 ;
 
 -- example class data
 INSERT INTO `classData` (`id`, `teacherId`, `name`, `code`, `tema`) VALUES
-  ('cf1765b0-7355-42a0-b028-dc37c1f690da', 'ad2712f7-e998-4358-abf0-42a844766125', 'class dummy', 'xxx', 'tema dummy')
+  ('cf1765b0-7355-42a0-b028-dc37c1f690da', 'ad2712f7-e998-4358-abf0-42a844766125', 'Kelas I A', 'kelas1a', 'Bahasa Indonesia')
 ;
 
 -- example student data
 INSERT INTO `student` (`id`, `name`, `noAbsen`, `classId`) VALUES
-  ('88fc0ea7-57f5-4e71-89db-d79771daaa39', "student dummy 1", "12345","cf1765b0-7355-42a0-b028-dc37c1f690da"),
-  ('e7f0154e-8444-4b5e-bb74-1c061b9959e7', "student dummy 2", "67890","cf1765b0-7355-42a0-b028-dc37c1f690da")
+  ('88fc0ea7-57f5-4e71-89db-d79771daaa39', "Siswa 1", "11111","cf1765b0-7355-42a0-b028-dc37c1f690da"),
+  ('e7f0154e-8444-4b5e-bb74-1c061b9959e7', "Siswa 2", "22222","cf1765b0-7355-42a0-b028-dc37c1f690da")
 ;
 
 -- example materi | subtema 1
@@ -149,156 +149,156 @@ INSERT INTO `materi` (`id`, `classId`, `subtemaId`, `number`, `title`, `content`
 -- soal subtema 1
 -- example soal 1 | materi 1
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('66256092-5e95-4325-ae78-d315ebabd8d9','27d7159f-05e1-4ae2-8af2-deba0fd3bdbb','question1'),
-  ('b67b0488-fc39-4591-a97c-ddbfe13a66a1','27d7159f-05e1-4ae2-8af2-deba0fd3bdbb','question2')
+  ('66256092-5e95-4325-ae78-d315ebabd8d9','27d7159f-05e1-4ae2-8af2-deba0fd3bdbb','Pertanyaan 1'),
+  ('b67b0488-fc39-4591-a97c-ddbfe13a66a1','27d7159f-05e1-4ae2-8af2-deba0fd3bdbb','Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 2
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000003', '73868718-9cd8-4c37-9b6f-c39c0d94b024', 'question1'),
-  ('00000000-0000-0000-0000-000000000004', '73868718-9cd8-4c37-9b6f-c39c0d94b024', 'question2')
+  ('00000000-0000-0000-0000-000000000003', '73868718-9cd8-4c37-9b6f-c39c0d94b024', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000004', '73868718-9cd8-4c37-9b6f-c39c0d94b024', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 3
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000007', '546f7833-7848-4cea-8e76-87dc84f002ce', 'question1'),
-  ('00000000-0000-0000-0000-000000000008', '546f7833-7848-4cea-8e76-87dc84f002ce', 'question2')
+  ('00000000-0000-0000-0000-000000000007', '546f7833-7848-4cea-8e76-87dc84f002ce', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000008', '546f7833-7848-4cea-8e76-87dc84f002ce', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 4
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000011', '272f1d06-7428-40a3-81f7-803df0d91017', 'question1'),
-  ('00000000-0000-0000-0000-000000000012', '272f1d06-7428-40a3-81f7-803df0d91017', 'question2')
+  ('00000000-0000-0000-0000-000000000011', '272f1d06-7428-40a3-81f7-803df0d91017', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000012', '272f1d06-7428-40a3-81f7-803df0d91017', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 5
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000015', '22bf8f7e-b6d8-4ffd-a118-225a27bdbe3c', 'question1'),
-  ('00000000-0000-0000-0000-000000000016', '22bf8f7e-b6d8-4ffd-a118-225a27bdbe3c', 'question2')
+  ('00000000-0000-0000-0000-000000000015', '22bf8f7e-b6d8-4ffd-a118-225a27bdbe3c', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000016', '22bf8f7e-b6d8-4ffd-a118-225a27bdbe3c', 'Pertanyaan 2')
 ;
 
 -- soal subtema 2
 -- example soal 1 | materi 1
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000019', '4f846b2d-d9d9-4b19-80e1-c0c455e3d396', 'question1'),
-  ('00000000-0000-0000-0000-000000000020', '4f846b2d-d9d9-4b19-80e1-c0c455e3d396', 'question2')
+  ('00000000-0000-0000-0000-000000000019', '4f846b2d-d9d9-4b19-80e1-c0c455e3d396', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000020', '4f846b2d-d9d9-4b19-80e1-c0c455e3d396', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 2
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000023', '2a8d302f-3874-4cf6-a4e3-e9f3720553ab', 'question1'),
-  ('00000000-0000-0000-0000-000000000024', '2a8d302f-3874-4cf6-a4e3-e9f3720553ab', 'question2')
+  ('00000000-0000-0000-0000-000000000023', '2a8d302f-3874-4cf6-a4e3-e9f3720553ab', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000024', '2a8d302f-3874-4cf6-a4e3-e9f3720553ab', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 3
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000027', '954345d6-ef93-4040-a3db-0e1192699102', 'question1'),
-  ('00000000-0000-0000-0000-000000000028', '954345d6-ef93-4040-a3db-0e1192699102', 'question2')
+  ('00000000-0000-0000-0000-000000000027', '954345d6-ef93-4040-a3db-0e1192699102', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000028', '954345d6-ef93-4040-a3db-0e1192699102', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 4
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000031', 'ee2989a4-60d8-4651-a78e-1e6feb3b1ba6', 'question1'),
-  ('00000000-0000-0000-0000-000000000032', 'ee2989a4-60d8-4651-a78e-1e6feb3b1ba6', 'question2')
+  ('00000000-0000-0000-0000-000000000031', 'ee2989a4-60d8-4651-a78e-1e6feb3b1ba6', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000032', 'ee2989a4-60d8-4651-a78e-1e6feb3b1ba6', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 5
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000035', '031f95be-4706-43a0-bb4c-3e1d6a199663', 'question1'),
-  ('00000000-0000-0000-0000-000000000036', '031f95be-4706-43a0-bb4c-3e1d6a199663', 'question2')
+  ('00000000-0000-0000-0000-000000000035', '031f95be-4706-43a0-bb4c-3e1d6a199663', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000036', '031f95be-4706-43a0-bb4c-3e1d6a199663', 'Pertanyaan 2')
 ;
 
 -- soal subtema 3
 -- example soal 1 | materi 1
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000039', 'f65444c7-4b40-438d-96ac-f29f128054ee', 'question1'),
-  ('00000000-0000-0000-0000-000000000040', 'f65444c7-4b40-438d-96ac-f29f128054ee', 'question2')
+  ('00000000-0000-0000-0000-000000000039', 'f65444c7-4b40-438d-96ac-f29f128054ee', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000040', 'f65444c7-4b40-438d-96ac-f29f128054ee', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 2
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000043', '287e743d-0dd9-40a7-b54f-2370c94094b4', 'question1'),
-  ('00000000-0000-0000-0000-000000000044', '287e743d-0dd9-40a7-b54f-2370c94094b4', 'question2')
+  ('00000000-0000-0000-0000-000000000043', '287e743d-0dd9-40a7-b54f-2370c94094b4', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000044', '287e743d-0dd9-40a7-b54f-2370c94094b4', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 3
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000047', 'd8531677-6a77-4502-8f92-9eb45144afd6', 'question1'),
-  ('00000000-0000-0000-0000-000000000048', 'd8531677-6a77-4502-8f92-9eb45144afd6', 'question2')
+  ('00000000-0000-0000-0000-000000000047', 'd8531677-6a77-4502-8f92-9eb45144afd6', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000048', 'd8531677-6a77-4502-8f92-9eb45144afd6', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 4
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000051', '518de72a-efb9-47ca-b27e-652dd1f80e1b', 'question1'),
-  ('00000000-0000-0000-0000-000000000052', '518de72a-efb9-47ca-b27e-652dd1f80e1b', 'question2')
+  ('00000000-0000-0000-0000-000000000051', '518de72a-efb9-47ca-b27e-652dd1f80e1b', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000052', '518de72a-efb9-47ca-b27e-652dd1f80e1b', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 5
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000055', 'a2815142-ae7e-442e-bf70-81383ee6b3f6', 'question1'),
-  ('00000000-0000-0000-0000-000000000056', 'a2815142-ae7e-442e-bf70-81383ee6b3f6', 'question2')
+  ('00000000-0000-0000-0000-000000000055', 'a2815142-ae7e-442e-bf70-81383ee6b3f6', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000056', 'a2815142-ae7e-442e-bf70-81383ee6b3f6', 'Pertanyaan 2')
 ;
 
 -- soal subtema 4
 -- example soal 1 | materi 1
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000059', 'acb69f7a-b5a7-4d4a-acd1-935b9fe25169', 'question1'),
-  ('00000000-0000-0000-0000-000000000060', 'acb69f7a-b5a7-4d4a-acd1-935b9fe25169', 'question2')
+  ('00000000-0000-0000-0000-000000000059', 'acb69f7a-b5a7-4d4a-acd1-935b9fe25169', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000060', 'acb69f7a-b5a7-4d4a-acd1-935b9fe25169', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 2
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000063', '34fb9a71-cf89-4f7f-b4d6-be8f2a8b36a4', 'question1'),
-  ('00000000-0000-0000-0000-000000000064', '34fb9a71-cf89-4f7f-b4d6-be8f2a8b36a4', 'question2')
+  ('00000000-0000-0000-0000-000000000063', '34fb9a71-cf89-4f7f-b4d6-be8f2a8b36a4', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000064', '34fb9a71-cf89-4f7f-b4d6-be8f2a8b36a4', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 3
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000067', 'c043db59-0c95-463c-bb0b-7e0544dde86d', 'question1'),
-  ('00000000-0000-0000-0000-000000000068', 'c043db59-0c95-463c-bb0b-7e0544dde86d', 'question2')
+  ('00000000-0000-0000-0000-000000000067', 'c043db59-0c95-463c-bb0b-7e0544dde86d', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000068', 'c043db59-0c95-463c-bb0b-7e0544dde86d', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 4
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000071', '6170336e-722e-42ad-b3b1-47ee2ab71b7f', 'question1'),
-  ('00000000-0000-0000-0000-000000000072', '6170336e-722e-42ad-b3b1-47ee2ab71b7f', 'question2')
+  ('00000000-0000-0000-0000-000000000071', '6170336e-722e-42ad-b3b1-47ee2ab71b7f', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000072', '6170336e-722e-42ad-b3b1-47ee2ab71b7f', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 5
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000075', 'db336258-3312-4e54-b771-8340168aa26c', 'question1'),
-  ('00000000-0000-0000-0000-000000000076', 'db336258-3312-4e54-b771-8340168aa26c', 'question2')
+  ('00000000-0000-0000-0000-000000000075', 'db336258-3312-4e54-b771-8340168aa26c', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-000000000076', 'db336258-3312-4e54-b771-8340168aa26c', 'Pertanyaan 2')
 ;
 
 -- soal subtema 5
 -- example soal 1 | materi 1
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-000000000099', 'materiId1', 'question1'),
-  ('00000000-0000-0000-0000-0000000000100', 'materiId1', 'question2')
+  ('00000000-0000-0000-0000-000000000099', 'materiId1', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-0000000000100', 'materiId1', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 2
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-0000000000103', 'materiId2', 'question1'),
-  ('00000000-0000-0000-0000-0000000000104', 'materiId2', 'question2')
+  ('00000000-0000-0000-0000-0000000000103', 'materiId2', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-0000000000104', 'materiId2', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 3
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-0000000000107', 'materiId3', 'question1'),
-  ('00000000-0000-0000-0000-0000000000108', 'materiId3', 'question2')
+  ('00000000-0000-0000-0000-0000000000107', 'materiId3', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-0000000000108', 'materiId3', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 4
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-0000000000111', 'materiId4', 'question1'),
-  ('00000000-0000-0000-0000-0000000000112', 'materiId4', 'question2')
+  ('00000000-0000-0000-0000-0000000000111', 'materiId4', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-0000000000112', 'materiId4', 'Pertanyaan 2')
 ;
 
 -- example soal 1 | materi 5
 INSERT INTO `soal` (`id`, `materiId`, `question`) VALUES
-  ('00000000-0000-0000-0000-0000000000115', 'materiId5', 'question1'),
-  ('00000000-0000-0000-0000-0000000000116', 'materiId5', 'question2')
+  ('00000000-0000-0000-0000-0000000000115', 'materiId5', 'Pertanyaan 1'),
+  ('00000000-0000-0000-0000-0000000000116', 'materiId5', 'Pertanyaan 2')
 ;
 
 
