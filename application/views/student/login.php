@@ -56,8 +56,9 @@ $this->basic->headerBootstrap();
                     ?>
 
                     <!-- login button -->
-                    <div class="d-flex align-items-center justify-content-center">
-                        <button type="submit" class="btn shadow btn-info w-25">Masuk</button>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <a href="<?= base_url() ?>student/register" class="btn shadow btn-info w-25">Daftar</a>
+                        <button type="submit" class="btn shadow btn-success w-25">Masuk</button>
                     </div>
                 </div>
             </form>

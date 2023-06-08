@@ -30,15 +30,39 @@ class StudentController extends CI_Controller
         return;
     }
 
+    public function saveRegister()
+    {
+        $requestBody = $this->input->post();
+        $class = $this->classModel->get(array("code" => $requestBody["classCode"]));
+        if ($class == null) {
+            $this->session->set_flashdata('error', "Kelas dengan kode " . $requestBody["classCode"] . " tidak ada!");
+            redirect(base_url() . "student/register");
+            return;
+        }
+
+        $student = $this->studentModel->insert(array(
+            "name" => $requestBody["name"],
+            "noAbsen" => $requestBody["absenCode"],
+            "classId" => $class->id,
+        ));
+
+        if ($student == null) {
+            $this->session->set_flashdata('error', "Gagal mendaftar sebagai siswa!");
+            redirect(base_url() . "student/register");
+            return;
+        }
+
+        redirect(base_url() . "student/");
+    }
+
     public function login()
     {
         // TODO: change relation student to use many to many
 
         $class = $this->classModel->get(array("code" => $this->input->post("classCode")));
         if ($class == null) {
-            // var_dump($this->input->post("name"));
             $this->session->set_flashdata('error', "Kelas dengan kode " . $this->input->post("classCode") . " tidak ada!");
-            // redirect(base_url() . "student/");
+            redirect(base_url() . "student/");
             return;
         }
 
