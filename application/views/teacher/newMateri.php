@@ -13,7 +13,7 @@ $this->basic->headerBootstrap();
 
         <!-- TODO: soalnya ada 5 -->
         <!-- TODO: save soal -->
-        <form action="<?= base_url() ?>teacher/class/subtema/materi/new/<?= $subtema->id ?>/<?= $questionNumber + 1 ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url() ?>teacher/class/subtema/materi/new/<?= $subtema->id ?>/<?= $questionNumber + 1 ?>/<?= $classId ?>" method="post" enctype="multipart/form-data">
             <!-- start subtema/soal page -->
             <div class="position-absolute top-0 start-50 translate-middle-x mt-5">
                 <!-- start card -->

@@ -83,7 +83,7 @@ INSERT INTO `subtema` (`id`, `name`) VALUES
 -- TODO: maybe remove this
 -- example teacher
 INSERT INTO `teacher` (`id`, `name`, `email`, `password`) VALUES 
-  ('ad2712f7-e998-4358-abf0-42a844766125', 'guru', 'guru@gmail.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918') -- guru
+  ('ad2712f7-e998-4358-abf0-42a844766125', 'guru', 'guru@gmail.com', '298bab1136dcde8c0157190fa5374cbf36c33f79b13a7597da8027c5afe8dc31') -- guru
 ;
 
 -- example class data

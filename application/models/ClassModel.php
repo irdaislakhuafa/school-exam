@@ -11,9 +11,12 @@ class ClassModel extends CI_Model
         return $result->result_array();
     }
 
-    public function insert($class)
+    public function insert($class, $id = "")
     {
-        $class["id"] = $this->random->generateUUID();
+        $class["id"] = $id;
+        if ($id == "") {
+            $class["id"] = $this->random->generateUUID();
+        }
         return $this->db
             ->insert(ClassModel::$TABLE, $class);
     }

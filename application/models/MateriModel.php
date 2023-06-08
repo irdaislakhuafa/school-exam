@@ -20,6 +20,7 @@ class MateriModel extends CI_Model
         $result = $this->db
             ->where($materi)
             ->get(MateriModel::$TABLE);
+        var_dump($this->db->last_query());
         return $result->result_object();
     }
 

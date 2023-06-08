@@ -31,7 +31,7 @@ $this->basic->headerBootstrap();
 
                                 <!-- start list subtema -->
                                 <?php foreach ($listSubtema as $i => $subtema) { ?>
-                                    <a href="<?= base_url() ?>teacher/class/subtema/materi/new/<?= $subtema->id ?>" class="mb-3 w-100 row">
+                                    <a href="<?= base_url() ?>teacher/class/subtema/materi/new/<?= $subtema->id ?>/0/<?= $classId ?>" class="mb-3 w-100 row">
                                         <button class="btn shadow" style="background-color: #F5F5F5;">
                                             <div class="text-up float-start">subtema <?= $subtema->name ?></div>
                                         </button>

@@ -15,10 +15,10 @@ $this->basic->headerBootstrap();
         <div class="position-absolute top-0 start-50 translate-middle-x mt-5">
             <!-- materi content -->
             <div>
-                <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $index ?>" aria-expanded="false" aria-controls="<?= $index ?>">
+                <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#materiContent" aria-expanded="false" aria-controls="materiContent">
                     Tampilkan
                 </button>
-                <div class="collapse mt-2 mb-3" id="<?= $index ?>">
+                <div class="collapse mt-2 mb-3" id="materiContent">
                     <div class="card card-body shadow">
                         <?= $materi->content ?>
                     </div>

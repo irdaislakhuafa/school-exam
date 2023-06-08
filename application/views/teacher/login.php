@@ -20,7 +20,7 @@ $this->basic->headerBootstrap();
                     <div class="card-body">
                         <!-- name of student -->
                         <div class="mb-3">
-                            <label for="email" class="form-label">Login Guru</label>
+                            <label for="email" class="form-label">Email</label>
                             <div class="input-group mb-3">
                                 <input id="email" name="email" type="email" class="form-control rounded-3" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2">
                             </div>

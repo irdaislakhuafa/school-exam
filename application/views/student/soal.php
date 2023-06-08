@@ -21,7 +21,7 @@ $this->basic->headerBootstrap();
                 <h1 class="text-uppercase font-weight-bold mb-2 fs-30 text-left text-white">Soal! </h1>
                 <div class="font-weight-bold mb-4 fs-20 text-black">Kerjakan dengan cepat dan cermat!</div>
                 <!-- start card -->
-                <div class="card p-4 shadow  fs-24 rounded-5 " style="width: 70rem; height: min-content">
+                <div class="card p-4 mb-5 shadow  fs-24 rounded-5 " style="width: 50rem; height: min-content">
                     <!-- start card body -->
                     <div class="card-body">
                         <p class="text-black fs-20">Tuliskan pokok pikiran dari setiap paragraf. </p>
@@ -33,7 +33,7 @@ $this->basic->headerBootstrap();
                                 <!-- soal id -->
                                 <input type="text" hidden name="soalId<?= $index + 1 ?>" value="<?= $soal->id ?>">
                                 <div class="input-group">
-                                    <textarea required name="answer<?= $index + 1 ?>" class="form-control fs-20" aria-label="With textarea" rows="10"></textarea>
+                                    <textarea required name="answer<?= $index + 1 ?>" class="form-control fs-20" aria-label="With textarea" rows="3"></textarea>
                                 </div>
                             <?php } ?>
                         </div>
@@ -46,16 +46,16 @@ $this->basic->headerBootstrap();
 
             <div class="">
                 <!-- btn back -->
-                <div class="mb-5 position-absolute bottom-0 ms-5 ps-4 z-1">
+                <div class=" mb-5 position-absolute bottom-0 ms-5 ps-4 z-1">
                     <div id="back" class="btn shadow bg-white fs-50 text-black">Kembali</div>
                 </div>
                 <!-- btn next -->
-                <div class="mb-5 position-absolute bottom-0 end-0 me-5 pe-4 z-1">
+                <div class=" mb-5 position-absolute bottom-0 end-0 me-5 pe-4 z-1">
                     <button id="next" type="submit" class="btn shadow bg-white fs-50 text-black">Selanjutnya</button>
                 </div>
             </div>
+            <!-- end form -->
         </form>
-        <!-- end form -->
     </div>
     <!-- end subtema page -->
 

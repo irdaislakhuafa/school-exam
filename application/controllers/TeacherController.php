@@ -137,7 +137,8 @@ class TeacherController extends CI_Controller
 
         // save it to database
         $classData["teacherId"] = $currentUser["userId"];
-        $isOk = $this->classModel->insert($classData);
+        $classId = $this->random->generateUUID();
+        $isOk = $this->classModel->insert($classData, $classId);
         if (!$isOk) {
             var_dump($isOk);
             $this->session->set_flashdata('error', 'gagal menyimpan data');
@@ -145,7 +146,7 @@ class TeacherController extends CI_Controller
         }
         // success create a class
         $this->session->set_flashdata('success', 'Berhasil membuat kelas "' . $classData["name"] . '"');
-        redirect(base_url() . "teacher/class/subtema/select");
+        redirect(base_url() . "teacher/class/subtema/select/" . $classId);
     }
     // TODO: added method to edit class
     // TODO: added method to view scores student of class
@@ -182,16 +183,16 @@ class TeacherController extends CI_Controller
     }
 
     // TODO: add auth
-    public function selectSubtema()
+    public function selectSubtema($classId = "")
     {
         $this->auth();
-
+        $data["classId"] = $classId;
         $data['listSubtema'] = $this->subtemaModel->getList();
         $this->load->view("teacher/selectSubtema", $data);
     }
 
     // TODO: add auth
-    public function newMateri($subtemaId, $questionNumber = 0)
+    public function newMateri($subtemaId, $questionNumber = 0, $classId = "")
     {
         $this->auth();
 
@@ -245,6 +246,7 @@ class TeacherController extends CI_Controller
             // save materi
             $materi = array(
                 "subtemaId" => $subtemaId,
+                "classId" => $classId,
                 "content" => $this->input->post('content'),
                 "title" => $this->input->post('title'),
                 "number" => $this->input->post('number'),
@@ -288,9 +290,11 @@ class TeacherController extends CI_Controller
         if ($questionNumber >= 6) {
             redirect(base_url() . "teacher/class/subtema/select");
         } else {
+            $data["classId"] = $classId;
             $this->load->view("teacher/newMateri", $data);
         }
 
+        $this->session->unset_userdata('classId');
         return;
     }
 
