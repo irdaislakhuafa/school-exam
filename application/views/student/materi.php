@@ -16,7 +16,7 @@ $this->basic->headerBootstrap();
         <div class="position-absolute top-0 start-50 translate-middle-x mt-5">
             <h1 class="text-uppercase font-weight-bold mb-2 fs-30 text-left text-white">SUBTEMA <?= $subtema->name ?> </h1>
             <!-- start card -->
-            <div class="card p-4 shadow  fs-24 rounded-5 " style="width: 80rem; height: min-content">
+            <div class="card p-4 shadow  fs-24 rounded-5 " style="width: 70rem; height: min-content">
                 <div class="font-weight-bold text-up"><?= "Materi " . $materi->number . ": " . $materi->title ?></div>
                 <!-- start card body -->
                 <div class="card-body">

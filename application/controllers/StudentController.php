@@ -23,8 +23,16 @@ class StudentController extends CI_Controller
     {
         $this->load->view("student/login");
     }
+
+    public function register()
+    {
+        $this->load->view("student/register");
+        return;
+    }
+
     public function login()
     {
+        // TODO: change relation student to use many to many
 
         $class = $this->classModel->get(array("code" => $this->input->post("classCode")));
         if ($class == null) {

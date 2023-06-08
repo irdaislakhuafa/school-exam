@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 // students
 $route['student'] = 'StudentController';
 $route['student/authlogin'] = 'StudentController/login';
+$route['student/register'] = 'StudentController/register';
 $route['student/maps'] = 'StudentController/maps';
 $route['student/maps/(:any)'] = 'StudentController/maps/$1';
 $route['student/materi/(:any)'] = 'StudentController/materi/$1';

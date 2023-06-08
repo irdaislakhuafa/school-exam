@@ -21,7 +21,7 @@ $this->basic->headerBootstrap();
                 <h1 class="text-uppercase font-weight-bold mb-2 fs-30 text-left text-white">Soal! </h1>
                 <div class="font-weight-bold mb-4 fs-20 text-black">Kerjakan dengan cepat dan cermat!</div>
                 <!-- start card -->
-                <div class="card p-4 shadow  fs-24 rounded-5 " style="width: 80rem; height: min-content">
+                <div class="card p-4 shadow  fs-24 rounded-5 " style="width: 70rem; height: min-content">
                     <!-- start card body -->
                     <div class="card-body">
                         <p class="text-black fs-20">Tuliskan pokok pikiran dari setiap paragraf. </p>
