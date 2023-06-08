@@ -50,7 +50,8 @@ $this->basic->headerBootstrap();
 
                     <!-- TODO: added functionality here -->
                     <!-- login button -->
-                    <div class="d-flex align-items-center justify-content-center">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <a href="<?= base_url() ?>teacher/register" class="btn shadow btn-white w-25">Daftar</a>
                         <button type="submit" class="btn shadow btn-info w-25">Masuk</button>
                     </div>
                 </div>

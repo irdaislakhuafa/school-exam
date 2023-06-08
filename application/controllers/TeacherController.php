@@ -19,10 +19,33 @@ class TeacherController extends CI_Controller
         redirect(base_url() . "teacher/login");
     }
 
-    // TODO: add auth
     public function index()
     {
         $this->load->view("teacher/login");
+    }
+
+    public function register()
+    {
+        $this->load->view("teacher/register");
+        return;
+    }
+
+    public function saveRegister()
+    {
+        $requestBody = $this->input->post();
+        $teacher = $this->teacherModel->insert(array(
+            "name" => $requestBody["name"],
+            "email"  => $requestBody["email"],
+            "password"  => hash('sha256', $requestBody["password"]),
+        ));
+        if ($teacher == null) {
+            $this->session->set_flashdata('error', 'gagal daftar guru!');
+            redirect(base_url() . "teacher/register");
+            return;
+        }
+
+        redirect(base_url() . "teacher/home");
+        return;
     }
 
     public function login()

@@ -25,4 +25,10 @@ class TeacherModel extends CI_Model
             ->get(TeacherModel::$TABLE)
             ->row_object();
     }
+    public function insert($class)
+    {
+        $class["id"] = $this->random->generateUUID();
+        return $this->db
+            ->insert(TeacherModel::$TABLE, $class);
+    }
 }

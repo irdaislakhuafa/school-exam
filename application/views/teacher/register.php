@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-$this->basic->header("Login Guru");
+$this->basic->header("Daftar Guru");
 $this->basic->headerBootstrap();
 ?>
 
@@ -12,20 +12,27 @@ $this->basic->headerBootstrap();
         <?php $this->island->showTinyIslands() ?>
 
         <!-- start login page -->
-        <form action="<?= base_url() ?>teacher/login" method="post">
+        <form action="<?= base_url() ?>teacher/register/save" method="post">
             <div class="position-absolute top-0 start-50 translate-middle-x mt-5">
                 <h1 class="text-uppercase font-weight-bold mb-5 fs-30 text-center text-white">halaman login guru</h1>
                 <!-- start card -->
                 <div class="card p-4 shadow  fs-24 rounded-4 " style="width: 40rem; height: max-content">
                     <div class="card-body">
+                        <!-- name of teacher -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nama</label>
+                            <div class="input-group mb-3">
+                                <input id="name" name="name" type="name" class="form-control rounded-3" placeholder="Nama" aria-label="Nama" aria-describedby="basic-addon2">
+                            </div>
+                        </div>
                         <!-- name of student -->
                         <div class="mb-3">
-                            <label for="email" class="form-label">Login Guru</label>
+                            <label for="email" class="form-label">Email</label>
                             <div class="input-group mb-3">
                                 <input id="email" name="email" type="email" class="form-control rounded-3" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2">
                             </div>
                         </div>
-                        <!-- absen code of student -->
+                        <!-- password of teacher -->
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
                             <div class="input-group mb-3">
@@ -50,8 +57,9 @@ $this->basic->headerBootstrap();
 
                     <!-- TODO: added functionality here -->
                     <!-- login button -->
-                    <div class="d-flex align-items-center justify-content-center">
-                        <button type="submit" class="btn shadow btn-info w-25">Masuk</button>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <a href="<?= base_url() ?>teacher/" class="btn shadow btn-white w-25">Kembali</a>
+                        <button type="submit" class="btn shadow btn-info w-25">Daftar</button>
                     </div>
                 </div>
                 <!-- end card -->

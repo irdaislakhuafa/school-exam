@@ -71,6 +71,8 @@ $route['student/nilai/(:any)'] = 'StudentController/nilai/$1';
 
 // teachers
 $route['teacher'] = 'TeacherController';
+$route['teacher/register'] = 'TeacherController/register';
+$route['teacher/register/save'] = 'TeacherController/saveRegister';
 $route['teacher/login'] = 'TeacherController/login';
 $route['teacher/home'] = 'TeacherController/home';
 $route['teacher/class/new'] = 'TeacherController/newClass';
