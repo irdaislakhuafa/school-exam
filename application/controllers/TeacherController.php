@@ -261,6 +261,9 @@ class TeacherController extends CI_Controller
             // save images data
             foreach ($images as $i => $value) {
                 $key = 'image' . ($i + 1);
+                if (!isset($value[$key . "Url"])) {
+                    continue;
+                }
                 $image = array(
                     "materiId" => $materiId,
                     "name" => $value[$key . "Url"],

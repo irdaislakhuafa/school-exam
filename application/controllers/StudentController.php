@@ -144,7 +144,7 @@ class StudentController extends CI_Controller
             return;
         }
 
-        $data["materi"] = $this->materiModel->get(array("subtemaId" => $subtemaId, "number" => $number));
+        $data["materi"] = $this->materiModel->get(array("subtemaId" => $subtemaId, "number" => $number, "classId" => $this->session->get_userdata()["classId"]));
         if (!$data["materi"]) {
             echo "Materi tidak ada";
             return;
