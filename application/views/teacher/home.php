@@ -14,7 +14,7 @@ $this->basic->headerBootstrap();
         <!-- start login page -->
         <div class="position-absolute top-0 start-50 translate-middle-x mt-5">
             <!-- start card -->
-            <div class="card p-4 shadow  fs-24 rounded-4 " style="width: 80rem; height: max-content; min-height: 50rem;">
+            <div class="card p-4 shadow  fs-24 rounded-4 " style="width: 70rem; height: max-content; min-height: 50%;">
                 <!-- start card body -->
                 <div class="card-body">
 
@@ -74,7 +74,7 @@ $this->basic->headerBootstrap();
                                                 <!-- TODO: ask where is "Lihat Hasil" page? -->
                                                 <div>
                                                     <a id="" class="btn bg-white shadow ps-5 pe-5" href="<?= base_url() ?>teacher/class/subtema/resultSubtema/<?= $class["id"] ?>">Isi Nilai</a>
-                                                    <a id="idk" class="btn bg-white shadow ps-5 pe-5">Lihat Hasil</a>
+                                                    <a id="" class="btn bg-white shadow ps-5 pe-5" href="<?= base_url() ?>teacher/class/result/subtema/view/<?= $class["id"] ?>">Lihat Hasil</a>
                                                 </div>
                                             </div>
                                             <!-- end buttons -->

@@ -15,10 +15,10 @@ $this->basic->headerBootstrap();
         <div class="position-absolute top-0 start-50 translate-middle-x mt-5">
             <!-- materi content -->
             <div>
-                <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMateri" aria-expanded="false" aria-controls="collapseMateri">
+                <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $index ?>" aria-expanded="false" aria-controls="<?= $index ?>">
                     Tampilkan
                 </button>
-                <div class="collapse mt-2 mb-3" id="collapseMateri">
+                <div class="collapse mt-2 mb-3" id="<?= $index ?>">
                     <div class="card card-body shadow">
                         <?= $materi->content ?>
                     </div>
@@ -29,7 +29,7 @@ $this->basic->headerBootstrap();
             <!-- start form -->
             <form action="<?= base_url() ?>teacher/class/subtema/saveScores" method="post">
                 <!-- start card -->
-                <div class="card p-4 shadow  fs-16 rounded-4 " style="width: 80rem; height: max-content; min-height: 50rem;">
+                <div class="card p-4 shadow  fs-16 rounded-4 " style="width: 80rem; height: max-content; min-height: 50%;">
                     <!-- start card body -->
                     <div class="card-body">
                         <table class="table">
@@ -54,10 +54,10 @@ $this->basic->headerBootstrap();
                                         <td><?= $student->noAbsen ?></td>
                                         <td>
                                             <div>
-                                                <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAnswer" aria-expanded="false" aria-controls="collapseAnswer">
+                                                <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $index ?>" aria-expanded="false" aria-controls="<?= $index ?>">
                                                     Lihat
                                                 </button>
-                                                <div class="collapse mt-2 mb-3" id="collapseAnswer">
+                                                <div class="collapse mt-2 mb-3" id="<?= $index ?>">
                                                     <div class="card card-body shadow">
                                                         <?php
                                                         foreach ($student->listSoal as $soal) { ?>

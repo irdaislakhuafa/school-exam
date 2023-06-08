@@ -34,10 +34,10 @@ $this->basic->headerBootstrap();
                                     <td><?= $materi->title ?></td>
                                     <td><?= $materi->number ?></td>
                                     <td>
-                                        <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseContent" aria-expanded="false" aria-controls="collapseContent">
+                                        <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $index ?>" aria-expanded="false" aria-controls="<?= $index ?>">
                                             Tampilkan
                                         </button>
-                                        <div class="collapse mt-3" id="collapseContent">
+                                        <div class="collapse mt-3" id="<?= $index ?>">
                                             <div class="card card-body shadow">
                                                 <?= $materi->content ?>
                                             </div>
