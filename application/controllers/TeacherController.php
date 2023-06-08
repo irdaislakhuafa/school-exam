@@ -353,4 +353,59 @@ class TeacherController extends CI_Controller
         redirect(base_url() . "teacher/home");
         return;
     }
+
+
+    public function viewResultSubtema($classId)
+    {
+        $data["listSubtema"] = $this->subtemaModel->getList();
+        $data["classId"] = $classId;
+        $this->load->view("teacher/viewResultSubtema", $data);
+        return;
+    }
+
+    public function viewResultMateri($classId, $subtemaId)
+    {
+        $data["listMateri"] = $this->materiModel->getList(array("classId" => $classId, "subtemaId" => $subtemaId));
+        $this->load->view("teacher/viewResultMateri", $data);
+        return;
+    }
+
+
+    public function viewResultStudent($classId, $materiId)
+    {
+        $data["listStudent"] = $this->studentModel->getList(array("classId" => $classId));
+        $data["materi"] = $this->materiModel->get(array("id" => $materiId));
+
+        $listSoal = $this->soalModel->getList(array("materiId" => $materiId));
+        for ($i = 0; $i < count($data["listStudent"]); $i++) {
+            // added list soal/question of materi
+            $data["listStudent"][$i]->listSoal = array();
+            foreach ($listSoal as $value) {
+                $answer = $this->answerModel->get(array("soalId" => $value->id, "studentId" => $data["listStudent"][$i]->id));
+
+                if ($answer == null) {
+                    $answer = "";
+                } else {
+                    $answer = $answer->answer;
+                }
+
+                $soal = array(
+                    "question" => $value->question,
+                    "answer" => $answer,
+                );
+
+                array_push($data["listStudent"][$i]->listSoal, $soal);
+            }
+
+            // added scores
+            $data["listStudent"][$i]->score = 0;
+            $score = $this->scoresModel->get(array("materiId" => $data["materi"]->id, "studentId" => $data["listStudent"][$i]->id));
+            if (!($score == null)) {
+                $data["listStudent"][$i]->score = $score->value;
+            }
+        }
+
+        $this->load->view("teacher/viewResultStudent", $data);
+        return;
+    }
 }
