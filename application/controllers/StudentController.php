@@ -67,6 +67,8 @@ class StudentController extends CI_Controller
 
     public function checkAlreadyAnswer($subtemaId)
     {
+        $this->auth();
+
         $currentUser = $this->session->get_userdata();
         $subtema = $this->subtemaModel->get(array("id" => $subtemaId));
         var_dump($subtema);
@@ -96,6 +98,8 @@ class StudentController extends CI_Controller
 
     public function materi($subtemaId, $number = 1)
     {
+        $this->auth();
+
 
         if ($number >= 6) {
             redirect(base_url() . "student/maps");
@@ -121,6 +125,8 @@ class StudentController extends CI_Controller
 
     public function saveAnswer($subtemaId, $number)
     {
+        $this->auth();
+
         // redirect to maps if number of materi => 6
         if ($number >= 6) {
             redirect(base_url() . "student/maps");
@@ -154,6 +160,8 @@ class StudentController extends CI_Controller
 
     public function soal($materiId, $materiNumber = 1)
     {
+        $this->auth();
+
         // TODO: get list soal by materi id
         $listSoal = $this->soalModel->getList(array("materiId" => $materiId));
         if (!$listSoal) {
@@ -173,6 +181,8 @@ class StudentController extends CI_Controller
     }
     public function nilai($id)
     {
+        $this->auth();
+
         // TODO: $id is student id
 
         $data["scores"] = array();
