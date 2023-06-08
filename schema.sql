@@ -13,16 +13,21 @@ CREATE TABLE `teacher` (
 CREATE TABLE `student` (
   `id` varchar(255) PRIMARY KEY,
   `name` varchar(255) NOT NULL,
-  `noAbsen` varchar(255) NOT NULL,
-  `classId` varchar(255) NOT NULL
+  `noAbsen` varchar(255) NOT NULL
 );
 
 CREATE TABLE `classData` (
   `id` varchar(255) PRIMARY KEY,
   `teacherId` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `code` varchar(255) NOT NULL,
+  `code` varchar(255) UNIQUE NOT NULL,
   `tema` varchar(255) NOT NULL
+);
+
+CREATE TABLE `studentClassData` (
+  `id` varchar(255) PRIMARY KEY,
+  `studentId` varchar(255) NOT NULL,
+  `classId` varchar(255) NOT NULL
 );
 
 CREATE TABLE `subtema` (
@@ -54,7 +59,6 @@ CREATE TABLE `soal` (
 
 CREATE TABLE `scores` (
   `id` varchar(255) PRIMARY KEY,
-  `subtemaId` varchar(255) NOT NULL,
   `materiId` varchar(255) NOT NULL,
   `studentId` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL
@@ -66,7 +70,6 @@ CREATE TABLE `answer` (
   `soalId` varchar(255) NOT NULL,
   `answer` text NOT NULL
 );
-
 
 -- end schema
 
@@ -92,9 +95,9 @@ INSERT INTO `classData` (`id`, `teacherId`, `name`, `code`, `tema`) VALUES
 ;
 
 -- example student data
-INSERT INTO `student` (`id`, `name`, `noAbsen`, `classId`) VALUES
-  ('88fc0ea7-57f5-4e71-89db-d79771daaa39', "Siswa 1", "11111","cf1765b0-7355-42a0-b028-dc37c1f690da"),
-  ('e7f0154e-8444-4b5e-bb74-1c061b9959e7', "Siswa 2", "22222","cf1765b0-7355-42a0-b028-dc37c1f690da")
+INSERT INTO `student` (`id`, `name`, `noAbsen`) VALUES
+  ('88fc0ea7-57f5-4e71-89db-d79771daaa39', "Siswa 1", "11111"),
+  ('e7f0154e-8444-4b5e-bb74-1c061b9959e7', "Siswa 2", "22222")
 ;
 
 -- example materi | subtema 1

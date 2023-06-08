@@ -34,7 +34,9 @@ class StudentController extends CI_Controller
     {
         // TODO: change relation student to use many to many
 
+
         $class = $this->classModel->get(array("code" => $this->input->post("classCode")));
+        var_dump($class);
         if ($class == null) {
             // var_dump($this->input->post("name"));
             $this->session->set_flashdata('error', "Kelas dengan kode " . $this->input->post("classCode") . " tidak ada!");
@@ -45,12 +47,21 @@ class StudentController extends CI_Controller
         $student = $this->studentModel->get(array(
             "name" => $this->input->post("name"),
             "noAbsen" => $this->input->post("absenCode"),
-            "classId" => $class->id,
         ));
         if ($student == null) {
             $this->session->set_flashdata('error', "Siswa tidak terdaftar");
             // var_dump($student);
-            redirect(base_url() . "student/");
+            // redirect(base_url() . "student/");
+            return;
+        }
+
+        $studentClass =  $this->studentClassModel->get(array("classId" => $class->id, "studentId" => $student->id));
+        if ($studentClass == null) {
+            $error = $this->studentClassModel->insert(array("classId" => $class->id, "studentId" => $student->id));
+            if ($error == null) {
+                $this->session->set_flashdata('error', "masuk ke kelas " . $error . "!");
+                // redirect(base_url());
+            }
             return;
         }
 

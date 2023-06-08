@@ -106,9 +106,9 @@ class TeacherController extends CI_Controller
 
         // handle if class code already exists
         $currentUser = $this->session->get_userdata();
-        $existingClass = $this->classModel->getByCodeAndTeacherId($classData["code"], $currentUser["userId"]);
+        $existingClass = $this->classModel->get(array("code" => $classData["code"]));
         if ($existingClass != null) {
-            $this->session->set_flashdata('error', 'kode kelas sudah ada dikelas "' . $existingClass->name . '"');
+            $this->session->set_flashdata('error', 'kode kelas sudah ada dikelas lain (' . $existingClass->name . ')');
             redirect(base_url() . "teacher/class/new");
         }
 
@@ -327,7 +327,17 @@ class TeacherController extends CI_Controller
     {
         $this->auth();
 
-        $data["listStudent"] = $this->studentModel->getList(array("classId" => $classId));
+        $studentClass = $this->studentClassModel->get(array("classId" => $classId));
+
+        // $data["listStudent"] = $this->studentModel->getList(array("classId" => $classId));
+        $data["listStudent"] = array();
+        foreach ($studentClass as $i => $value) {
+            $student = $this->studentModel->get(array("id" => $value->studentId));
+            if ($student == null) {
+                continue;
+            }
+            array_push($data["listStudent"], $student);
+        }
         $data["materi"] = $this->materiModel->get(array("id" => $materiId));
 
         $listSoal = $this->soalModel->getList(array("materiId" => $materiId));
