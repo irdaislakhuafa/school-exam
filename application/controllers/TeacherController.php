@@ -33,6 +33,13 @@ class TeacherController extends CI_Controller
     public function saveRegister()
     {
         $requestBody = $this->input->post();
+        $teacher = $this->teacherModel->get(array("email" => $requestBody["email"]));
+        if ($teacher != null) {
+            $this->session->set_flashdata('error', 'email ' . $requestBody["email"] . 'sudah terdaftar!');
+            redirect(base_url() . "teacher/register");
+            return;
+        }
+
         $teacher = $this->teacherModel->insert(array(
             "name" => $requestBody["name"],
             "email"  => $requestBody["email"],
