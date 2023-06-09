@@ -219,7 +219,7 @@ class TeacherController extends CI_Controller
 
                         // $fileName = $_FILES();
                         $fileName = $this->random->generateUUID() . $_FILES[$imgKey]['name'];
-                        $config['file_name'] = $fileName;
+                        $_FILES[$imgKey]["name"] = $fileName;
 
                         // TODO: for loop to upload file here
                         $this->load->library('upload', $config);
