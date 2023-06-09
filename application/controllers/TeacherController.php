@@ -459,7 +459,7 @@ class TeacherController extends CI_Controller
 
             // added scores
             $data["listStudent"][$i]->score = 0;
-            $score = $this->scoresModel->get(array("materiId" => $data["materi"]->id, "studentId" => $data["listStudent"][$i]->id, "classId" => $classId));
+            $score = $this->scoresModel->get(array("materiId" => $data["materi"]->id, "studentId" => $data["listStudent"][$i]->id));
             if (!($score == null)) {
                 $data["listStudent"][$i]->score = $score->value;
             }
