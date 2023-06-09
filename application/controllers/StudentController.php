@@ -226,4 +226,82 @@ class StudentController extends CI_Controller
         }
         $this->load->view("student/nilai", $data);
     }
+    public function viewScoreSubtema($classId)
+    {
+        $this->auth();
+        $data["classId"] = $classId;;
+        $data["listSubtema"] = $this->subtemaModel->getList();
+        $this->load->view("student/viewScoreSubtema", $data);
+    }
+    public function viewScoreMateri($classId, $subtemaId)
+    {
+        $this->auth();
+        $data["classId"] = $classId;
+        $data["listScore"] = array();
+
+        $listMateri = $this->materiModel->getList(array(
+            "classId" => $classId,
+            "subtemaId" => $subtemaId
+        ));
+
+        foreach ($listMateri as $i => $materi) {
+            $score = $this->scoresModel->get(array(
+                "materiId" => $materi->id,
+                "studentId" => $this->session->get_userdata()["userId"]
+            ));
+
+            if ($score != null) {
+                $listMateri[$i]->score = $score->value;
+            } else {
+                $listMateri[$i]->score = 0;
+            }
+        }
+
+
+        $data["listMateri"] = $listMateri;
+        $data["student"] = $this->studentModel->get(array("id" => $this->session->get_userdata()["userId"]));
+        // $data["listMateri"] = $this->materiModel->getList(array("classId" => $classId, "subtemaId" => $subtemaId));
+        // for ($i = 0; $i < count($data["listMateri"]); $i++) {
+        //     $data["listMateri"][$i]->score = 0;
+        //     $score = $this->scoresModel->get(array(
+        //         "studentId" => $data["student"]->id,
+        //         "classId" => $data["student"]->classId,
+        //         "materiId" => $data["listMateri"][$i]->id,
+        //     ));
+        //     if ($score != null) {
+        //         $data["listMateri"][$i]->score = $score->value;
+        //     }
+        // }
+
+        // $listSoal = $this->soalModel->getList(array("materiId" => $materiId));
+        // for ($i = 0; $i < count($data["listStudent"]); $i++) {
+        //     // added list soal/question of materi
+        //     $data["student"]->listSoal = array();
+        //     foreach ($listSoal as $value) {
+        //         $answer = $this->answerModel->get(array("soalId" => $value->id, "studentId" => $data["student"]->id));
+
+        //         if ($answer == null) {
+        //             $answer = "";
+        //         } else {
+        //             $answer = $answer->answer;
+        //         }
+
+        //         $soal = array(
+        //             "question" => $value->question,
+        //             "answer" => $answer,
+        //         );
+
+        //         array_push($data["student"]->listSoal, $soal);
+        //     }
+
+        //     // added scores
+        //     $data["student"]->score = 0;
+        //     $score = $this->scoresModel->get(array("materiId" => $data["materi"]->id, "studentId" => $data["student"]->id, "classId" => $classId));
+        //     if (!($score == null)) {
+        //         $data["student"]->score = $score->value;
+        //     }
+        // }
+
+        $this->load->view("student/viewScoreMateri", $data);
+    }
 }

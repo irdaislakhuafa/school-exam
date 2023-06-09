@@ -179,7 +179,7 @@ $this->basic->headerBootstrap();
         let scoresButton = document.getElementById("scores")
         scoresButton.addEventListener(`click`, function() {
             // TODO: passed student id here
-            window.location.href = '<?= base_url() ?>student/nilai/11';
+            window.location.href = '<?= base_url() ?>student/scores/subtema/select/<?= $this->session->get_userdata()["classId"] ?>';
         })
     </script>
 
