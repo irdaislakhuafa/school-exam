@@ -159,11 +159,6 @@ class StudentController extends CI_Controller
     {
         $this->auth();
 
-        // redirect to maps if number of materi => 6
-        if ($number >= 6) {
-            redirect(base_url() . "student/maps");
-            return;
-        }
 
         // TODO: get materi by id
         $requestBody = $this->input->post();
@@ -183,6 +178,12 @@ class StudentController extends CI_Controller
                 var_dump($result);
                 return;
             }
+        }
+
+        // redirect to maps if number of materi => 6
+        if ($number >= 6) {
+            redirect(base_url() . "student/maps");
+            return;
         }
 
         // redirect to next materi/subtema
