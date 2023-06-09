@@ -138,12 +138,16 @@ class TeacherController extends CI_Controller
         // save it to database
         $classData["teacherId"] = $currentUser["userId"];
         $classId = $this->random->generateUUID();
+
+
         $isOk = $this->classModel->insert($classData, $classId);
         if (!$isOk) {
             var_dump($isOk);
             $this->session->set_flashdata('error', 'gagal menyimpan data');
             redirect(base_url() . "teacher/class/new");
         }
+
+
         // success create a class
         $this->session->set_flashdata('success', 'Berhasil membuat kelas "' . $classData["name"] . '"');
         redirect(base_url() . "teacher/class/subtema/select/" . $classId);
@@ -252,6 +256,9 @@ class TeacherController extends CI_Controller
                 "number" => $this->input->post('number'),
             );
 
+            // var_dump($materi);
+            // return;
+
             $materiId = $this->random->generateUUID();
             if (!$this->materiModel->insert($materi, $materiId)) {
                 var_dump("Failed to insert materi");
@@ -291,7 +298,7 @@ class TeacherController extends CI_Controller
         }
 
         if ($questionNumber >= 6) {
-            redirect(base_url() . "teacher/class/subtema/select");
+            redirect(base_url() . "teacher/class/subtema/select/" . $classId);
         } else {
             $data["classId"] = $classId;
             $this->load->view("teacher/newMateri", $data);
