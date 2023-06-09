@@ -214,7 +214,7 @@ class TeacherController extends CI_Controller
                     if ($_FILES[$imgKey]['name'] != "") {
                         // upload config
                         $config['upload_path'] = './uploads/';
-                        $config['allowed_types'] =  'gif|jpg|jpeg|png';
+                        $config['allowed_types'] =  '*';
                         $config['max_size'] = (1024 * 5); // 5MB
 
                         // $fileName = $_FILES();
