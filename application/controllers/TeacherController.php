@@ -218,7 +218,7 @@ class TeacherController extends CI_Controller
                         $config['max_size'] = (1024 * 5); // 5MB
 
                         // $fileName = $_FILES();
-                        $fileName = $this->random->generateUUID() . $_FILES[$imgKey]['name'];
+                        $fileName = $this->random->generateUUID() . "." . pathinfo($_FILES[$imgKey]['name'], PATHINFO_EXTENSION);
                         $_FILES[$imgKey]["name"] = $fileName;
 
                         // TODO: for loop to upload file here
